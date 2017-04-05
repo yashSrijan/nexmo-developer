@@ -24,7 +24,7 @@ In this document you can learn about:
 
 ## API Key & Secret
 
-When you create a Nexmo account, an API key and secret will be created for you. These are located in your [account settings](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard. You should always keep these securely and never share them: be careful when adding it to your codebase to make sure they are not shared with anyone who may use it maliciously.
+When you create a Nexmo account, an API key and secret will be created for you. These are located in your [account settings](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard. You should always keep these secure and never share them: be careful when adding it to your codebase to make sure they are not shared with anyone who may use it maliciously.
 
 The API key and secret should be included in the parameters of requests you make to the SMS, Conversion, Number Insight or Developer API.
 
