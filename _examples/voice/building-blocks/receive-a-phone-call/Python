@@ -1,0 +1,22 @@
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route("/call", methods=['GET', 'POST'])
+def call():
+    ncco = {
+        action: "talk",
+        voiceName: "Jennifer",
+        text: "Hello World! Thank you for calling the Nexmo Voice API."
+    }
+    return jsonify([ncco])
+
+
+@app.route("/event", methods=['GET', 'POST'])
+def event():
+    print request
+    return jsonify({})
+
+
+if __name__ == "__main__":
+    app.run(port=5000)

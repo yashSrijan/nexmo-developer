@@ -1,0 +1,17 @@
+require 'sinatra'
+
+get '/call' do
+    content_type 'application/json'
+    return [
+        {
+            action: "talk",
+            voiceName: "Jennifer",
+            text: "Hello World! Thank you for calling the Nexmo Voice API."
+        }
+    ].to_json
+end
+
+post '/event' do
+    puts request
+    {}.to_json
+end
