@@ -15,5 +15,19 @@ Sending an SMS with Nexmo is easy. Simply [sign up for an account](https://dashb
 | `API_SECRET` | You can find this in your [account overview](https://dashboard.nexmo.com/account-overview) |
 
 ```tabbed_examples
-source: '_examples/messaging/sending-an-sms/basic'
+tabs:
+  cURL:
+    source: _examples/messaging/sending-an-sms/basic/cURL
+  c#:
+    source: _examples/messaging/sending-an-sms/basic/c#
+  Node:
+    source: .repos/nexmo-community/nexmo-node-quickstart/sms/send.js
+    from_line: 8
+  PHP:
+    source: _examples/messaging/sending-an-sms/basic/PHP
+  Python:
+    source: _examples/messaging/sending-an-sms/basic/Python
+  Ruby:
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/sms/send.rb
+    from_line: 8
 ```
