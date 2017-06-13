@@ -1,0 +1,16 @@
+import nexmo
+
+client = nexmo.Client(
+    key=API_KEY,
+    secret=API_SECRET,
+    application_id=APPLICATION_ID,
+    private_key=PRIVATE_KEY
+)
+
+response = client.create_call({
+  'to': [{'type': 'phone', 'number': TO_NUMBER}],
+  'from': {'type': 'phone', 'number': FROM_NUMBER},
+  'answer_url': ['https://nexmo-community.github.io/ncco-examples/first_call_talk.json']
+})
+
+return response
