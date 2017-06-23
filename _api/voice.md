@@ -20,8 +20,8 @@ source: '/_examples/api/voice/calls/post'
 
 This request contains:
 
-* A [Base URL](#ccbase)
-* [Payload](#ccparameters)
+* A [Base URL](#base-url-1)
+* [Payload](#payload-1)
 * [JWT](#jwt_minting)
 
 Information about the call is sent to you in the:
@@ -232,7 +232,7 @@ source: '/_examples/api/voice/calls/show'
 This request contains:
 
 * A [Base URL](#crsbase)
-* (link: #crsparameterstext: Payload)
+* [Payload](#payload-1)
 * [JWT](#jwt_minting)
 
 You receive the call details in the [response](#crsresponse).
@@ -298,21 +298,18 @@ All requests to modify an existing call must contain:
 
 #### Payload
 
-The payload to modify a call looks like.
+The payload to modify a call is illustrated below.
 
-**Hangup**
-
-```json
-{
-  "action": "hangup"
-}
+```tabbed_content
+source: '_examples/api/voice/calls/update-actions/'
 ```
 
 The following table shows the parameters you use to modify a call:
 
 Parameter | Description | Required
 -- | -- | --
-`action` | Possible values are `hangup` | Yes
+`action` | Possible values are `hangup`, `transfer`, `mute`, `unmute`, `earmuff` and `unearmuff`. | Yes
+`destination` | Used with the `transfer` action to specify the new NCCO (see above example). | No
 
 #### Response
 
