@@ -6,8 +6,10 @@ class StaticController < ApplicationController
   def documentation
     @navigation = :documentation
 
+    @document_path = "/app/views/static/documentation.md"
+
     # Read document
-    document = File.read("#{Rails.root}/app/views/static/documentation.md")
+    document = File.read("#{Rails.root}/#{@document_path}")
 
     # Parse frontmatter
     @frontmatter = YAML.safe_load(document)
@@ -29,7 +31,15 @@ class StaticController < ApplicationController
     @navigation = :community
     @document_title = "Community"
     @upcoming_events = Event.upcoming
+    @past_events_count = Event.past.count
     @sessions = Session.all
+    render layout: 'page'
+  end
+
+  def past_events
+    @navigation = :community
+    @document_title = "Community"
+    @past_events = Event.past
     render layout: 'page'
   end
 
@@ -60,6 +70,11 @@ class StaticController < ApplicationController
 
     @content = MarkdownPipeline.new.call(document)
 
+    @return_link = {
+      title: "Contribute",
+      path: contribute_path,
+    }
+
     render layout: 'static'
   end
 
@@ -76,7 +91,24 @@ class StaticController < ApplicationController
 
     @content = MarkdownPipeline.new.call(document)
 
+    @return_link = {
+      title: "Contribute",
+      path: contribute_path,
+    }
+
     render layout: 'static'
+  end
+
+  def legacy
+    # Read document
+    document = File.read("#{Rails.root}/app/views/static/legacy.md")
+
+    # Parse frontmatter
+    @frontmatter = YAML.safe_load(document)
+    @document_title = @frontmatter['title']
+    @content = MarkdownPipeline.new.call(document)
+
+    render layout: 'page'
   end
 
   def robots

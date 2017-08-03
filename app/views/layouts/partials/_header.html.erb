@@ -9,7 +9,7 @@
       <a href="https://nexmo.com">Nexmo.com</a>
       <a href="https://help.nexmo.com/hc/en-us">Support</a>
       <a href="https://dashboard.nexmo.com/sign-in">Sign In</a>
-      <a href="https://dashboard.nexmo.com/sign-up">Try it free</a>
+      <a href="https://dashboard.nexmo.com/sign-up"><b>Try it free</b></a>
     </nav>
   </div>
 </header>
@@ -17,16 +17,18 @@
 <nav id="subnav" data-turbolinks="false">
   <div class="container">
     <a href="/documentation" class="<%= @navigation == :documentation ? 'active' : '' %>">Documentation</a>
+    <a href="/tutorials" class="<%= @navigation == :tutorials ? 'active' : '' %>">Tutorials</a>
     <a href="/api" class="<%= @navigation == :api ? 'active' : '' %>">API Reference</a>
     <a href="/tools" class="<%= @navigation == :tools ? 'active' : '' %>">SDKs &amp; Tools</a>
     <a href="/community" class="<%= @navigation == :community ? 'active' : '' %>">Community</a>
 
-    <% if Rails.configuration.search_enabled %>
+    <% if search_enabled? %>
       <%= form_tag '/search' do %>
-        <input type="text" id="searchbox" name="query" placeholder="Search" name="query" autocomplete="off" value="<%= @search_term || '' %>">
+        <div id="SearchComponent">
+          <input type="text" id="searchbox" name="query" placeholder="Search" name="query" autocomplete="off" value="<%= @search_term || '' %>">
+        </div>
       <% end %>
     <% end %>
-    <div id="search-results" style="display: none;"></div>
   </div>
 </nav>
 

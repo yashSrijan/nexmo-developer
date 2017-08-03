@@ -1,9 +1,16 @@
 IGNORED_PATHS = ['..', '.', '.DS_Store'].freeze
 NAVIGATION_WEIGHT = YAML.load_file("#{Rails.root}/config/navigation.yml")['navigation_weight']
 FLATTEN_TREES = [].freeze
-COLLAPSIBLE = ['Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'Voice', 'Number Insight', 'Account', 'Global'].freeze
+COLLAPSIBLE = ['Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'Voice', 'Number Insight', 'Account', 'Global', 'SIP', 'Voice API'].freeze
 
 module ApplicationHelper
+  def search_enabled?
+    return false unless defined? ALGOLIA_CONFIG
+    return false unless ENV['ALGOLIA_APPLICATION_ID']
+    return false unless ENV['ALGOLIA_API_KEY']
+    Rails.configuration.search_enabled
+  end
+
   def title
     if @product && @document_title
       "Nexmo Developer | #{@product.titleize} > #{@document_title}"
@@ -66,7 +73,7 @@ module ApplicationHelper
       class_name = (COLLAPSIBLE.include? normalised_title(child)) ? 'js--collapsible' : ''
 
       ss = []
-      ss << "<li class='#{class_name}'>" unless received_flatten
+      ss << "<li class='#{class_name} navigation-item navigation-item--#{normalised_title(child).parameterize}'>" unless received_flatten
 
       unless flatten
         url = (child[:is_file?] ? path_to_url(child[:path]) : first_link_in_directory(child[:children]))

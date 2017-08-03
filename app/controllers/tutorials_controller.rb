@@ -30,20 +30,22 @@ class TutorialsController < ApplicationController
 
     @tutorials.compact!
 
-    @title = 'Tutorials'
+    @document_title = 'Tutorials'
 
-    render layout: 'documentation-index'
+    render layout: 'page'
   end
 
   def show
+    @document_path = "_tutorials/#{@document}.md"
+
     # Read document
-    document = File.read("#{Rails.root}/_tutorials/#{@document}.md")
+    document = File.read("#{Rails.root}/#{@document_path}")
 
     # Parse frontmatter
     @frontmatter = YAML.safe_load(document)
-    @title = @frontmatter['title']
+    @document_title = @frontmatter['title']
 
-    @content = MarkdownPipeline.new.call(document)
+    @content = MarkdownPipeline.new({ code_language: @code_language }).call(document)
 
     render layout: 'static'
   end
@@ -55,7 +57,7 @@ class TutorialsController < ApplicationController
   end
 
   def set_navigation
-    @navigation = :documentation
+    @navigation = :tutorials
     @side_navigation_extra_links = {
       'Tutorials' => '/tutorials',
     }

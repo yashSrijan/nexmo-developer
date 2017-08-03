@@ -10,8 +10,6 @@ end
 gem 'rails', '~> 5.1.0.rc1'
 gem 'webpacker', github: 'rails/webpacker'
 
-gem 'actionpack-action_caching'
-
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -57,9 +55,6 @@ gem 'nokogiri', '1.7.0.1'
 # Autoload dotenv in Rails.
 gem 'dotenv-rails', groups: [:development, :test]
 
-# Ruby integrations for Elasticsearch (client, API, etc.)
-gem 'elasticsearch'
-
 # Administrate is heavily inspired by projects like Rails Admin and ActiveAdmin, but aims to provide a better user experience for site admins
 gem 'administrate', '~> 0.4.0'
 
@@ -74,10 +69,19 @@ gem 'bugsnag'
 # Extends String class or add a ColorizedString with methods to set text color, background color and text effects.
 gem 'colorize'
 
+# A simple Ruby client for the algolia.com REST API
+gem 'algoliasearch'
+
+# A simple HTTP and REST client for Ruby, inspired by the Sinatra microframework style of specifying actions: get, put, post, delete.
+gem 'rest-client'
+
+# Helpers for the reCAPTCHA API
+gem 'recaptcha', require: "recaptcha/rails"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'rawler', git: 'git://github.com/oscardelben/rawler.git', require: false
+  gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-rails', '~> 3.5'
   gem 'foreman'
 end
@@ -90,6 +94,9 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'guard-livereload', '~> 2.5', require: false
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem "pry"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

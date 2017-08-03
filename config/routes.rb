@@ -8,24 +8,35 @@ Rails.application.routes.draw do
   get 'markdown/show'
 
   get '/tutorials', to: 'tutorials#index'
-  get '/tutorials/*document', to: 'tutorials#show'
+  get '/tutorials/*document(/:code_language)', to: 'tutorials#show', constraints: DocumentationConstraint.code_language
   get '/*product/tutorials', to: 'tutorials#index'
 
   get '/documentation', to: 'static#documentation'
+
   get '/contribute', to: 'static#contribute'
+  get '/contribute/styleguide', to: 'static#styleguide'
+  get '/contribute/write-the-docs', to: 'static#write_the_docs'
+
+  get '/legacy', to: 'static#legacy'
+
+  get '/community/slack', to: 'slack#join'
+  post '/community/slack', to: 'slack#invite'
+
   get '/tools', to: 'static#tools'
   get '/community', to: 'static#community'
+  get '/community/past-events', to: 'static#past_events'
 
-  get '/styleguide', to: 'static#styleguide'
-  get '/write-the-docs', to: 'static#write_the_docs'
+  get '/changelog', to: 'changelog#index'
+  get '/changelog/:version', to: 'changelog#show', constraints: { version: /\d\.\d\.\d/ }
 
   match '/search', to: 'search#results', via: [:get, :post]
   match '/quicksearch', to: 'search#quicksearch', via: [:get, :post]
 
   get '/api', to: 'api#index'
-  get '/api/*document', to: 'api#show'
+  get '/api/*document(/:code_language)', to: 'api#show', constraints: DocumentationConstraint.code_language
 
-  get '/:product/*document', to: 'markdown#show', constraints: DocumentationConstraint.new
+  get '/*product/api-reference', to: 'markdown#api'
+  get '/:product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.all
 
   get '/robots.txt', to: 'static#robots'
 

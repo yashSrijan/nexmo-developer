@@ -1,29 +1,24 @@
+require 'algoliasearch'
+
 namespace :search_terms do
-  desc 'Drop and regenerate the search terms'
-  task regenerate: :environment do
-    Rake::Task['search_terms:drop'].invoke
-    Rake::Task['search_terms:generate'].invoke
-  end
-
-  desc 'Generate the search terms'
-  task generate: :environment do
-    client = Rails.configuration.elastic_search_client(cluser_name: "nexmo_#{Rails.env}")
-
-    unless client.indices.exists index: 'documents'
-      client.indices.create index: 'documents'
-    end
-
+  desc 'Publish search terms to Algolia'
+  task 'algolia:generate': :environment do
+    Algolia.init(application_id: ENV['ALGOLIA_APPLICATION_ID'], api_key: ENV['ALGOLIA_API_KEY'])
+    index = Algolia::Index.new "#{Rails.env}_nexmo_developer"
     search_articles = SearchTerms.generate
-    search_articles.each do |search_article|
-      client.index index: 'documents', type: 'document', body: search_article
-    end
+    index.add_objects(search_articles)
   end
 
-  desc 'Drop the search terms'
-  task drop: :environment do
-    client = Rails.configuration.elastic_search_client(cluser_name: "nexmo_#{Rails.env}")
-    if client.indices.exists index: 'documents'
-      client.delete_by_query index: 'documents', type: 'document', body: { query: { match_all: {} } }
-    end
+  desc 'Clear the index in Algolia'
+  task 'algolia:clear': :environment do
+    Algolia.init(application_id: ENV['ALGOLIA_APPLICATION_ID'], api_key: ENV['ALGOLIA_API_KEY'])
+    index = Algolia::Index.new "#{Rails.env}_nexmo_developer"
+    index.clear_index
+  end
+
+  desc 'Refresh the Algolia index'
+  task 'algolia:refresh': :environment do
+    Rake::Task['search_terms:algolia:clear'].invoke
+    Rake::Task['search_terms:algolia:generate'].invoke
   end
 end
