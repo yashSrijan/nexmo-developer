@@ -4,7 +4,7 @@ CODE_EXAMPLE_AUDIOR_MARKDOWN_DIRECTORIES = [
 ]
 
 class CodeExampleAuditor
-  def initialize(path)
+  def initialize(path = '')
     @path = path
   end
 
@@ -31,7 +31,7 @@ class CodeExampleAuditor
       end
     end
 
-    # @examples.uniq! { |example| example.source }
+    @examples.sort_by! { |example| example.has_spec? ? 0 : 1 }
   end
 
   def examples_with_manual_tabs
@@ -55,6 +55,11 @@ class CodeExampleAuditor
     @documents ||= (CODE_EXAMPLE_AUDIOR_MARKDOWN_DIRECTORIES.map do |directory|
       Dir.glob("#{Rails.root}/#{@path}/#{directory}/**/*.md")
     end).flatten
+  end
+
+  def coverage
+    example_coverage = examples.map(&:coverage)
+    (example_coverage.sum.fdiv(example_coverage.size) * 100).round(1)
   end
 
   def self.all_languages
