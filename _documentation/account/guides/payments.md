@@ -22,7 +22,7 @@ One-click payments are quick and easy transactions made with a credit card store
 
 If we receive any credit card information from any of our customers in an email or helpdesk ticket, we will immediately delete it and notify you that the information has been removed.
 
-You can use Dashboard to
+You can use the Dashboard to
 
 * [Add a payment method](#add-a-payment-method)
 * [Auto reload your account balance](#auto_reload)
