@@ -35,6 +35,7 @@ source: '_examples/api/templates/register'
 * [Create custom template](#create-custom-template): add a custom template used by Verify Request.
 
 
+⚓ create-custom-template
 ### Create a custom template
 
 The following code examples show you how to register a custom template:
