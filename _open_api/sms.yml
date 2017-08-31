@@ -1,0 +1,130 @@
+openapi: 3.0.0
+servers:
+  - url: 'https://rest.nexmo.com'
+info:
+  title: SMS API
+  version: v1.0.0
+paths:
+  '/sms/{format}':
+    post:
+      summary: Send an SMS
+      description: Send an outbound SMS from your Nexmo account
+      parameters:
+        - name: format
+          description: The format of the response
+          required: true
+          in: path
+          example: json
+          schema:
+            type: string
+            enum:
+              - json
+              - xml
+            default: json
+        - name: api_key
+          description: Your API key
+          required: true
+          in: query
+          example: abcd1234
+          schema:
+            type: string
+            minLength: 8
+            maxLength: 8
+        - name: api_secret
+          description: Your API secret
+          required: true
+          in: query
+          example: abcdef1234567890
+          schema:
+            type: string
+            minLength: 16
+            maxLength: 16
+      responses:
+        '200':
+          description: Success
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SMS'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+                - to
+              properties:
+                from:
+                  description: The name or number the message should be sent from.
+                  type: string
+                  required: true
+                to:
+                  description: A single phone number in international format.
+                  example: 447700900000
+                  type: string
+                  minLength: 1
+                  maxLength: 14
+                  pattern: '^?[1-9]\d{1,14}$'
+                  required: true
+                text:
+                  description: The body of the message being sent
+                  type: string
+                type:
+                  description: The format of the message body.
+                  type: string
+                  example: text
+                  default: text
+                  enum:
+                    - text
+                    - binary
+                    - wappush
+                    - unicode
+                    - vcal
+                    - vard
+                  default: text
+                status-report-req:
+                  description: Whether a [Delivery Receipt](/api/sms#delivery_receipt) is required.
+                  type: integer
+                  example: 1
+                  default: 1
+                  enum:
+                    - 0
+                    - 1
+components:
+  schemas:
+    SMS:
+      type: object
+      properties:
+        message-count:
+          type: integer
+          description: The amount of messages that were sent
+          example: 1
+        messages:
+          $ref: '#/components/schemas/Message'
+    Message:
+      type: object
+      properties:
+        to:
+          type: string
+          description: The number the message was sent to
+          example: '447700900000'
+        message-id:
+          type: string
+          description: The ID of the message
+          example: 0A0000000123ABCD1
+        status:
+          type: string
+          description: The status of the message
+          example: '0'
+        remaining-balance:
+          type: string
+          description: Your remaining balance
+          example: '3.14159265'
+        message-price:
+          type: string
+          description: The cost of the message
+          example: '0.03330000'
+        network:
+          type: string
+          description: The ID of the network of the recipient
+          example: '12345'
