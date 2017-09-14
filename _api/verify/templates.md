@@ -50,9 +50,6 @@ This request contains:
 
 * [Base URL](#base-url)
 * [Payload](#payload)
-* [Authentication information](#authentication-information)
-* [Security](#security)
-* [Encoding](#encoding)
 
 Information about the Call is sent to you in the:
 
