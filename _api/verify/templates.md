@@ -32,6 +32,8 @@ To setup custom templates:
 source: '_examples/api/templates/register'
 ```
 
+All calls made to this API are authenticated using your `api_key` and `api_secret`.
+
 * [Create custom template](#create-custom-template): add a custom template used by Verify Request.
 
 
