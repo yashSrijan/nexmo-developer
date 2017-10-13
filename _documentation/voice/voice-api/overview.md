@@ -79,7 +79,7 @@ For more information on the `app:create` command run `nexmo app:create --help` i
 
 ### Make a Text-to-Speech Call
 
-In the examples replace `API_KEY`, `API_SECRET`, `APPLICATION_ID`, `PRIVATE_KEY_PATH`, `TO_NUMBER` and `FROM_NUMBER` with real values.
+In the examples below, replace `API_KEY`, `API_SECRET`, `APPLICATION_ID`, `PRIVATE_KEY_PATH`, `TO_NUMBER` and `FROM_NUMBER` with real values.
 
 ```tabbed_content
 source: '_examples/voice/make-a-tts-call'
