@@ -53,9 +53,6 @@ source: '/_examples/messaging/sending-an-sms/basic'
 
 ## Tutorials
 
-* [Passwordless authentication](/tutorials/passwordless-authentication)
-* [Two-factor authentication](/tutorials/two-factor-authentication)
-* [Private SMS communication](/tutorials/private-sms-communication)
-* [Mobile app invites](/tutorials/mobile-app-invites)
-* [Two-way SMS for customer engagement](/tutorials/two-way-sms-for-customer-engagement)
-* [SMS Customer Support](/tutorials/sms-customer-support)
+```tutorials
+product: 'messaging/sms'
+```
