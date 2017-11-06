@@ -24,10 +24,19 @@ The following parameters can be passed in as form data in addition to the file.
 
 |Name|Type|Description|Required|
 |---|---|---|---|
+|`filedata`| file | The data for the file itself, provided with the relevant multipart headers (see below). | ❎
 |`filename`| string | An optional name for the file. | ❎
 |`info`| string | Any metadata you wish to associate with the file. This can be encoded in any manner you wish but we recommend storing data encoded as JSON. | ❎
 |`url`| string (URL) | This can be provided as an alternative to the file data. We will download the file from this URL. This will be stored in `source_url`. | ❎
 
+Either `filedata` or a `url` must be provided. If `filedata` is provided, that part of the multipart request should contain part headers with the filename and file MIME type.
+
+Here is an example part header for an MP3 file:
+
+```
+Content-Disposition: form-data; name="filedata"; filename="myfile.mp3"
+Content-Type: audio/mpeg
+```
 
 ### Response
 
