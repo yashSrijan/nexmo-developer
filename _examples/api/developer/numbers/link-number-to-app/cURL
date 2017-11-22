@@ -1,0 +1,5 @@
+curl -X "POST" "https://rest.nexmo.com/number/update?api_key=API_KEY&api_secret=API_SECRET" \
+     -d "msisdn=YOUR_NUMBER" \
+     -d "voiceCallbackValue=APPLICATION_ID" \
+     -d "country=GB" \
+     -d "voiceCallbackType=app"
