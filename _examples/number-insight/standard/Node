@@ -1,8 +1,8 @@
 var Nexmo = require('nexmo');
 
 var nexmo = new Nexmo({
-    apiKey: API_KEY,
-    apiSecret: API_SECRET})
+    apiKey: NEXMO_API_KEY,
+    apiSecret:  NEXMO_API_SECRET})
 
 nexmo.numberInsight.get({level: 'standard', number: '447700900000'}, (error, result) => {
   if(error) {
