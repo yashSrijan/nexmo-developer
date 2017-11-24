@@ -1,0 +1,14 @@
+var Nexmo = require('nexmo');
+
+var nexmo = new Nexmo({
+    apiKey: API_KEY,
+    apiSecret: API_SECRET})
+
+nexmo.numberInsight.get({level: 'advancedSync', number: NUMBER}, (error, result) => {
+  if(error) {
+    console.error(error);
+  }
+  else {
+    console.log(result);
+  }
+});
