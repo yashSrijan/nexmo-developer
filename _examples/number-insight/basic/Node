@@ -4,7 +4,7 @@ var nexmo = new Nexmo({
     apiKey: API_KEY,
     apiSecret: API_SECRET})
 
-nexmo.numberInsight.get({level: 'basic', number: NUMBER}, (error, result) => {
+nexmo.numberInsight.get({level: 'basic', number: '447700900000'}, (error, result) => {
   if(error) {
     console.error(error);
   }
