@@ -78,7 +78,8 @@ The following example shows the return parameters sent to `eventUrl`:
   "size": 12345,
   "recording_uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
   "end_time": "2020-01-01T12:01:00Z",
-  "conversation_uuid": "bbbbbbbb-cccc-dddd-eeee-0123456789ab"
+  "conversation_uuid": "bbbbbbbb-cccc-dddd-eeee-0123456789ab",
+  "timestamp": "2020-01-01T14:00:00.000Z"
 }
 ```
 
@@ -130,7 +131,7 @@ Option | Description | Required
 -- | -- | --
 `endpoint` | Connect to a single endpoint. @[Possible Types](/_modals/voice/guides/ncco-reference/endpoint.md) | Yes
 `from` | A number in [E.164](https://en.wikipedia.org/wiki/E.164) format that identifies the caller.§§ This must be one of your Nexmo virtual numbers, another value will result in the caller ID being unknown. | No
-`eventType` | Set to `synchronous` to: <ul markdown="1"><li>make the `connect` action synchronous</li><li>enable `eventUrl` to return an NCCO that overrides the current NCCO when a call moves to specific states. See the [Connect with fallback NCCO example](#connect_fallback).</li></ul> | No
+`eventType` | Set to `synchronous` to: <ul markdown="1"><li>make the `connect` action synchronous</li><li>enable `eventUrl` to return an NCCO that overrides the current NCCO when a call moves to specific states. See the [Connect with fallback NCCO example](#connect-with-fallback-ncco).</li></ul> | No
 `timeout` |  If the call is unanswered, set the number in seconds before Nexmo stops ringing `endpoint`. The default value is `60`.
 `limit` | Maximum length of the call in seconds. The default and maximum value is `7200` seconds (2 hours). | No
 `machineDetection` | Configure the behavior when Nexmo detects that a destination is an answerphone. Set to either: <ul markdown="1"><li>`continue` - Nexmo sends an HTTP request to `event_url` with the Call event `machine`</li><li>`hangup` - end the Call</li></ul>   |
@@ -443,10 +444,11 @@ The following example shows the parameters sent to `eventUrl`:
 
 ```json
 {
-  "uuid": "56f61045-5b78-2f5h-56h8-46zdgre9264",
-  "conversation_uuid": "63f61863-4a51-4f6b-86e1-46edebcf9929",
+  "uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "conversation_uuid": "bbbbbbbb-cccc-dddd-eeee-0123456789ab",
   "timed_out": true,
-  "dtmf": "3109"
+  "dtmf": "1234",
+  "timestamp": "2020-01-01T14:00:00.000Z"
 }
 ```
 
