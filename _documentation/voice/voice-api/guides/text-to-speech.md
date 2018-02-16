@@ -1,6 +1,10 @@
 ---
-title: SSML
+title: Text to Speech
+navigation_weight: 3
 ---
+
+# Overview
+Nexmo uses text to speech engines to allow you to play machine generated speech to your users, this can either be done from with an NCCO with the use of the `talk` action or by making a REST request to an in progress call 
 
 # SSML
 
@@ -204,3 +208,10 @@ Welcome to the <sub alias="United States">US</sub>.
 #### Example
 
 🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/10-alias.mp3]
+
+
+# Locale
+
+# Voices
+
+# Demonstration
