@@ -29,7 +29,7 @@ You see how easy it is to build a mobile app invites system using the Nexmo APIs
 In order to work through this tutorial you need:
 
 * A [Nexmo account](https://dashboard.nexmo.com/sign-up)
-* A publicly accessible Web server so Nexmo can make webhook requests to your app. If you're developing locally you must use a tool such as [ngrok](https://ngrok.com/)
+* A publicly accessible Web server so Nexmo can make webhook requests to your app. If you're developing locally you must use a tool such as [ngrok](https://ngrok.com/) ([see our ngrok tutorial blog post](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/))
 * The source code for this tutorial from <https://github.com/Nexmo/ruby-mobile-app-promotion>
 
 ## Create a Web app
