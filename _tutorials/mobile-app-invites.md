@@ -12,7 +12,7 @@ If your mobile app has a Website you are probably familiar with:
 
 ![Mobile app button example](/assets/images/app_store_play_badges.png)
 
-These buttons make it easy for anyone to navigate to the correct store for their mobile device. However, this flow quickly falls part if the user is not mobile. What happens when your user is using a desktop computer? Using **Mobile app promotion** you quickly convert a browsing user into an active customer by sending them a link to your app Website in an SMS message.
+These buttons make it easy for anyone to navigate to the correct store for their mobile device. However, this flow quickly falls apart if the user is not mobile. What happens when your user is using a desktop computer? By using **Mobile app promotion**, you can quickly convert a browsing user into an active customer by sending them a link to your app via SMS.
 
 ## In this tutorial
 
