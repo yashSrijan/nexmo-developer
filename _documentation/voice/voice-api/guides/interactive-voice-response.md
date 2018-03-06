@@ -3,9 +3,10 @@ title: Interactive Voice Response (IVR)
 ---
 # Interactive Voice Response (IVR)
 
-With the Voice API you easily create an IVR by generating NCCOs in a webhook.
+With the Voice API you can create an IVR by generating NCCOs (define this acronym) in a webhook.
 
-Interactive Voice Response (IVR) is a technology that allows a computer to interact with humans through the use of voice and DTMF tones input on the handset keypad. You create IVR systems for mobile purchases, banking payments and services, retail orders, utilities, travel information and weather conditions.
+Interactive Voice Response (IVR) allows your application to interact with humans through the use of voice as well as DTMF tones input on the handset keypad.
+You can create IVR-based applications for a wide range of scenarios including mobile purchases, banking payments and services, retail orders, utility service enquiries, travel information and checking weather conditions.
 
 In this section you will see how to build an IVR system using Nexmo APIs:
 
@@ -17,14 +18,16 @@ In this section you will see how to build an IVR system using Nexmo APIs:
 To follow the steps in this tutorial you need to:
 
 * Setup a [Nexmo account](/account/guides/management#create-and-configure-a-nexmo-account)
-* Rent a virtual number using [Dashboard](/account/guides/numbers#rent-virtual-numbers) or [Developer API](/api/developer/numbers#buy-a-number) and set the webhook endpoint to your app
-* [Create an application](/concepts/guides/applications#apps_quickstart) and associate it with your virtual number. Nexmo retrieves the initial NCCO from the *answer_url* webhook and sends the dtmf input to the *eventUrl* webhook defined in the initial NCCO
+* Rent a virtual number using [Dashboard](/account/guides/numbers#rent-virtual-numbers) or [Developer API](/api/developer/numbers#buy-a-number) and set the webhook endpoint to your app (assumes how to set an endpoint)
+* [Create an application](/concepts/guides/applications#apps_quickstart) and associate it with your virtual number. Nexmo retrieves the initial NCCO from the *answer_url* webhook and sends the DTMF input to the *eventUrl* webhook defined in the initial NCCO
 
 ## Create your IVR
 
-In an IVR, when your user calls your virtual number you first send welcome message using text-to-speech or an audio stream. This message tells your user which button to push for your available services.  Then, in function of the *dtmf* input, you generate the NCCOS that create a customized experience for your user.
+In an IVR, when your user calls your virtual number you first send a welcome message using text-to-speech or an audio stream. This message tells your user which button to push for your available services. Then, in function of the *dtmf* input, you generate the NCCOS that create a customized experience for your user. (this last sentence is not clear)
 
-Using *bargeIn*, your user does not have to listen to the whole announcement. If he or she already knows the choices, when they press an option during a *talk* or *stream* action, the announcement is stopped and the IVR executes their instruction. BargeIn makes the *talk* or *stream* actions asynchronous. You must set an *input* action later in the NCCO stack.
+Using *bargeIn*, your users do not have to listen to the whole announcement. If they already know their desired option, they can press an option during a *talk* or *stream* action, and the announcement is stopped and the IVR executes their instruction. Using *bargeIn* requires the *talk* or *stream* actions to be asynchronous, and this means you must set an *input* action later in the NCCO stack (how to do this?).
+
+## IVR workflow
 
 The workflow for an IVR is:
 
@@ -44,7 +47,9 @@ Note over Nexmo: Execute actions in NCCO
 Nexmo->User: Customized user experience
 ```
 
-To implement this workflow:
+## Implement IVR workflow
+
+To implement the IVR workflow:
 
 1. Supply your users with a virtual number to contact.
 
@@ -64,4 +69,14 @@ To implement this workflow:
     source: '_examples/voice/guides/interactive-voice-response/2'
     ```
 
-And that's it. You have built an IVR. To do this you have provisioned and configured a virtual number, sent a generic welcome message, handled inbound calls and created a customized experience for your user.
+## Summary
+
+You have now built a simple IVR-based application.
+
+In this guide you saw an example of how to provision and configure a virtual number, send a generic welcome message, handle inbound calls and created a customized experience for your user.
+
+Note: add some more text on what the user should actually run and see as a result so they know their test application worked.
+
+## Next steps
+
+pointers to what to try next?
