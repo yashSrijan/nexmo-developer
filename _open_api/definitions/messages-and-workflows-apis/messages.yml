@@ -35,7 +35,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ValidationError'
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessError'
       callbacks:
         message-status:
           '{$request.body#/callback}':
@@ -102,20 +108,21 @@ components:
           type: string
           description: The UUID of the message.
           example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
-    Error:
+    ValidationError:
       description: 'The error format is standardized to the 4xx/5xx range with a code and a human readable explanation.'
       required:
         - type
         - title
         - detail
         - instance
+        - invalid_parameters
       properties:
         type:
           type: string
           example: 'https://www.nexmo.com/messages/Errors#InvalidParams'
         detail:
           type: string
-          example: 'Your request parameters did not validate.'
+          example: 'You must provide the `from` parameter'
         instance:
           type: string
           example:
@@ -124,16 +131,40 @@ components:
           properties:
             name:
               type: string
-              example: 'Invalid `from` parameter'
+              example: 'from'
             reason:
               type: string
-              example: 'Invalid `from` parameter'
+              example: 'missing'
 
       resolution:
         text: Check your request parameters against the API documentation.
         link:
           text: See API request format
           url: /api/messages-and-workflows-apis/messages
+
+    AccessError:
+      description: 'The authentication credentials provided do not have access to the requested resource'
+      required:
+        - type
+        - title
+        - detail
+        - instance
+      properties:
+        type:
+          type: string
+          example: 'https://www.nexmo.com/messages/Errors#AccessError'
+        detail:
+          type: string
+          example: 'Your key is not whitelisted for this product'
+        instance:
+          type: string
+          example:
+
+      resolution:
+        text: Contact Nexmo Support to enable this feature on your account
+        link:
+          text: Request Access
+          url: about:blank
 
     MessageStatus:
       type: object
