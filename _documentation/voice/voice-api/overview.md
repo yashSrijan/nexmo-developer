@@ -26,10 +26,9 @@ In this document you can learn about:
 
 ## Guides
 * [Call Flow](guides/call-flow): The various stages of a call and how they interact
-* [Conversations](guides/conversations): A conversation is between multiple callers, either as a conference bridge or a 1 to 1 call
+* [Calls & Conversations](guides/conversations): A conversation is between multiple parties, either as a conference bridge or a 1 to 1 call
 * [Text to Speech](guides/text-to-speech): Playing machine generated speech to your caller
 * [Recording](guides/recording): Recording audio input from a caller or recording the conversation between 2 callers.
-* [Websockets](guides/websockets): 
 * [Websockets](guides/websockets): You can connect the audio of a call to a websocket to work with it in real time.
 
 
