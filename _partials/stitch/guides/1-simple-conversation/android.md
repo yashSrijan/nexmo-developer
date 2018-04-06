@@ -1,3 +1,8 @@
+---
+title: Android
+platform: android
+---
+
 # Getting Started with the Nexmo Stitch Android SDK
 
 In this getting started guide we'll demonstrate how to build a simple conversation app with IP messaging using the Nexmo Stitch Android SDK.
@@ -534,4 +539,4 @@ After this you should be able to run the app and send messages to a conversation
 
 ## Where next?
 
-Try out [Quickstart 2](/stitch/in-app-messaging/guides/2-inviting-members?platform=android)
+Try out [Quickstart 2](/stitch/in-app-messaging/guides/2-inviting-members/android)

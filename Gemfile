@@ -58,8 +58,6 @@ gem 'dotenv-rails', groups: [:development, :test]
 # Ruby/ProgressBar is a text progress bar library for Ruby.
 gem 'ruby-progressbar', require: false
 
-gem 'rubocop', require: false
-
 # Ruby notifier for bugsnag.com
 gem 'bugsnag'
 
@@ -137,6 +135,9 @@ gem 'bootsnap', require: false
 
 # Convenient diffing in ruby
 gem 'diffy', require: false
+
+# Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
+gem 'rubocop'
 
 group :development, :test do
   gem 'awesome_print'
