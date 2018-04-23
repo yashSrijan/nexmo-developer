@@ -348,10 +348,18 @@ paths:
                             }
                           }                                
   /calls/{uuid}:
+      parameters:
+        - in: path
+          name: uuid
+          schema:
+            type: string
+          required: true
+          description: UUID of the Call
       get:
+        
         security:
           - bearerAuth: []
-        description: Get detail of a specifi call
+        description: Get detail of a specific call
         operationId: getCall
         responses:
             '200':
@@ -525,6 +533,13 @@ paths:
                         #  reason: string
                         #  name: string                                        
   /calls/{uuid}/stream:
+      parameters:
+        - in: path
+          name: uuid
+          schema:
+            type: string
+          required: true
+          description: UUID of the Call
       put:
           security:
             - bearerAuth: []
@@ -595,6 +610,13 @@ paths:
                                 }
                             }
   /calls/{uuid}/talk:
+      parameters:
+        - in: path
+          name: uuid
+          schema:
+            type: string
+          required: true
+          description: UUID of the Call
       put:
           security:
             - bearerAuth: []
@@ -665,6 +687,13 @@ paths:
                                 }
                             }                                      
   /calls/{uuid}/dtmf:
+      parameters:
+        - in: path
+          name: uuid
+          schema:
+            type: string
+          required: true
+          description: UUID of the Call
       put:
           security:
             - bearerAuth: []
@@ -837,100 +866,100 @@ components:
            - Joey 
                #language: en-US 
                #gender: male
-           - Naja 	
+           - Naja   
                #language: da-DK 
                #gender: female
            - Mads 
                #language: da-DK 
                #gender: male
-           - Marlene 	 	
+           - Marlene      
                #language: de-DE 
                #gender: female
-           - Hans 	 	
+           - Hans      
                #language: de-DE 
                #gender: male
-           - Nicole 	
+           - Nicole   
                #language: en-AU 
                #gender: female
            - Russell
                #language: en-AU 
                #gender: male
-           - Amy 	
+           - Amy   
                #language: en-GB 
                #gender: female
-           - Brian 	
+           - Brian   
                #language: en-GB 
                #gender: male
            - Emma
                #language: en-GB 
                #gender: female
-           - Geraint 	 
+           - Geraint    
                #language: en-GB,WLS
                #gender: male
-           - Gwyneth 	 
+           - Gwyneth    
                #language: cy-GB,WLS
                #gender: female
-           - Raveena 	
+           - Raveena   
                #language: en-IN 
                #gender: female
-           - Chipmunk 	
+           - Chipmunk   
                #language: en-US 
                #gender: male
-           - Eric 	
+           - Eric   
                #language: en-US 
                #gender: male
-           - Ivy 	
+           - Ivy   
                #language: en-US 
                #gender: female
-           - Jennifer 	
+           - Jennifer   
                #language: en-US 
                #gender: female
            - Justin
                #language: en-US 
                #gender: male
-           - Kendra 	
+           - Kendra   
                #language: en-US 
                #gender: female
-           - Kimberly 	
+           - Kimberly   
                #language: en-US 
                #gender: female
            - Conchita 
                #language: es-ES 
                #gender: female
-           - Enrique 	 	
+           - Enrique      
                #language: es-ES 
                #gender: male
            - Penelope
                #language: es-US 
                #gender: female
-           - Miguel 	 	
+           - Miguel      
                #language: es-US 
                #gender: male
-           - Chantal 	 	
+           - Chantal      
                #language: fr-CA
                #gender: female
-           - Celine 	 	
+           - Celine      
                #language: fr-FR
                #gender: female
-           - Mathieu 	 	
+           - Mathieu      
                #language: fr-FR
                #gender: mail
-           - Dora 	 	
+           - Dora      
                #language: is-IS 
                #gender: female
-           - Karl 	
+           - Karl   
                #language: is-IS 
                #gender: male
-           - Carla 	 	
+           - Carla      
                #language: it-IT
                #gender: female
-           - Giorgio 	
+           - Giorgio   
                #language: it-IT
                #gender: male
            - Liv
                #language: nb-NO 
                #gender: female
-           - Lotte 	 	
+           - Lotte      
                #language: nl-NL 
                #gender: female
            - Ruben
@@ -948,7 +977,7 @@ components:
            - Jan
                #language: pl-PL
                #gender: male
-           - Maja 	 	
+           - Maja      
                #language: pl-PL 
                #gender: female
            - Vitoria 
