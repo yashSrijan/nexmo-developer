@@ -13,7 +13,7 @@ Numbers are key to using the Nexmo Voice API, the following points should be con
 ### Formatting
 
 Within the Nexmo Voice API all numbers are in e.164 format, that is the full international format without a `+` or international access code eg `00` or `001` and no spaces or other characters eg `()-.`
-For example a US number would look like `14155550101` a UK number would be `447900900123`
+For example a US number would look like `14155550101` a UK number would be `447700900123`
 If you are unsure how to format the number our Number Insight API can help you with this
 
 ### Outgoing CallerID
