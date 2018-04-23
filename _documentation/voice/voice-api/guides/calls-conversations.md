@@ -14,7 +14,7 @@ A conversation contains one or more call legs. An new ibound or outbound phone c
 
 Calls and Conversations are each identified by their own UUID, converstaion UUID's are prefixed with `con`
 
-## Conferances
+## Conferences
 
 You can create a special type of conversation by using the `conversation` action within an NCCO, this resulting named conversation then acts like a conferance bridge, new calls can be added to this conversation by calling a `conversation` action with the same name.
 
