@@ -1,5 +1,7 @@
 ---
-title: Connecting voice calls to Amazon Lex bots
+title: Amazon Lex Connector
+navigation_weight: 8
+
 ---
 
 # Connecting voice calls to Amazon Lex bots
