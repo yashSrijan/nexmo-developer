@@ -21,7 +21,8 @@ The initial message sent on an established webscoket connection will be text bas
 For example the following connect action would result in the below message being received:
 
 ```
-[{
+[
+    {
        "action": "connect",
        "endpoint": [
            {
