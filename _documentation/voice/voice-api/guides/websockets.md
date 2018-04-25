@@ -45,6 +45,7 @@ You will recieve this JSON in the first message on the socket:
      "content-type":"audio/l16;rate=16000"
  }
 ```
+
 The maximum length of the headers data is 512 bytes.
 
 After the inital text message all subsequent messages on the socket will be Binary containing the audio payload as specified beliw
