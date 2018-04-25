@@ -52,7 +52,7 @@ If neither value is set then the record will work in an asynchronous mannner and
 The conversation action always acts in a syncronous manner where the call is merged into the named conversation (or conferance) The action only ends when the call is ended, therefore no actions in an NCCO after a conversation will be executed.
 
 ### Connect
-A connect action will progress to the next action in the NCCO when the call is answered.
+A connect action will progress to the next action in the NCCO when the call is answered. If you have mulitple connect actions in an NCCO it will call each one in turn and when answered create a conferance between the legs.
 
 
 ### Talk

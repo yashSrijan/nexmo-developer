@@ -19,3 +19,4 @@ Calls and Conversations are each identified by their own UUID, converstaion UUID
 You can create a special type of conversation by using the `conversation` action within an NCCO, this resulting named conversation then acts like a conferance bridge, new calls can be added to this conversation by calling a `conversation` action with the same name.
 
 Conversation names are scoped to an application level, so any calls that are connected to a conversation with the same name will be able to hear each other provided they are using the same application.
+ 
