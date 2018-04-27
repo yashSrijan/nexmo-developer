@@ -1,0 +1,22 @@
+hr {
+	border-bottom: 0;
+	border-top: 1px solid $grey-light;
+	flex: 0 0 100%;
+	margin: $unit3 0;
+}
+
+.hr--tall {
+	margin: $unit4 0;
+}
+
+.Vlt-icon {
+	display: inline-block;
+	height: 24px;
+	vertical-align: middle;
+	width: 24px;
+
+	&--small {
+		height: 20px;
+		width: 20px;
+	}
+}

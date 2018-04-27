@@ -247,7 +247,7 @@ class Feedback extends React.Component {
       <div className="feedback">
         <div className="row">
           <div className="columns small-8">
-            <h2>Was this documentation helpful?</h2>
+            <h3>Was this documentation helpful?</h3>
           </div>
           { this.renderFeedbackImproveThisPage() }
         </div>

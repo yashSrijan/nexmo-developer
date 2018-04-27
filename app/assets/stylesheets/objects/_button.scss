@@ -1,6 +1,6 @@
 .button {
   display: inline-block;
-  background: $blue;
+  background: $blue-dark;
   color: $white;
   font-family: $font-family;
   font-size: 16px;
@@ -14,7 +14,7 @@
   box-shadow: $shadow;
 
   &:hover {
-    background: lighten($link, 5%);
+    background: lighten($blue, 5%);
     color: $white;
   }
 
@@ -25,8 +25,8 @@
   }
 
   &--secondary {
-    border: 2px solid $blue;
-    color: $blue;
+    border: 2px solid $blue-dark;
+    color: $blue-dark;
     background: $white;
   }
 

@@ -34,8 +34,8 @@ $table-list-spacing: $spacing * 0.6;
     b { font-weight: 500; }
 
     .table-list-header {
-      background: mix($blue, $white, 5%);
-      color: $blue;
+      background: mix($blue-dark, $white, 5%);
+      color: $blue-dark;
       border: $border;
 
       .table-list-column {

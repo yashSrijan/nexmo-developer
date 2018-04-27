@@ -21,11 +21,11 @@
 
 <nav id="subnav" data-turbolinks="false">
   <div class="container">
-    <a href="/documentation" class="<%= @navigation == :documentation ? 'active' : '' %>">Documentation</a>
-    <a href="/tutorials" class="<%= @navigation == :tutorials ? 'active' : '' %>">Tutorials</a>
-    <a href="/api" class="<%= @navigation == :api ? 'active' : '' %>">API Reference</a>
-    <a href="/tools" class="<%= @navigation == :tools ? 'active' : '' %>">SDKs &amp; Tools</a>
-    <a href="/community" class="<%= @navigation == :community ? 'active' : '' %>">Community</a>
+    <a href="/documentation" class="Vlt-tabs__link <%= @navigation == :documentation ? 'Vlt-tabs__link_active' : '' %>">Documentation</a>
+    <a href="/tutorials" class="Vlt-tabs__link <%= @navigation == :tutorials ? 'Vlt-tabs__link_active' : '' %>">Tutorials</a>
+    <a href="/api" class="Vlt-tabs__link <%= @navigation == :api ? 'Vlt-tabs__link_active' : '' %>">API Reference</a>
+    <a href="/tools" class="Vlt-tabs__link <%= @navigation == :tools ? 'Vlt-tabs__link_active' : '' %>">SDKs &amp; Tools</a>
+    <a href="/community" class="Vlt-tabs__link <%= @navigation == :community ? 'Vlt-tabs__link_active' : '' %>">Community</a>
 
     <% if search_enabled? %>
       <%= form_tag '/search' do %>

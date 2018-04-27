@@ -15,7 +15,7 @@ $border-form: 1px solid darken($mint, 15%);
   vertical-align: bottom;
 
   &:focus {
-    border-color: $blue;
+    border-color: $blue-dark;
     outline: none;
     -webkit-apperence: none;
   }

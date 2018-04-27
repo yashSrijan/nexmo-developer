@@ -1,5 +1,5 @@
 #header {
-  background: $blue;
+  background: $blue-dark;
   color: $white;
   padding: $spacing 0;
 
@@ -9,7 +9,7 @@
   };
 
   a {
-    color: mix($white, $blue, 90%);
+    color: mix($white, $blue-dark, 90%);
     border: none;
   }
 
@@ -73,7 +73,7 @@
   position: relative;
   height: $spacing;
   background: $white;
-  color: $blue;
+  color: $blue-dark;
   line-height: 1em;
   transform: translateX(0);
   transition: transform  200ms ease-in-out;
@@ -99,7 +99,6 @@
 
 #subnav {
   background: $white;
-  border-bottom: $border;
   margin-bottom: $spacing;
   box-shadow: $shadow-soft;
 
@@ -107,19 +106,6 @@
     position: relative;
   }
 
-  a {
-    display: inline-block;
-    margin-right: $spacing;
-    color: $gray;
-    padding: $spacing/2 5px;
-    padding-bottom: $spacing/2 - 3px;
-
-    &.active {
-      font-weight: 600;
-      color: $blue;
-      border-bottom: 3px solid $blue;
-    }
-  }
 
   .quicksearch a {
     padding: 0;

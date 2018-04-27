@@ -25,7 +25,7 @@
   }
 
   .sidenav-back {
-    color: $link-subtle;
+    color: $blue;
     font-size: 0.9em;
     font-weight: 500;
   }
@@ -38,7 +38,7 @@
 
     &.active {
       font-weight: 600;
-      color: $blue;
+      color: $blue-dark;
     }
   }
 
@@ -103,7 +103,7 @@
   }
 
   .navigation-item--api-reference {
-    @include highlighted-navigation($blue);
+    @include highlighted-navigation($blue-dark);
   }
 
   .navigation-item--sdk-documentation > {
@@ -139,7 +139,7 @@
 #sidenav .navigation {
   .navigation-item__label {
     font-size: 11px;
-    color: $blue;
+    color: $blue-dark;
     margin: 0 5px;
     position: relative;
     top: -1px;

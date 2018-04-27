@@ -66,7 +66,7 @@ $card-animation-speed: 200ms;
     border-bottom: none;
 
     &:hover {
-      color: $blue;
+      color: $blue-dark;
     }
 
     &.poster {
@@ -96,14 +96,13 @@ $card-animation-speed: 200ms;
 
     small {
       display: block;
-      font-style: italic;
-      font-weight: 100;
-      font-size: 0.6em;
+      font-weight: 500;
+      font-size: 1.7rem;
     }
   }
 
   h3 {
-    color: $blue;
+    color: $blue-dark;
     margin-bottom: 5px;
 
     .label {
@@ -152,13 +151,13 @@ $card-animation-speed: 200ms;
 
 .card--with-icon__divider {
   position: relative;
-  border-bottom: 2px solid $blue;
+  border-bottom: 2px solid $blue-dark;
   margin-top: 2px;
   z-index: 3;
 
   i {
     background: $ice;
-    color: $blue;
+    color: $blue-dark;
     border: 1px solid $blue;
     border-radius: 100%;
     position: absolute;

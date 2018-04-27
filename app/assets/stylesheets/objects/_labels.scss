@@ -7,8 +7,8 @@
   border-radius: 3px;
   text-align: center;
 
-  background: $blue;
-  border-color: $blue;
+  background: $blue-dark;
+  border-color: $blue-dark;
 
   &--webhook .icon {
     .navigation & {
@@ -84,8 +84,8 @@
   }
 
   &--get {
-    background: $blue;
-    .navigation & { color: mix($blue, $background, 80%); }
+    background: $blue-dark;
+    .navigation & { color: mix($blue-dark, $background, 80%); }
   }
 
   &--status--2xx {
@@ -110,8 +110,8 @@
 
   &--inverted {
     background: $white;
-    color: $blue;
-    border: 1px solid $blue;
+    color: $blue-dark;
+    border: 1px solid $blue-dark;
   }
 
   &--status--2xx {

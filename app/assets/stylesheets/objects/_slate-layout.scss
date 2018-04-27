@@ -123,7 +123,7 @@ $ratio-total: $golden-ratio + 1;
   border-left: $border;
   box-shadow: $shadow-soft;
   border-bottom: $border;
-  border-bottom-color: mix($blue, $white, 10%);
+  border-bottom-color: mix($blue-dark, $white, 10%);
   font-size: 0.95em;
 
   &--group {
@@ -141,7 +141,7 @@ $ratio-total: $golden-ratio + 1;
   }
 
   a {
-    color: mix($blue, $white);
+    color: mix($blue-dark, $white);
     border: none;
   }
 
