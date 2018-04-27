@@ -6,7 +6,7 @@ $border-form: 1px solid darken($mint, 15%);
   padding: 10px;
   font-size: 14px;
   line-height: 20px;
-  font-family: 'Averta';
+  font-family: $font-family;
   border: $border-form;
   border: $border-form;
   box-shadow: $shadow;
@@ -42,7 +42,7 @@ select {
   background-position: right center;
   border: none;
   color: $white;
-  font-family: 'Averta';
+  font-family: $font-family;
   font-size: 14px;
   border-radius: $radius;
   -webkit-appearance: none;
