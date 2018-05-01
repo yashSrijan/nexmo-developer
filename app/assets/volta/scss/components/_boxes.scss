@@ -21,6 +21,10 @@
 		}
 	}
 
+	.Vlt-btn {
+		margin-bottom: 0;
+	}
+
 	h2,
 	h3,
 	h4 {
@@ -62,5 +66,9 @@
 			line-height: 2rem;
 			margin-bottom: $unit1;
 		}
+	}
+
+	&--left {
+		text-align: left;
 	}
 }

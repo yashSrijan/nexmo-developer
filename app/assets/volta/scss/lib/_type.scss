@@ -69,7 +69,8 @@ td,
 li,
 span,
 label,
-small {
+small,
+nav {
 	a:not([class]) {
 		@extend .Vlt-text-link;
 	}

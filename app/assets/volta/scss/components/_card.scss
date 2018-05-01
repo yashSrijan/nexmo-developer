@@ -32,6 +32,7 @@
 
 			* {
 				max-height: 100%;
+				z-index: 1;
 			}
 
 			&--blue {
@@ -87,6 +88,14 @@
 
 				.Vlt-card__image__icon svg {
 					fill: $purple;
+				}
+			}
+
+			&--teal {
+				background: linear-gradient(to right, lighten($teal, 5), darken($teal, 10));
+
+				.Vlt-card__image__icon svg {
+					fill: $teal;
 				}
 			}
 

@@ -95,20 +95,6 @@ table {
 table, td, th { border-collapse:separate; }
 table { border-spacing: 0px }
 
-hr {
-  border: none;
-  border-top: 2px solid darken($mint, 3%);
-
-  &.hr--mini {
-    width: 150px;
-  }
-
-  &.spacious {
-    margin: $spacing 0;
-    padding: 0;
-  }
-}
-
 .spacious {
   padding: $spacing*2 0;
 }

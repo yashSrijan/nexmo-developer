@@ -28,4 +28,14 @@ hr {
 	&--text-bottom {
 		vertical-align: text-bottom;
 	}
+
+	&--large {
+		height: 32px;
+		width: 32px;
+	}
+
+	&--larger {
+		height: 40px;
+		width: 40px;
+	}
 }
