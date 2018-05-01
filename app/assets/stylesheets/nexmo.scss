@@ -3,6 +3,7 @@
 @import "../volta/scss/lib/mediaqueries";
 @import "../volta/scss/lib/variables";
 @import "../volta/scss/lib/type";
+@import "../volta/scss/lib/grid";
 
 $blue-light: $blue;
 $pink: #E6547B;
@@ -68,6 +69,21 @@ $font-family: 'Lato', sans-serif;
 
 @import "../volta/scss/components/buttons";
 @import "../volta/scss/components/tabs";
+@import "../volta/scss/components/side-navigation/side-nav--structure";
+@import "../volta/scss/components/side-navigation/side-nav--rounded";
+@import "../volta/scss/components/side-navigation/side-nav--light";
+@import "../volta/scss/components/card";
+@import "../volta/scss/components/badge";
+@import "../volta/scss/components/color-classes";
+@import "../volta/scss/components/other-elements";
+
+.Vlt-sidenav {
+	display: inline-flex; // Temporary
+}
+
+body {
+	background: $grey-lighter;
+}
 
 @import "mixins";
 
@@ -86,7 +102,6 @@ $font-family: 'Lato', sans-serif;
 @import "objects/feedback";
 @import "objects/focus";
 @import "objects/forms";
-@import "objects/github-cards";
 @import "objects/js-sequence-diagram";
 @import "objects/labels";
 @import "objects/masonry";

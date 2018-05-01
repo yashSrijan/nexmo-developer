@@ -19,4 +19,13 @@ hr {
 		height: 20px;
 		width: 20px;
 	}
+
+	&--smaller {
+		height: 16px;
+		width: 16px;
+	}
+
+	&--text-bottom {
+		vertical-align: text-bottom;
+	}
 }

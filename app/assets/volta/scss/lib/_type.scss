@@ -80,6 +80,8 @@ h2,
 h3,
 h4,
 h5 {
+	color: $black;
+
 	a {
 		color: inherit;
 		font-size: inherit;
@@ -89,6 +91,7 @@ h5 {
 }
 
 p {
+	color: $black;
 	margin-bottom: $unit1;
 }
 
@@ -266,40 +269,4 @@ ul {
 	+ h4 {
 		padding-top: $unit2;
 	}
-}
-
-.Vlt-text-link,
-%Vlt-text-link {
-	color: $blue-dark;
-	cursor: pointer;
-	font-size: inherit;
-	font-weight: inherit;
-	line-height: inherit;
-
-	&:hover {
-		color: $blue-darker;
-	}
-
-	&:active {
-		color: $blue-darker;
-	}
-
-	&:visited {
-		color: $blue-dark;
-
-		&:hover {
-			color: $blue-darker;
-		}
-	}
-}
-
-.Vlt-text-btn,
-%Vlt-text-btn {
-	@extend %Vlt-text-link;
-	@extend .reset-button;
-	border-radius: 0;
-	cursor: pointer;
-	font-size: 1.5rem;
-	padding: 0;
-	white-space: nowrap;
 }

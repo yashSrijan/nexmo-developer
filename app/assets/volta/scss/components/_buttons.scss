@@ -13,11 +13,11 @@ $shadow-tertiary: inset 0 0 0px 1px $grey;
 	border-radius: 36px;
 	box-shadow: $shadow-standard;
 	cursor: pointer;
-	display: inline-flex;
+	display: inline-block; // can't be inline-flex because of Safari
 	font-size: 1.4rem;
 	font-weight: 600;
 	justify-content: center;
-	line-height: 1.9rem; //needed for Safari
+	line-height: 1.8rem; // needed for Safari
 	margin: $unit1 0;
 	min-height: 36px;
 	outline: none;
@@ -400,6 +400,42 @@ $shadow-tertiary: inset 0 0 0px 1px $grey;
 	&:not(tr):not(td):not(table) {
 		.Vlt-btn-group--hover {
 			top: -$unit1; // this is both here and above in the form of margin-top because that one works in tables and this works everywhere else
+		}
+	}
+}
+
+.Vlt-text-btn,
+%Vlt-text-btn {
+	@extend %Vlt-text-link;
+	@extend .reset-button;
+	border-radius: 0;
+	cursor: pointer;
+	font-size: 1.5rem;
+	padding: 0;
+	white-space: nowrap;
+}
+
+.Vlt-text-link,
+%Vlt-text-link {
+	color: $blue-dark;
+	cursor: pointer;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+
+	&:hover {
+		color: $blue-darker;
+	}
+
+	&:active {
+		color: $blue-darker;
+	}
+
+	&:visited {
+		color: $blue-dark;
+
+		&:hover {
+			color: $blue-darker;
 		}
 	}
 }
