@@ -1,20 +1,21 @@
 <%= render partial: 'layouts/partials/post-body-tags' %>
 
-<header id="header">
+<header id="header" class="Nxd-main-header">
   <div class="container">
-    <a href="/" id="logo">
-      <span></span>
-      Nexmo Developer
-    </a>
-    <a href="/team#join">
-      <span id="header-hiring">We're hiring</span>
-    </a>
+    <div class="Nxd-logo">
+      <a href="/" id="logo" class="Nxd-logo__image">
+        <%= image_tag 'nexmo-developer-logo.svg' %>
+      </a>
+      <a href="/team#join">
+        <span id="header-hiring" class="Nxd-logo__hiring">We're hiring</span>
+      </a>
+    </div>
 
     <nav data-turbolinks="false">
-      <a href="https://nexmo.com">Nexmo.com</a>
-      <a href="https://help.nexmo.com/hc/en-us">Support</a>
-      <a href="https://dashboard.nexmo.com/sign-in">Sign In</a>
-      <a href="https://dashboard.nexmo.com/sign-up"><b>Try it free</b></a>
+      <a class="Nxd-main-header__link" href="https://nexmo.com">Nexmo.com</a>
+      <a class="Nxd-main-header__link" href="https://help.nexmo.com/hc/en-us">Support</a>
+      <a class="Nxd-main-header__link" href="https://dashboard.nexmo.com/sign-in">Sign In</a>
+      <a href="https://dashboard.nexmo.com/sign-up" class="Vlt-btn Vlt-btn--secondary"><b>Try it free</b></a>
     </nav>
   </div>
 </header>

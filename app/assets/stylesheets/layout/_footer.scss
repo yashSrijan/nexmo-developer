@@ -1,6 +1,6 @@
 #footer {
-  background: $gray-dark;
-  color: $gray;
+  background: $blue-darker;
+  color: rgba($white, 0.7);
   padding: $spacing*2 0 $spacing;
   margin-top: $spacing;
   line-height: 1.8;
@@ -48,12 +48,13 @@
 
   h5 {
     color: $white;
-    text-transform: uppercase;
   }
 
   a {
-    color: $gray;
+    color: rgba($white, 0.7);
+    font-size: 1.4rem;
     display: block;
+
     &:hover {
       color: $white;
     }
