@@ -13,76 +13,89 @@
 	position: relative;
 }
 
+%tabs-link {
+	background: none;
+	border: 0;
+	border-radius: 0;
+	color: $black;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin: 0 20px 0 0; // iOS adds margin around buttons so the 0s need to be declared
+	outline: none;
+	padding: 14px 0px;
+	position: relative;
+
+	svg {
+		height: 20px;
+		margin-bottom: -$unit0;
+		width: 20px;
+
+		& + span {
+			margin-left: $unit1;
+		}
+	}
+
+	&:after {
+		background: $blue-lighter;
+		bottom: 0;
+		content: '';
+		height: 3px;
+		left: 50%;
+		position: absolute;
+		transition: none;
+		width: 0px;
+	}
+
+	@media #{$L-plus} {
+		// On iOS, the browsers treat the first click as :hover if there's a style for it
+		// So we're keeping this only on desktop
+
+		&:hover {
+			background: none;
+			color: $black;
+
+			&:after {
+				left: 0;
+				transition: all 0.2s;
+				width: 100%;
+			}
+		}
+	}
+}
+
+%tabs-link-active {
+	background: none;
+
+	&:after {
+		background: $blue;
+		left: 0;
+		width: 100%;
+
+		@media #{$M-less} {
+			transition: all 0.2s;
+		}
+	}
+}
+
+%tabs-header {
+	border-bottom: 1px solid $grey-light;
+	white-space: nowrap;
+	margin: 0;
+}
+
 .Vlt-tabs {
 	&__header {
-		border-bottom: 1px solid $grey-light;
-		white-space: nowrap;
+		@extend %tabs-header;
 	}
 
 	&__link {
-		background: none;
-		border: 0;
-		border-radius: 0;
-		color: $black;
-		cursor: pointer;
-		display: inline-block;
-		font-size: 1.5rem;
-		font-weight: 600;
-		margin: 0 20px 0 0; // iOS adds margin around buttons so the 0s need to be declared
-		outline: none;
-		padding: 14px 0px;
-		position: relative;
-
-		svg {
-			height: 20px;
-			margin-bottom: -$unit0;
-			width: 20px;
-
-			& + span {
-				margin-left: $unit1;
-			}
-		}
-
-		&:after {
-			background: $blue-lighter;
-			bottom: 0;
-			content: '';
-			height: 3px;
-			left: 50%;
-			position: absolute;
-			transition: none;
-			width: 0px;
-		}
-
-		@media #{$L-plus} {
-			// On iOS, the browsers treat the first click as :hover if there's a style for it
-			// So we're keeping this only on desktop
-
-			&:hover {
-				background: none;
-				color: $black;
-
-				&:after {
-					left: 0;
-					transition: all 0.2s;
-					width: 100%;
-				}
-			}
-		}
+		@extend %tabs-link;
 
 		&_active,
 		&:active {
-			background: none;
-
-			&:after {
-				background: $blue;
-				left: 0;
-				width: 100%;
-
-				@media #{$M-less} {
-					transition: all 0.2s;
-				}
-			}
+			@extend %tabs-link-active
 		}
 
 		&:focus {

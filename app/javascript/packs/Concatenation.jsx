@@ -116,42 +116,41 @@ class Concatenation extends React.Component {
     const characterCount = this.splitStringByCodePoint(this.state.body).length
 
     return (
-      <div className="box">
+      <div>
         <h2>Try it out</h2>
 
-        <h3>Message</h3>
+        <h4>Message</h4>
 
-        <textarea
-          className="input"
-          onChange={ (event) => this.setState({ body: event.target.value })}
-          value={ this.state.body }
-          style={{ width: '100%', height: '150px', resize: 'vertical' }}
-        ></textarea>
+        <div className="Vlt-textarea">
+          <textarea
+            onChange={ (event) => this.setState({ body: event.target.value })}
+            value={ this.state.body }
+            style={{ width: '100%', height: '150px', resize: 'vertical' }}
+          ></textarea>
+        </div>
 
-        <br/><br/>
+        <h4>Data</h4>
 
-        <h3>Data</h3>
+          <table>
+            <tbody>
+              <tr>
+                <td><b>Unicode is Required?</b></td>
+                <td style={{ width: '75%' }}>{ this.renderUtfIcon(this.shouldEncodeAs16Bit()) }</td>
+              </tr>
+              <tr>
+                <td><b>Length</b></td>
+                <td style={{ width: '75%' }}>{ characterCount } { this.pluralize('character', characterCount) } sent in {split.length} message { this.pluralize('part', split.length) }</td>
+              </tr>
+            </tbody>
+          </table>
 
-        <table>
-          <tbody>
-            <tr>
-              <td><b>Unicode is Required?</b></td>
-              <td style={{ width: '75%' }}>{ this.renderUtfIcon(this.shouldEncodeAs16Bit()) }</td>
-            </tr>
-            <tr>
-              <td><b>Length</b></td>
-              <td style={{ width: '75%' }}>{ characterCount } { this.pluralize('character', characterCount) } sent in {split.length} message { this.pluralize('part', split.length) }</td>
-            </tr>
-          </tbody>
-        </table>
+        <h4>Parts</h4>
 
-        <h3>Parts</h3>
-
-        <table>
-          <tbody>
-            { this.renderSplit(split) }
-          </tbody>
-        </table>
+          <table>
+            <tbody>
+              { this.renderSplit(split) }
+            </tbody>
+          </table>
       </div>
     )
   }

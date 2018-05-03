@@ -7,24 +7,17 @@
 
 $blue-light: $blue;
 $pink: #E6547B;
-$purple: #936FD2;
-$green: #32BA86;
-$orange: #f6a85a;
-$yellow: #ffe030;
 $peach: #F88175;
-$red: #ea5353;
 $ice: #f9fbfd;
 $mint: #E4EEF3;
 $atom: #282c34;
 
-$white: #fff;
 $gray: #A1A1A1;
 $gray-light: lighten($gray, 25%);
 $stone-light: #93B6C7;
 $stone: #224E66;
 $stone-dark: #193c56;
 $gray-dark: #252A2D;
-$black: #1A1E20;
 
 $sms: #40569F;
 $sms-light: #EFF3FE;
@@ -79,6 +72,11 @@ $font-family: 'Lato', sans-serif;
 @import "../volta/scss/components/boxes";
 @import "../volta/scss/components/form-elements";
 @import "../volta/scss/components/spinner";
+@import "../volta/scss/components/tables";
+@import "../volta/scss/components/callouts";
+@import "../volta/scss/components/tabs";
+
+@import "../volta/scss/layout/article";
 
 .Vlt-sidenav {
 	display: inline-flex; // Temporary
