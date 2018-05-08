@@ -19,7 +19,7 @@
 		}
 	}
 
-	pre[class*="language"],
+	pre[class*='language'],
 	.Vlt-box,
 	.Vlt-table,
 	.Vlt-callout {
@@ -27,6 +27,39 @@
 
 		&:not(:first-child) {
 			margin-top: $unit2;
+		}
+	}
+
+	&--reverse {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			margin-bottom: $unit1;
+			margin-top: 0;
+
+			&:not(:first-child) {
+				margin-top: 0;
+			}
+		}
+
+		h1,
+		h2 {
+			margin-bottom: $unit2;
+		}
+
+		pre[class*='language'],
+		.Vlt-box,
+		.Vlt-table,
+		.Vlt-callout {
+			margin-bottom: $unit1;
+			margin-top: 0;
+
+			&:not(:first-child) {
+				margin-top: 0;
+			}
 		}
 	}
 

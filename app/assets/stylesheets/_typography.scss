@@ -319,3 +319,10 @@ blockquote {
 .subtle {
   color: $text-subtle;
 }
+
+#primary-content {
+  ul:not([class]) {
+    @extend .Vlt-list, .Vlt-list--simple;
+    list-style: none;
+  }
+}
