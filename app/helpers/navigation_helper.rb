@@ -14,7 +14,7 @@ module NavigationHelper
 
     document = build_document(content)
 
-    nodes = ['<ul class="js-scrollspy">']
+    nodes = ['<ul class="Vlt-sidemenu">']
     last_node = nil
 
     document.css('.reveal').remove
@@ -32,7 +32,7 @@ module NavigationHelper
 
       nodes << <<~HEREDOC
         <li>
-          <a href="##{heading.attributes['id']}" data-scrollspy-id="#{heading['data-id']}">
+          <a class="Vlt-sidemenu__link" href="##{heading.attributes['id']}" data-scrollspy-id="#{heading['data-id']}">
             #{heading.text}
           </a>
       HEREDOC
