@@ -117,7 +117,7 @@ module ApplicationHelper
           if context.first[:children]
             ss << "<a class='Vlt-sidemenu__trigger'>#{normalised_title(child)}</a>"
           else 
-            ss << "<h5 class='Vlt-sidemenu__title'>#{normalised_title(child)}</h5>"
+            ss << "<p class='Vlt-sidemenu__trigger'>#{normalised_title(child)}</p>"
           end
         elsif options['link'] == false
           ss << "<span>#{normalised_title(child)}</span>"
