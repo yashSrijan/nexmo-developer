@@ -10,6 +10,30 @@
   }
 }
 
+.Vlt-sidemenu--flat {
+  .Vlt-sidemenu__link {
+    padding: 4px 10px;
+  }
+
+  li {
+    a {
+      font-weight: 900;
+    }
+
+    li {
+      a {
+        font-weight: 600;
+      }
+
+      li {
+        a {
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
+
 .sidenav {
   font-size: 18px;
   font-weight: 600;
