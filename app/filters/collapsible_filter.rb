@@ -12,7 +12,7 @@ class CollapsibleFilter < Banzai::Filter
       <<~HEREDOC
         <#{heading_type} class="collapsible">
           <a class="js-collapsible" data-collapsible-id=#{id}>
-            #{heading}
+            <span class="Vlt-accordion__trigger">#{heading}</span>
           </a>
         </#{heading_type}>
 
