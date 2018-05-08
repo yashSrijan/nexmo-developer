@@ -95,12 +95,13 @@ module ApplicationHelper
 
   def directory(context = directory_hash("#{Rails.root}/_documentation")[:children], root = true, received_flatten = false)
     s = []
-    s << (root ? "<ul class='navigation js-navigation navigation--#{params[:namespace].present? ? params[:namespace] : 'documentation'}'>" : '<ul>') unless received_flatten
+    s << (root ? "<ul class='Vlt-sidemenu Vlt-sidemenu--rounded navigation js-navigation navigation--#{params[:namespace].present? ? params[:namespace] : 'documentation'}'>" : '<ul>') unless received_flatten
     s << context.map do |child|
       flatten = FLATTEN_TREES.include? normalised_title(child)
       class_name = (COLLAPSIBLE.include? normalised_title(child)) ? 'js--collapsible' : ''
       configuration_identifier = url_to_configuration_identifier(path_to_url(child[:path]))
       options = configuration_identifier.split('.').inject(NAVIGATION_OVERRIDES) { |h, k| h[k] || {} }
+      #Rails.logger.debug(options)
 
       unless options['prevent_navigation_item_class']
         class_name = "#{class_name} navigation-item--#{normalised_title(child).parameterize}"
@@ -115,9 +116,9 @@ module ApplicationHelper
 
         if !child[:is_file?]
           if context.first[:children]
-            ss << "<a class='Vlt-sidemenu__trigger'>#{normalised_title(child)}</a>"
+            ss << "<a class='Vlt-sidemenu__trigger'>#{options['svg'] && options['svgColor'] ? '<svg class="Vlt-' + options['svgColor'] + '"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-' + options['svg'] + '" /></svg>' : ''} <span class='Vlt-sidemenu__label'>#{normalised_title(child)}</span></a>"
           else 
-            ss << "<p class='Vlt-sidemenu__trigger'>#{normalised_title(child)}</p>"
+            ss << "<p class='Vlt-sidemenu__trigger'>#{options['svg'] && options['svgColor'] ? '<svg class="Vlt-' + options['svgColor'] + '"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-' + options['svg'] + '" /></svg>' : ''} <span class='Vlt-sidemenu__label'>#{normalised_title(child)}</span></p>"
           end
         elsif options['link'] == false
           ss << "<span>#{normalised_title(child)}</span>"
@@ -125,6 +126,8 @@ module ApplicationHelper
           link = link_to url, class: "#{has_active_class ? 'Vlt-sidemenu__link Vlt-sidemenu__link_active' : 'Vlt-sidemenu__link'}" do
             if options['label']
               (normalised_title(child) + content_tag(:span, options['label'], class: 'navigation-item__label')).html_safe
+            elsif options['svg']
+              (content_tag(:svg, options['svg'], class: '')).html_safe + normalised_title(child)
             else
               normalised_title(child)
             end

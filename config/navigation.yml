@@ -30,12 +30,34 @@ navigation_weight:
   In-App Voice: 4
 
 navigation_overrides:
+  concepts:
+    svg: 'mind-map'
+    svgColor: 'red'
+  messaging:
+    svg: 'message'
+    svgColor: 'purple'
+  voice:
+    svg: 'phone'
+    svgColor: 'green'
+  verify:
+    svg: 'chat'
+    svgColor: 'indigo'
+  number-insight:
+    svg: 'file-search'
+    svgColor: 'orange'
+  account:
+    svg: 'user'
+    svgColor: 'blue'
   stitch:
+    svg: 'duplicate'
+    svgColor: 'teal'
     label: 'Developer Preview'
     sdk-documentation:
       link: false
       prevent_navigation_item_class: true
   messages-and-workflows-apis:
+    svg: 'message'
+    svgColor: 'purple'
     messages:
       label: 'Developer Preview'
     workflows:
