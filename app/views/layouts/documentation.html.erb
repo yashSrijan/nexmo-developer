@@ -6,10 +6,14 @@
     <%= render partial: 'layouts/partials/header' %>
     <div class="wrapper">
       <div class="container">
-        <div class="row">
-          <nav class="columns small-12 medium-3 sidenav" id="sidenav" data-turbolinks-permanent>
-            <%= sidenav(@sidenav_root) %>
-          </nav>
+        <div class="row"> 
+          <div id="Vlt-sidenav" class="Vlt-sidenav Vlt-sidenav--light">
+            <div class="Vlt-sidenav__scroll">
+              <nav class="Vlt-sidemenu sidenav" id="sidenav" data-turbolinks-permanent>
+                <%= sidenav(@sidenav_root) %>
+              </nav>
+            </div>
+          </div>
           <div data-turbolinks-permanent class="columns small-12 medium-9 Vlt-card Vlt-article" id="primary-content">
             <%= yield %>
             <%= render partial: 'layouts/partials/feedback' %>

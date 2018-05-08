@@ -113,10 +113,16 @@ module ApplicationHelper
         url = (child[:is_file?] ? path_to_url(child[:path]) : first_link_in_directory(child[:children]))
         has_active_class = (request.path == url) || request.path.start_with?("#{url}/")
 
-        if options['link'] == false
+        if !child[:is_file?]
+          if context.first[:children]
+            ss << "<a class='Vlt-sidemenu__trigger'>#{normalised_title(child)}</a>"
+          else 
+            ss << "<h5 class='Vlt-sidemenu__title'>#{normalised_title(child)}</h5>"
+          end
+        elsif options['link'] == false
           ss << "<span>#{normalised_title(child)}</span>"
         else
-          link = link_to url, class: "#{has_active_class ? 'active' : ''}" do
+          link = link_to url, class: "#{has_active_class ? 'Vlt-sidemenu__link Vlt-sidemenu__link_active' : 'Vlt-sidemenu__link'}" do
             if options['label']
               (normalised_title(child) + content_tag(:span, options['label'], class: 'navigation-item__label')).html_safe
             else
@@ -137,7 +143,7 @@ module ApplicationHelper
       s << '<hr>'
       @side_navigation_extra_links.each do |title, path|
         s << <<~HEREDOC
-          <a href="#{path}" class="#{path == request.path ? 'active' : ''}">#{title}</a>
+          <a href="#{path}" class="#{path == request.path ? 'Vlt-sidemenu__link_active' : ''}">#{title}</a>
         HEREDOC
       end
     end
