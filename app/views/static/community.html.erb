@@ -24,14 +24,14 @@
 <hr>
 
 <div class="Vlt-grid Vlt-grid--margin-bottom1">
-  <div class="Vlt-col Vlt-col--3of4">
+  <div class="Vlt-col Vlt-col--2of3">
     <h2>You can find us at these upcoming events</h2>
   </div>
-  <div class="Vlt-col Vlt-col--1of4 Vlt-col--right">
+  <div class="Vlt-col Vlt-col--1of3 Vlt-col--right">
     <p>
       <%= link_to 'Subscribe to feed', feeds_events_url(protocol: :webcal, format: :ics), class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' %>
       <% if @past_events_count > 0 %>
-        | <%= link_to "view #{pluralize @past_events_count, 'past event'}", community_past_events_path %>
+        <%= link_to "View #{pluralize @past_events_count, 'past event'}", community_past_events_path, class: 'Vlt-btn Vlt-btn--tertiary Vlt-btn--app' %>
       <% end %>
     </p>
   </div>
