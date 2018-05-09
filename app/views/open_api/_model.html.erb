@@ -1,5 +1,5 @@
-<div>
-  <div class="slate-layout-documentation slate-layout-documentation--group">
+<div class="Vlt-grid">
+  <div class="Vlt-col Vlt-col--2of3 Nxd-api__docs">
     <div>
       <%= content_tag :h2, group['name'], id: group['name'].parameterize %>
       <%= content_tag :p, group['description'] %>
@@ -25,14 +25,12 @@
       <% end %>
     </div>
   </div>
-  <div class="slate-layout-code">
+  <div class="Vlt-col Vlt-col--1of3 Nxd-api__code">
     <% if group['schema'] %>
       <% group['schema'].each do |format, schema| %>
         <div class="js-format" data-format="<%= format %>">
-          <div class="slate-layout-code__inner">
             <h4>Example Model</h4>
             <%= ResponseParserDecorator.new(schema).html(format, xml_options: schema['xml']) %>
-          </div>
         </div>
       <% end %>
     <% end %>

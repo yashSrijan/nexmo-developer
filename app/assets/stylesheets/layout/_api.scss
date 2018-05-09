@@ -1,0 +1,76 @@
+.Nxd-content {
+	display: flex;
+}
+
+.table-no-line {
+	td {
+		border-bottom: none !important;
+	}
+}
+
+.Vlt-table {
+	.Vlt-table {
+		table thead {
+			th {
+				background-color: $grey-lighter;
+				border-bottom-color: $grey;
+				border-top-color: $grey-light;
+				color: $grey-darker;
+			}
+		}
+	}
+}
+
+.Nxd-api {
+	padding-top: 0;
+	padding-right: $unit2;
+
+	&__code {
+		background: $black;
+		border-bottom: 1px solid $grey-dark;
+		padding-top: $unit3;
+
+		pre {
+			background: rgba($white, 0.1);
+		}
+
+		.tabs {
+			background: $black;
+			width: 100%;
+		}
+
+		.tabs-content {
+			background: transparent;
+			border: 0;
+			padding: $unit2 0 0;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		.Vlt-tabs__link,
+		.tabs-title a,
+		p {
+			color: $white;
+		}
+
+		.tabs {
+			// horrible hack but it's how it was working before
+			display: none;
+		}
+
+		&--install {
+			& > .tabs {
+				// horrible hack but the system is broken
+				display: inline-block;
+			}
+		}
+	}
+
+	&__docs {
+		padding-top: $unit5
+	}
+}

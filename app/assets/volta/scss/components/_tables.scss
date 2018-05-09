@@ -324,6 +324,12 @@
 		}
 	}
 
+	.Vlt-table__row--noline {
+		> td {
+			border-bottom: 0;
+		}
+	}
+
 	// Hover buttons 
 
 	td:not(.Vlt-btn-group) {

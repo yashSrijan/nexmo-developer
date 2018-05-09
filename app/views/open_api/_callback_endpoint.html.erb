@@ -2,14 +2,14 @@
   webhook = false if local_assigns[:webhook].nil?
 %>
 
-<div>
-  <div class="slate-layout-documentation">
+<div class="Vlt-grid">
+  <div class="Vlt-col Vlt-col--2of3 Nxd-api__docs">
     <div>
-      <h3 id="<%= endpoint.operationId %>">
-        <span class="label label--<%= webhook ? 'webhook' : 'callback' %>">
+      <h3 id="<%= endpoint.operationId %>" class="Vlt-title--icon">
+        <%= endpoint.summary %>
+        <span class="Vlt-badge Vlt-badge--<%= webhook ? 'orange' : 'green' %>">
           <i class="icon icon-<%= webhook ? 'webhook' : 'callback' %>"></i> <%= webhook ? 'Webhook' : 'Callback' %>
         </span>
-        &nbsp;<%= endpoint.summary %>
       </h3>
       <% if endpoint.description %>
         <p><%= endpoint.description.render_markdown %></p>
@@ -27,9 +27,7 @@
     </div>
   </div>
 
-  <div class="slate-layout-code">
-    <div class="slate-layout-code__inner">
-      <br>
+  <div class="Vlt-col Vlt-col--1of3 Nxd-api__code">
       <%= render 'code_examples', endpoint: endpoint %>
 
       <h4>Request model</h4>
@@ -40,7 +38,6 @@
           <%= ResponseParserDecorator.new(schema).html(format, xml_options: schema['xml']) %>
         </div>
       <% end %>
-    </div>
   </div>
 </div>
 

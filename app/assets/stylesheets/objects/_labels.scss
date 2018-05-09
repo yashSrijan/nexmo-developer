@@ -63,41 +63,10 @@
     .navigation & { color: mix($blue-dark, $background, 80%); }
   }
 
-  &--status--2xx {
-    background: $positive;
-  }
-
-  &--status--3xx {
-    background: $orange;
-  }
-
-  &--status--4xx {
-    background: $red;
-  }
-
-  &--callback {
-    background: $callback;
-  }
-
-  &--webhook {
-    background: $webhook;
-  }
 
   &--inverted {
     background: $white;
     color: $blue-dark;
     border: 1px solid $blue-dark;
-  }
-
-  &--status--2xx {
-    background: $positive;
-  }
-
-  &--status--3xx {
-    background: $orange;
-  }
-
-  &--status--4xx {
-    background: $red;
   }
 }

@@ -10,40 +10,35 @@
             <% if name %>
               <% group = @definition.raw['x-groups'][name] %>
               <li>
-                <p class="Vlt-sidemenu__trigger"><%= group['name'] %></p>
-                <ul>
+                <h5 class="Vlt-sidemenu__title"><%= group['name'] %></h5>
+              </li>
             <% end %>
 
-            <li>
-              <ul>
                 <% endpoints.each do |endpoint| %>
                   <li>
-                    <%= link_to "##{endpoint.operationId}" do %>
-                      <span class="label label--code label--<%= endpoint.method %>"><%= endpoint.method.upcase %></span>
-                      <%= endpoint.summary %>
+                    <%= link_to "##{endpoint.operationId}", {:class=>"Vlt-sidemenu__link"} do %>
+                      <svg class="Vlt-green"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-method-<%= endpoint.method %>" /></svg>
+
+                      <span class="Vlt-sidemenu__label"><%= endpoint.summary %></span>
                     <% end %>
+                  </li>
                     <% if endpoint.callbacks.any? %>
-                      <ul>
+                      
                         <% endpoint.callbacks.each do |callback| %>
                           <% callback.paths.each do |path| %>
                             <% path.endpoints.each do |endpoint| %>
                               <li>
-                                <%= link_to "##{endpoint.operationId}" do %>
-                                <span class="label label--code label--callback">
-                                  <i class="icon icon-callback"></i>
-                                </span>
-                                <%= endpoint.summary %>
+                                <%= link_to "##{endpoint.operationId}", {:class=>"Vlt-sidemenu__link"} do %>
+                                <svg class="Vlt-blue"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-toggle" /></svg>
+                                <span class="Vlt-sidemenu__label"><%= endpoint.summary %></span>
                                 <% end %>
                               </li>
                             <% end %>
                           <% end %>
                         <% end %>
-                      </ul>
+                      
                     <% end %>
-                  </li>
                 <% end %>
-              </ul>
-            </li>
 
             <% if @definition.raw['x-webhooks'] %>
               <% @definition.raw['x-webhooks'].each do |name, definition| %>
@@ -52,11 +47,9 @@
                 <% callback.paths.each do |path| %>
                   <% path.endpoints.each do |endpoint| %>
                     <li>
-                      <%= link_to "##{name}" do %>
-                        <span class="label label--code label--webhook">
-                          <i class="icon icon-webhook"></i>
-                        </span>
-                        <%= endpoint.summary %>
+                      <%= link_to "##{name}", {:class=>"Vlt-sidemenu__link"} do %>
+                        <svg class="Vlt-orange"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-mind-map" /></svg>
+                        <span class="Vlt-sidemenu__label"><%= endpoint.summary %></span>
                       </li>
                     <% end %>
                   <% end %>
@@ -66,7 +59,6 @@
 
             <% if name %>
                 </li>
-              </ul>
             <% end %>
           <% end %>
 

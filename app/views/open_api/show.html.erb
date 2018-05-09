@@ -1,15 +1,9 @@
-<div class="slate-layout">
-  <div class="slate-layout-navigation">
-    <div>
-      <nav class="sidenav sidenav--spacious" data-turbolinks-permanent="">
-        <%= render 'navigation', definition: @definition %>
-      </nav>
-    </div>
-  </div>
+<div class="Nxd-content">
+   <%= render 'navigation', definition: @definition %>
 
-  <div class="slate-layout-main">
-    <div id="overview">
-      <div class="slate-layout-documentation">
+  <div class="Vlt-card Vlt-article Nxd-api">
+    <div id="overview" class="Vlt-grid">
+      <div class="Vlt-col Vlt-col--2of3 Nxd-api__docs">
         <div>
           <h1>
             <%= @definition.info['title'] %>
@@ -24,14 +18,14 @@
             <p><%= @definition.info['description'].render_markdown %></p>
           <% end %>
 
-          <%= link_to open_api_path({ format: @definition.format, params: request.query_parameters }), class: 'button button--secondary' do %>
-            <i class="icon icon-swagger"></i>
+          <%= link_to open_api_path({ format: @definition.format, params: request.query_parameters }), class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' do %>
+            <svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-download" /></svg>
             Download OpenAPI 3 Definition
           <% end %>
 
         </div>
       </div>
-      <div class="slate-layout-code">
+      <div class="Vlt-col Vlt-col--1of3 Nxd-api__code Nxd-api__code--install">
         <% if @definition_initialization_config && @definition_initialization_content %>
           <ul class="tabs tabs--code" data-tabs>
             <% if @definition_initialization_config['tabs'] %>
@@ -54,9 +48,9 @@
             </select>
           <% end %>
 
-          <div class="slate-layout-code__inner">
-            <%= @definition_initialization_content.html_safe %>
-          </div>
+          
+          <%= @definition_initialization_content.html_safe %>
+          
         <% end %>
       </div>
     </div>
@@ -78,18 +72,16 @@
     <% end %>
 
     <% if @definition_errors_content %>
-      <div class="slate-layout-main" id="errors">
+      <div class="Vlt-grid" id="errors">
         <div>
-          <div class="slate-layout-documentation">
+          <div class="Vlt-col Vlt-col--2of3 Nxd-api__docs">
             <div>
               <%= @definition_errors_content.html_safe %>
             </div>
           </div>
-          <div class="slate-layout-code">
-            <div class="slate-layout-code__inner">
+          <div class="Vlt-col Vlt-col--1of3 Nxd-api__code">
               <h4>Example response</h4>
               <%= ResponseParserDecorator.new(@definition.raw['components']['schemas']['Error']).html %>
-            </div>
           </div>
         </div>
       </div>
