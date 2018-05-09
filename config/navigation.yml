@@ -55,6 +55,15 @@ navigation_overrides:
     sdk-documentation:
       link: false
       prevent_navigation_item_class: true
+      android:
+        svg: 'open'
+        svgColor: 'blue-dark'
+      ios:
+        svg: 'open'
+        svgColor: 'blue-dark'
+      javascript:
+        svg: 'open'
+        svgColor: 'blue-dark'
   messages-and-workflows-apis:
     svg: 'message'
     svgColor: 'purple'

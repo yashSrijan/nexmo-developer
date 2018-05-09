@@ -15,3 +15,5 @@
 //= require turbolinks
 //= require smooth-scroll
 //= require jquery-scrolltofixed
+//= require volta/volta.core.js
+//= require volta/components/volta.accordion.js

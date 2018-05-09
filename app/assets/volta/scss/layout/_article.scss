@@ -32,39 +32,60 @@
 		}
 	}
 
-	&--reverse {
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 {
-			margin-bottom: $unit1;
-			margin-top: 0;
-
-			&:not(:first-child) {
-				margin-top: 0;
-			}
-		}
-
-		h1,
-		h2 {
+	ul,
+	ol {
+		li {
 			margin-bottom: $unit2;
-		}
-
-		pre[class*='language'],
-		.Vlt-box,
-		.Vlt-table,
-		.Vlt-callout {
-			margin-bottom: $unit1;
-			margin-top: 0;
-
-			&:not(:first-child) {
-				margin-top: 0;
-			}
 		}
 	}
 
+	p:not(.p-large) {
+		line-height: 2.2rem;
+	}
+}
+
+.Vlt-article--reverse {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-bottom: $unit1;
+		margin-top: 0;
+
+		&:not(:first-child) {
+			margin-top: 0;
+		}
+	}
+
+	h1,
+	h2 {
+		margin-bottom: $unit2;
+	}
+
+	pre[class*='language'],
+	.Vlt-box,
+	.Vlt-table,
+	.Vlt-callout {
+		margin-bottom: $unit1;
+		margin-top: 0;
+
+		&:not(:first-child) {
+			margin-top: 0;
+		}
+	}
+
+	p:not(.p-large) {
+		line-height: 2rem;
+	}
+
+	ul,
+	ol {
+		li {
+			margin-bottom: 0.5em;
+		}
+	}
 }
 
 .Vlt-section {

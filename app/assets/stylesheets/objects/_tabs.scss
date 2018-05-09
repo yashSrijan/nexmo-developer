@@ -24,21 +24,6 @@ ul.tabs {
       }
     }
   }
-
-  &--frameless {
-    background: none;
-    border: none;
-    box-shadow: none;
-
-    .tabs-title {
-      > a {
-        background: $mint;
-        border-radius: $radius;
-        color: $text;
-        margin-right: 10px;
-      }
-    }
-  }
 }
 
 .tabs-panel {

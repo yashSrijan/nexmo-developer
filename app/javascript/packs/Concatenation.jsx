@@ -69,7 +69,7 @@ class Concatenation extends React.Component {
     if (split.length > 1) {
       return (
         <span>
-          <span className="label">User Defined Header</span>
+          <span className="Vlt-badge Vlt-badge--blue">User Defined Header</span>
           <span dangerouslySetInnerHTML={{ __html: '&nbsp;' }}></span>
         </span>
       )

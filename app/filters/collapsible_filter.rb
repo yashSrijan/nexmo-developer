@@ -10,15 +10,16 @@ class CollapsibleFilter < Banzai::Filter
       id = SecureRandom.hex
 
       <<~HEREDOC
-        <#{heading_type} class="collapsible">
-          <a class="js-collapsible" data-collapsible-id=#{id}>
-            <span class="Vlt-accordion__trigger">#{heading}</span>
-          </a>
-        </#{heading_type}>
-
-        <div id="#{id}" class="collapsible-content" style="display: none;">
-          #{parsed_body}
+        <div class="Vlt-accordion">
+          <button class="Vlt-accordion__trigger">
+            #{heading}
+          </button>
+          <div class="Vlt-accordion__content">
+            #{parsed_body}
+          </div>
         </div>
+
+        
 
       HEREDOC
     end

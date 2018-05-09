@@ -58,7 +58,6 @@ $golden-ratio: 1.618;
 
 $font-family: 'Lato', sans-serif;
 
-
 @import "../volta/scss/components/buttons";
 @import "../volta/scss/components/tabs";
 @import "../volta/scss/components/side-navigation/side-nav--structure";
@@ -75,6 +74,7 @@ $font-family: 'Lato', sans-serif;
 @import "../volta/scss/components/callouts";
 @import "../volta/scss/components/tabs";
 @import "../volta/scss/components/lists";
+@import "../volta/scss/components/accordions";
 
 @import "../volta/scss/layout/article";
 

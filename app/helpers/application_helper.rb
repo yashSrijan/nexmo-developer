@@ -127,7 +127,7 @@ module ApplicationHelper
             if options['label']
               (normalised_title(child) + content_tag(:span, options['label'], class: 'navigation-item__label')).html_safe
             elsif options['svg']
-              (content_tag(:svg, options['svg'], class: '')).html_safe + normalised_title(child)
+              ('<svg class="Vlt-' + options['svgColor'] + '"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-' + options['svg'] + '" /></svg><span class="Vlt-sidemenu__label">').html_safe + normalised_title(child) + ('</span>').html_safe
             else
               normalised_title(child)
             end
@@ -146,7 +146,7 @@ module ApplicationHelper
       s << '<hr>'
       @side_navigation_extra_links.each do |title, path|
         s << <<~HEREDOC
-          <a href="#{path}" class="#{path == request.path ? 'Vlt-sidemenu__link_active' : ''}">#{title}</a>
+          <a href="#{path}" class="#{path == request.path ? 'Vlt-sidemenu__link_active' : ''}">#{options['svg'] && options['svgColor'] ? '<svg class="Vlt-' + options['svgColor'] + '"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-' + options['svg'] + '" /></svg>' : ''} <span class='Vlt-sidemenu__label'>#{title}</span></a>
         HEREDOC
       end
     end

@@ -51,14 +51,7 @@ table {
   code {
     white-space: nowrap;
   }
-
-  .icon-check-circle, .icon-times-cirle {
-    align-self: center;
-  }
 }
-
-table, td, th { border-collapse:separate; }
-table { border-spacing: 0px }
 
 .spacious {
   padding: $spacing*2 0;
@@ -104,4 +97,10 @@ table { border-spacing: 0px }
 
 .float-right {
   float: right;
+}
+
+.Nxd-header-notices {
+  .Vlt-callout {
+    margin-bottom: $unit4;
+  }
 }

@@ -94,20 +94,23 @@ source: _examples/stitch/overview/join-the-conversation/
 
 ## SDK Documentation
 
-<div class="row">
-  <div class="columns small-12 medium-4">
-    <a href="/stitch/sdk-documentation/javascript" class="card spacious card--image card--javascript">
-      <h2>JavaScript</h2>
+<div class="Vlt-grid">
+  <div class="Vlt-col Vlt-col--center">
+    <a href="/stitch/sdk-documentation/javascript" class="Vlt-btn Vlt-btn--tertiary Vlt-btn--large">
+      <svg class="Vlt-yellow"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-js"></use></svg>
+      JavaScript
     </a>
   </div>
-  <div class="columns small-12 medium-4">
-    <a href="/stitch/sdk-documentation/android" class="card spacious card--image card--android">
-      <h2>Android</h2>
+  <div class="Vlt-col Vlt-col--center">
+    <a href="/stitch/sdk-documentation/android" class="Vlt-btn Vlt-btn--tertiary Vlt-btn--large">
+      <svg class="Vlt-green-light"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-android"></use></svg>
+      Android
     </a>
   </div>
-  <div class="columns small-12 medium-4">
-    <a href="/stitch/sdk-documentation/ios" class="card spacious card--image card--ios">
-      <h2>iOS</h2>
+  <div class="Vlt-col Vlt-col--center">
+    <a href="/stitch/sdk-documentation/ios" class="Vlt-btn Vlt-btn--tertiary Vlt-btn--large">
+      <svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-apple"></use></svg>
+      iOS
     </a>
   </div>
 </div>
@@ -120,20 +123,24 @@ source: _examples/stitch/overview/join-the-conversation/
 
 ## Find the SDKs online
 
-<div class="row">
-  <div class="columns small-12 medium-4">
-    <a href="https://www.npmjs.com/package/nexmo-conversation" class="card spacious card--image card--javascript-outline">
-      <h2>JavaScript</h2>
+<div class="Vlt-grid">
+  <div class="Vlt-col Vlt-col--center">
+    <a href="https://www.npmjs.com/package/nexmo-conversation" class="Vlt-btn Vlt-btn--tertiary Vlt-btn--large">
+      <svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-open"></use></svg>
+      JavaScript
     </a>
   </div>
-  <div class="columns small-12 medium-4">
-    <a href="https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.nexmo%22%20AND%20a%3A%22conversation%22" class="card spacious card--image card--android-outline">
-      <h2>Android</h2>
+  <div class="Vlt-col Vlt-col--center">
+    <a href="https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.nexmo%22%20AND%20a%3A%22conversation%22" class="Vlt-btn Vlt-btn--tertiary Vlt-btn--large">
+      <svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-open"></use></svg>
+      Android
     </a>
   </div>
-  <div class="columns small-12 medium-4">
-    <a href="https://cocoapods.org/pods/Stitch" class="card spacious card--image card--ios-outline">
-      <h2>iOS</h2>
+  <div class="Vlt-col Vlt-col--center">
+    <a href="https://cocoapods.org/pods/Stitch" class="Vlt-btn Vlt-btn--tertiary Vlt-btn--large">
+      <svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-open"></use></svg>
+      iOS
     </a>
   </div>
 </div>
+

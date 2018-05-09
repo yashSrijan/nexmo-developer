@@ -49,9 +49,9 @@ class VoltaRender < HTML
       "#{contents}" \
       '</ul>' 
     else
-      '<ol class="Vlt-list Vlt-list--simple">' \
+      '<ol class="Vlt-list Vlt-list--big-number">' \
       "#{contents}" \
-      '<ol>' \
+      '</ol>' \
     end
   end
 end

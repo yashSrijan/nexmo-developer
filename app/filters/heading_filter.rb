@@ -12,12 +12,7 @@ class HeadingFilter < Banzai::Filter
       parameterized_heading = parameterized_heading_without_collision(heading)
       heading['id'] = parameterized_heading
       heading['data-id'] = SecureRandom.hex
-
-      heading.prepend_child <<~HEREDOC
-        <a href="##{parameterized_heading}" class="heading-permalink">
-          <i class="icon icon-link"></i>
-        </a>
-      HEREDOC
+      heading['class'] = 'Vlt-title--icon'
     end
 
     @document.to_html
