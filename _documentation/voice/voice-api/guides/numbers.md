@@ -8,27 +8,48 @@ navigation_weight: 1
 
 ## Overview
 
-Numbers are key to using the Nexmo Voice API, the following points should be considered:
+Numbers are key to using the Nexmo Voice API. The following points
+should be considered before developing your Nexmo Application.
 
 ### Formatting
 
-Within the Nexmo Voice API all numbers are in e.164 format, that is the full international format without a `+` or international access code eg `00` or `001` and no spaces or other characters eg `()-.`
-For example a US number would look like `14155550101` a UK number would be `447700900123`
-If you are unsure how to format the number our Number Insight API can help you with this
+Within the Nexmo Voice API all numbers are in E.164 format. The
+correct format is the full international format without a `+`, and
+without the international access code such as `00` or `001`. Also, no
+spaces or other characters such as `()-.` should be used. For example,
+a US number would have the format `14155550101`. A UK number would
+have the format `447700900123`. If you are unsure how to format the
+number the Number Insight API can be used to find correct information
+about a number.
 
 ### Outgoing CallerID
 
-When making an outbound call from Nexmo the CallerID (from) value needs to be a Nexmo number associated with your account, it does not have to be linked to the applicaiton you are using just part of your account. If you set it to any other value then it will be replaced with `unknown` to the recipient.
+When making an outbound call from Nexmo the CallerID, `from` value
+needs to be a Nexmo Number associated with your account. It does not
+have to be linked to the application you are using, but it needs to be
+within your account. If you set it to any other value then `from` is
+set to `unknown`.
 
 
-### Incomming CallerID
+### Incoming CallerID
 
-We endevour to present to you the caller ID of the party calling your nexmo applicaiton in international format, however this can occasionally be incorrectly formatted by the originating network, we pass through the value we receive from our number suppliers
+Nexmo endeavours to present to you the caller ID of the party calling
+your Nexmo application in international format. However, this can
+occasionally be incorrectly formatted by the originating
+network. Nexmo passes through the number received from the number
+supplier.
 
 
-### Incomming Call Numbers 
+### Incoming Call Numbers 
 
-Nexmo offers incomming numbers in many countries around the world for rental, in some contries the numbers may be enabled for SMS or Voice only or in others they will support both. We also have numbers in both 'landline' and 'mobile'  ranges for many countries.
-You can search for and rent an avalible number via the Dashboard or the Nexmo CLI tool.
-To use a number you have rented from nexmo with your voice applicaiton you need to link that number to the application again either via the dashboard or the CLI Tool.
-You can link multiple incomming numbers to the same applicaiton, the called number will be passed to your webhook.
+Nexmo offers for rental incoming numbers located in many countries
+around the world. In some countries the numbers may be enabled for SMS
+or Voice only, or in others they will support both.
+
+Nexmo can also provide numbers in both 'landline' and 'mobile' ranges
+for many countries. You can search for and rent an available number
+via the Dashboard or the Nexmo CLI tool. To use a number you have
+rented from Nexmo with your voice application you need to link that
+number to the application again either via the Dashboard or the CLI
+tool. You can link multiple incoming numbers to the same application,
+the called number will be passed to your webhook.

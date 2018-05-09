@@ -4,15 +4,42 @@ navigation_weight: 3
 ---
 
 # Overview
-Nexmo uses text to speech engines to allow you to play machine generated speech to your users, this can either be done from with an NCCO with the use of the `talk` action or by making a REST request to an in progress call 
+
+Nexmo uses text-to-speech engines to allow you to play machine
+generated speech to your users. This can either be done via an NCCO
+with the use of the `talk` action, or by making a REST request to an
+in-progress call.
+
+## Example
+
+The following example NCCO shows a simple use case:
+
+``` json
+[
+  {
+    "action": "talk",
+    "voiceName": "Amy",
+    "text": "Thank you for calling Nexmo. Please leave your message after the tone."
+  }
+]
+```
 
 ## SSML
 
-The Nexmo Voice API allows you to send text to speech to a call using a number of tags from the XML-based [Speech Synthesis Markup Language](https://www.w3.org/TR/speech-synthesis11/) (SSML). This enables you to mix multiple languages, to control the speed, volume and pitch of synthesised text, and to control pronunciation of words and numbers.
+The Nexmo Voice API allows you to send text-to-speech to a call using
+a number of tags from the XML-based [Speech Synthesis Markup
+Language](https://www.w3.org/TR/speech-synthesis11/)(SSML). This
+enables you to mix multiple languages, to control the speed, volume
+and pitch of synthesised text, and to control pronunciation of words
+and numbers.
 
-In an [NCCO](/api/voice/ncco) `talk` action, you can send SSML tags as part of the text string. They must all be wrapped in a `speak` root tag. You may use either single quotes or escaped double quotes around attribute values on SSML tags.
+In an [NCCO](/api/voice/ncco) `talk` action, you can send SSML tags as
+part of the text string. They must all be wrapped in a `speak` root
+tag. You may use either single quotes or escaped double quotes around
+attribute values on SSML tags.
 
-An example of how the SSML strings are stored inside an NCCO is provided below:
+An example of how the SSML strings are stored inside an NCCO is
+provided below:
 
 ```json
 [
@@ -29,7 +56,12 @@ An example of how the SSML strings are stored inside an NCCO is provided below:
 
 ### Language
 
-The `lang` tag allows you to control the language used in the speech. The language tag should contain both the language tag and country code (e.g. `pt-BR` for Brazilian Portuguese, `en-GB` for British English), even for languages with no country variations where a country code might otherwise be redundant (e.g. `it-IT` for Italian).
+The `lang` tag allows you to control the language used in the
+speech. The language tag should contain both the language tag and
+country code (e.g. `pt-BR` for Brazilian Portuguese, `en-GB` for
+British English), even for languages with no country variations where
+a country code might otherwise be redundant (e.g. `it-IT` for
+Italian).
 
 ```xml
 <speak><lang xml:lang='it-IT'>Buongiorno</lang></speak>
@@ -41,7 +73,9 @@ The `lang` tag allows you to control the language used in the speech. The langua
 
 ### Breaks
 
-The `break` tag allows you to add pauses to text. The duration of the pause can be specified either using a `strength` duration or as a `time` seconds or milliseconds.
+The `break` tag allows you to add pauses to text. The duration of the
+pause can be specified either using a `strength` duration or as a
+`time` seconds or milliseconds.
 
 ```xml
 <speak>My name is <break time='1s' />Slim Shady.</speak>
@@ -82,9 +116,13 @@ The `p` tag allows you to specify paragraphs in your speech.
 
 🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/05-paragraphs.mp3]
 
-### Phonemes
+### Phonemes
 
-The `phoneme` tag allows you to send an International Phonetic Alphabet (IPA) representation of a word. To use this, you need to specify both an `alphabet` (either `ipa` or [`x-sampa`](https://en.wikipedia.org/wiki/X-SAMPA)) and the `ph` attribute containing the phonetic symbols.
+The `phoneme` tag allows you to send an International Phonetic
+Alphabet (IPA) representation of a word. To use this, you need to
+specify both an `alphabet` (either `ipa` or
+[`x-sampa`](https://en.wikipedia.org/wiki/X-SAMPA)) and the `ph`
+attribute containing the phonetic symbols.
 
 ```xml
 <speak>
@@ -100,13 +138,22 @@ Two nations separated by a common language.
 
 ### Prosody
 
-The `prosody` tag allows you to set the pitch, rate and volume of the text.
+The `prosody` tag allows you to set the pitch, rate and volume of the
+text.
 
-The `volume` attribute can be set to the following values: `default`, `silent`, `x-soft`, `soft`, `medium`, `loud` and `x-loud`. You can also specify a relative decibel value in the form `+ndB` or `-nDB` where `n` is an integer value.
+The `volume` attribute can be set to the following values: `default`,
+`silent`, `x-soft`, `soft`, `medium`, `loud` and `x-loud`. You can
+also specify a relative decibel value in the form `+ndB` or `-nDB`
+where `n` is an integer value.
 
-The `rate` attribute changes the speed of speech. Acceptable values include: `x-slow`, `slow`, `medium`, `fast` and `x-fast`.
+The `rate` attribute changes the speed of speech. Acceptable values
+include: `x-slow`, `slow`, `medium`, `fast` and `x-fast`.
 
-The `pitch` attribute changes the pitch of the voice. You can specify this using either predefined value labels or numerically. The value labels are: `default`, `x-low`, `low`, `medium`, `high` and `x-high`. The format for specifying a numerical pitch change is: `+n%` and `-n%`.
+The `pitch` attribute changes the pitch of the voice. You can specify
+this using either predefined value labels or numerically. The value
+labels are: `default`, `x-low`, `low`, `medium`, `high` and
+`x-high`. The format for specifying a numerical pitch change is: `+n%`
+and `-n%`.
 
 The example below shows how to change the volume, rate and pitch.
 
@@ -124,7 +171,8 @@ and can <prosody pitch='x-low'>change my pitch</prosody>.
 
 ### Sentences
 
-You can wrap sentences in the `s` tag. This is equivalent to putting a full stop at the end of the sentence.
+You can wrap sentences in the `s` tag. This is equivalent to putting a
+full stop at the end of the sentence.
 
 ```xml
 <speak>
@@ -209,12 +257,16 @@ Welcome to the <sub alias="United States">US</sub>.
 
 🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/10-alias.mp3]
 
-
 ## Locale
-You should choose a voice that matches the language type of the text you are asking to be read, trying to read Spanish with an `en-us` voice for example will not produce good results. For many languages Nexmo offers a choice of voices with different styles and genders.
 
-You can set the Voice with a Voice Name parameter in the talk command, if you do not specify a voice name then nexmo will default to `Kimberly`, an `en-US` voice.
+You should choose a voice that matches the language type of the text
+you are asking to be read, trying to read Spanish with an `en-us`
+voice for example will not produce good results. For many languages
+Nexmo offers a choice of voices with different styles and genders.
 
+You can set the Voice with a Voice Name parameter in the talk command,
+if you do not specify a voice name then nexmo will default to
+`Kimberly`, an `en-US` voice.
 
 ### Voice Names
 
@@ -270,7 +322,9 @@ Name | Language | Gender
 
 #### Discontinued voices
 
-Some voices have been removed. The table below shows the discontinued voice names and which voice you will now get if you use the discontinued voice name.
+Some voices have been removed. The table below shows the discontinued
+voice names and which voice you will now get if you use the
+discontinued voice name.
 
 Name | Locale & Gender | Now redirects to
 -----|-----------------|-----------------
@@ -279,5 +333,8 @@ Name | Locale & Gender | Now redirects to
 `Jennifer` | `en-US`, female | `Kimberly`
 `Agnieszka` | `pl-PL`, female | `Ewa`
 
-
 # Demonstration
+
+[](TODO: was something supposed to go here?)
+
+
