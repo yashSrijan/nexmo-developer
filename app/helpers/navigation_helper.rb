@@ -14,7 +14,7 @@ module NavigationHelper
 
     document = build_document(content)
 
-    nodes = ['<ul class="Vlt-sidemenu Vlt-sidemenu--rounded Vlt-sidemenu--flat">']
+    nodes = ['<ul class="Vlt-sidemenu Vlt-sidemenu--rounded Vlt-sidemenu--flat navigation js-navigation">']
     last_node = nil
 
     document.css('.reveal').remove

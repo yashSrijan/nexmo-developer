@@ -52,23 +52,10 @@ ul.tabs {
       padding: 1rem 0;
     }
   }
-}
 
-.tabs--code, .tabs-content--code {
-  border: none;
-}
-
-.tabs-content--code {
-
-  .tabs-panel {
-
-    pre.highlight {
-      border-radius: 0 0 3px 3px;
-      overflow: auto;
-    }
-
-    position: relative;
+  &--code {
     padding: 0;
-
+    border: 0;
+    background: none;
   }
 }

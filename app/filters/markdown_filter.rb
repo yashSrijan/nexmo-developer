@@ -43,6 +43,14 @@ class VoltaRender < HTML
     '</div>'
   end
 
+  def image(link, title, alt_text)
+    '<figure>' \
+      '<img src="'\
+      "#{link}"\
+      '" alt="#{alt_text}">' \
+    '</figure>'
+  end
+
   def list(contents, list_type)
     if "#{list_type}" == 'unordered'
       '<ul class="Vlt-list Vlt-list--simple">' \

@@ -42,6 +42,11 @@
 	p:not(.p-large) {
 		line-height: 2.2rem;
 	}
+
+	figure {
+		margin: $unit4 auto;
+		text-align: center;
+	}
 }
 
 .Vlt-article--reverse {
@@ -85,6 +90,11 @@
 		li {
 			margin-bottom: 0.5em;
 		}
+	}
+
+	figure {
+		margin: $unit2 auto;
+		text-align: center;
 	}
 }
 
