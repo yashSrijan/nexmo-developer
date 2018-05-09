@@ -6,7 +6,7 @@ class MarkdownFilter < Banzai::Filter
   private
 
   def renderer
-    @renderer ||= HTML.new
+    @renderer ||= VoltaRender.new
   end
 
   def markdown
@@ -21,5 +21,16 @@ class MarkdownFilter < Banzai::Filter
       disable_indented_code_blocks: true,
       start_inline: true
     })
+  end
+end
+
+class VoltaRender < HTML
+  def table(header, body)
+    '<div class="Vlt-table Vlt-table--data">' \
+    '<table>' \
+      "<thead>#{header}</thead>" \
+      "<tbody>#{body}</tbody>" \
+    '</table>' \
+    '</div>'
   end
 end
