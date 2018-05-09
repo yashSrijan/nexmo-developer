@@ -33,4 +33,25 @@ class VoltaRender < HTML
     '</table>' \
     '</div>'
   end
+
+  def block_quote(quote)
+    '<div class="Vlt-callout Vlt-callout--tip">' \
+      '<i></i>' \
+      '<div class="Vlt-callout__content">' \
+        "#{quote}" \
+      '</div>' \
+    '</div>'
+  end
+
+  def list(contents, list_type)
+    if "#{list_type}" == 'unordered'
+      '<ul class="Vlt-list Vlt-list--simple">' \
+      "#{contents}" \
+      '</ul>' 
+    else
+      '<ol class="Vlt-list Vlt-list--simple">' \
+      "#{contents}" \
+      '<ol>' \
+    end
+  end
 end

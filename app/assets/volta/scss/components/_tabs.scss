@@ -10,7 +10,7 @@
 
 %tabs-panel-active {
 	display: block;
-	position: relative;
+	position: static;
 }
 
 %tabs-link {
@@ -81,8 +81,8 @@
 
 %tabs-header {
 	border-bottom: 1px solid $grey-light;
-	white-space: nowrap;
 	margin: 0;
+	white-space: nowrap;
 }
 
 .Vlt-tabs {

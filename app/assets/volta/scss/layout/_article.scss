@@ -5,6 +5,7 @@
 
 		&:not(:first-child) {
 			margin-top: $unit4;
+			padding-top: 0;
 		}
 	}
 
@@ -16,6 +17,7 @@
 
 		&:not(:first-child) {
 			margin-top: $unit3;
+			padding-top: 0;
 		}
 	}
 

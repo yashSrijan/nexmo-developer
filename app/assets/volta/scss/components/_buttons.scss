@@ -152,7 +152,7 @@ $shadow-tertiary: inset 0 0 0px 1px $grey;
 	color: $white;
 
 	&:hover,
-	&:focus {
+	&:not(.Vlt-btn--no-focus):focus {
 		background: darken($orange, 5);
 		color: $white;
 	}
@@ -175,7 +175,7 @@ $shadow-tertiary: inset 0 0 0px 1px $grey;
 	color: $white;
 
 	&:hover,
-	&:focus {
+	&:not(.Vlt-btn--no-focus):focus {
 		background: darken($blue, 5);
 		color: $white;
 	}
@@ -204,7 +204,7 @@ $shadow-tertiary: inset 0 0 0px 1px $grey;
 	}
 
 	&:hover,
-	&:focus {
+	&:not(.Vlt-btn--no-focus):focus {
 		background: $grey-light;
 		color: $black;
 	}
@@ -227,7 +227,7 @@ $shadow-tertiary: inset 0 0 0px 1px $grey;
 	color: $white;
 
 	&:hover,
-	&:focus {
+	&:not(.Vlt-btn--no-focus):focus {
 		background: darken($red, 5);
 		color: $white;
 	}
@@ -290,7 +290,7 @@ $shadow-tertiary: inset 0 0 0px 1px $grey;
 			}
 		}
 
-		&:focus {
+		&:not(.Vlt-btn--no-focus):focus {
 			z-index: 2;
 		}
 	}

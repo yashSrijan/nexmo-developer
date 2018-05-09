@@ -81,18 +81,6 @@ pre {
   color: $blue-dark;
 }
 
-blockquote {
-  @extend .Vlt-callout, .Vlt-callout--tip;
-
-  p {
-    margin: 0;
-  }
-
-  code {
-    font-style: normal;
-  }
-}
-
 .reveal-overlay {
   background: rgba($mint, 0.4);
 }
@@ -318,11 +306,4 @@ blockquote {
 
 .subtle {
   color: $text-subtle;
-}
-
-#primary-content {
-  ul:not([class]) {
-    @extend .Vlt-list, .Vlt-list--simple;
-    list-style: none;
-  }
 }

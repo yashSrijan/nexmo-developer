@@ -48,41 +48,6 @@ img {
 }
 
 table {
-  margin-bottom: $spacing;
-  border: $border;
-  border-radius: $radius;
-  box-shadow: $shadow-soft;
-
-  thead {
-    color: $white;
-    background: $blue-dark;
-  }
-
-  thead {
-    th:first-child {
-      border-top-left-radius: $radius;
-    }
-
-    th:last-child {
-      border-top-right-radius: $radius;
-    }
-  }
-
-  tbody tr:nth-child(even) {
-    background: mix($ice, $mint);
-  }
-
-  th {
-    padding: $spacing/2 $spacing;
-    font-weight: 600;
-  }
-
-  td {
-    padding: $spacing;
-    border-bottom: $border;
-    line-height: 1.5em;
-  }
-
   code {
     white-space: nowrap;
   }

@@ -4,22 +4,8 @@
 	border-radius: 8px;
 	margin-bottom: $unit2;
 	padding: $unit4;
-	text-align: center;
-
-	img {
-		margin-bottom: $unit2;
-		max-height: 100px;
-		max-width: 100px;
-	}
-
-	p {
-		color: $grey-darker;
-		margin: 0;
-
-		& + p {
-			margin-top: $unit1;
-		}
-	}
+	text-align: left;
+	width: 100%;
 
 	.Vlt-btn {
 		margin-bottom: 0;
@@ -29,6 +15,7 @@
 	h3,
 	h4 {
 		margin-bottom: $unit1;
+		margin-top: 0;
 	}
 
 	&__data {
@@ -57,6 +44,7 @@
 
 	&--data {
 		padding: $unit2;
+		text-align: center;
 
 		h2,
 		h3,
@@ -68,7 +56,22 @@
 		}
 	}
 
-	&--left {
-		text-align: left;
+	&--fancy {
+		text-align: center;
+
+		img {
+			margin-bottom: $unit2;
+			max-height: 100px;
+			max-width: 100px;
+		}
+
+		p {
+			color: $grey-darker;
+			margin: 0;
+
+			& + p {
+				margin-top: $unit1;
+			}
+		}
 	}
 }
