@@ -108,6 +108,13 @@
 		}
 	}
 
+	&--bordered {
+		border-bottom: 1px solid $grey-light;
+		border-left: 1px solid $grey-light;
+		border-radius: 2px 2px $unit0 $unit0;
+		border-right: 1px solid $grey-light;
+	}
+
 	table tbody &__cell,
 	table tfoot &__cell {
 		&--number {
@@ -416,6 +423,12 @@
 					border-left-color: $teal-light;
 				}
 			}
+		}
+
+		&.Vlt-table--bordered {
+			border-bottom: 1px solid $teal-lighter;
+			border-left: 1px solid $teal-lighter;
+			border-right: 1px solid $teal-lighter;
 		}
 
 		table {

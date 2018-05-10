@@ -8,7 +8,7 @@
           <h1>
             <%= @definition.info['title'] %>
             <% if @definition.info['x-label'] %>
-              <span class="Vlt-badge label--<%= @definition.info['x-label'].parameterize %>">
+              <span class="Vlt-badge Vlt-badge--<%= @definition.info['x-label'].parameterize %>">
                 <%= @definition.info['x-label'] %>
               </span>
             <% end %>
@@ -73,16 +73,14 @@
 
     <% if @definition_errors_content %>
       <div class="Vlt-grid" id="errors">
-        <div>
-          <div class="Vlt-col Vlt-col--2of3 Nxd-api__docs">
-            <div>
-              <%= @definition_errors_content.html_safe %>
-            </div>
+        <div class="Vlt-col Vlt-col--2of3 Nxd-api__docs">
+          <div>
+            <%= @definition_errors_content.html_safe %>
           </div>
-          <div class="Vlt-col Vlt-col--1of3 Nxd-api__code">
-              <h4>Example response</h4>
-              <%= ResponseParserDecorator.new(@definition.raw['components']['schemas']['Error']).html %>
-          </div>
+        </div>
+        <div class="Vlt-col Vlt-col--1of3 Nxd-api__code">
+            <h4>Example response</h4>
+            <%= ResponseParserDecorator.new(@definition.raw['components']['schemas']['Error']).html %>
         </div>
       </div>
     <% end %>

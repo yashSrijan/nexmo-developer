@@ -17,7 +17,7 @@
       <% end %>
     </div>
 <% else %>
-<div class="Vlt-table Vlt-section Vlt-table--data Vlt-table--data--dark">
+<div class="Vlt-table Vlt-section Vlt-table--data Vlt-table--data--dark Vlt-table--bordered">
   <table>
     <thead class="<%= callback ? 'table-list-columns--callback' : '' %> <%= model ? 'table-list-columns--model' : '' %>">
       <tr>
@@ -82,28 +82,23 @@
 
             <% if parameter.enum %>
               <br>
-              <small>
-                <i>
+              <small class="Vlt-grey-dark">
                   <%= (callback || model) ? "One of:" : "Must be one of:" %>
-                  <%= parameter.enum.map { |s| "<code>#{s}</code>" }.to_sentence(last_word_connector: 'or', two_words_connector: 'or').html_safe %>
-                </i>
+                  <%= parameter.enum.map { |s| "<code>#{s}</code>" }.to_sentence(last_word_connector: ' or ', two_words_connector: ' or ').html_safe %>
               </small>
             <% end %>
 
             <% if parameter.raw['x-possible-values'] %>
               <br>
-              <small>
-                <i>
+              <small class="Vlt-grey-dark">
                   Will be one of:
-                  <%= parameter.raw['x-possible-values'].map { |s| "<code>#{s}</code>" }.to_sentence(last_word_connector: 'or', two_words_connector: 'or').html_safe %>
-                </i>
+                  <%= parameter.raw['x-possible-values'].map { |s| "<code>#{s}</code>" }.to_sentence(last_word_connector: ' or ', two_words_connector: 'or').html_safe %>
               </small>
             <% end %>
 
             <% if parameter.minimum || parameter.maximum %>
               <br>
-              <small>
-                <i>
+              <small class="Vlt-grey-dark">
                   <% if parameter.minimum && parameter.maximum %>
                     Must be between <%= "<code>#{parameter.minimum}</code>".html_safe %> and <%= "<code>#{parameter.maximum}</code>".html_safe %>
                   <% elsif parameter.minimum %>
@@ -111,7 +106,6 @@
                   <% else %>
                     Must be at most <%= "<code>#{parameter.maximum}</code>".html_safe %>
                   <% end %>
-                </i>
               </small>
             <% end %>
           </td>

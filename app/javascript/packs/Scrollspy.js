@@ -48,7 +48,7 @@ export default () => {
     });
 
     $('.Nxd-api__code > .tabs').scrollToFixed()
-    const formatMargin = $('.slate-layout-code > .tabs').children().length > 0 ? 60 : 20
+    const formatMargin = $('.Nxd-api__code > .tabs').children().length > 0 ? 60 : 20
     $('.Nxd-api__code > .js-format-selector').scrollToFixed({ marginTop: formatMargin })
   });
 

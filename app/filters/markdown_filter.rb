@@ -26,7 +26,7 @@ end
 
 class VoltaRender < HTML
   def table(header, body)
-    '<div class="Vlt-table Vlt-table--data">' \
+    '<div class="Vlt-table Vlt-table--data Vlt-table--bordered">' \
     '<table>' \
       "<thead>#{header}</thead>" \
       "<tbody>#{body}</tbody>" \
