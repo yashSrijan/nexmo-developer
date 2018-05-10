@@ -58,10 +58,12 @@ class Feedback extends React.Component {
   renderFeedbackImproveThisPage() {
     if (!this.props.github_url) { return }
 
+    var githubIcon = '<use xlink:href="/symbol/volta-icons.svg#Vlt-icon-github" />'
+
     return (
       <span id="feedback__improve">
-        <i className="icon icon-github"></i>
-        <a href={ this.props.github_url } target="_blank">Improve this page</a>
+        <svg className="Vlt-icon Vlt-black" dangerouslySetInnerHTML={{__html: githubIcon }} />
+        <a href={ this.props.github_url } target="_blank"> Improve this page</a>
       </span>
     )
   }

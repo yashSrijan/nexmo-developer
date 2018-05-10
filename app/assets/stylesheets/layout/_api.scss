@@ -68,6 +68,13 @@
 				display: inline-block;
 			}
 		}
+
+		.Vlt-accordion__trigger {
+			&:after {
+				background-color: rgba($white, 0.2);
+				border-radius: 100%;
+			}
+		}
 	}
 
 	&__docs {

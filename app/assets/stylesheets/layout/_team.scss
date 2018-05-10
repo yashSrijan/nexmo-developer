@@ -9,6 +9,11 @@
 		color: $grey-darker;
 		margin: $unit2 0;
 	}
+
+	&-description {
+		max-width: 760px;
+		margin: 0 auto;
+	}
 }
 
 .Nxd-profile {

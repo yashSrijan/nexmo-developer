@@ -69,12 +69,14 @@
       <% endpoint.responses.each do |response| %>
         <% id = SecureRandom.hex %>
 
-        <h4 class="js-collapsible collapsible <%= response.success? ? 'collapsible--active' : '' %>" data-collapsible-id="<%= id %>">
-           HTTP response
+        <div class="Vlt-accordion">
+        <h4 class="Vlt-accordion__trigger">
+           <span>HTTP response
            <span class="Vlt-badge Vlt-badge--<%= response.code[0] == '2' ? 'green' : response.code[0] == '3' ? 'yellow' : 'red'  %>"><%= response.code %></span>
+         </span>
         </h4>
 
-        <div id="<%= id %>" style="display: <%= response.success? ? 'block' : 'none' %>;">
+        <div class="Vlt-accordion__content">
           <div class="tabs-content" data-tabs-content="<%= id %>">
             <% response.formats.each_with_index do |format, index| %>
 
@@ -109,6 +111,7 @@
 
             <% end %>
           </div>
+        </div>
 
           <% if response.code == '204' || response.formats.empty? %>
             <pre class="highlight"><code>No content</code></pre>
