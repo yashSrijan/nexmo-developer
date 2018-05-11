@@ -5,12 +5,14 @@ navigation_weight: 3
 
 # Overview
 
-Nexmo uses text-to-speech engines to allow you to play machine
+Nexmo uses a text-to-speech engine to allow you to play machine
 generated speech to your users. This can either be done via an NCCO
 with the use of the `talk` action, or by making a REST request to an
 in-progress call.
 
-## Example
+## NCCO
+
+Text-to-speech can be played into a call via an NCCO.
 
 The following example NCCO shows a simple use case:
 
@@ -23,6 +25,20 @@ The following example NCCO shows a simple use case:
   }
 ]
 ```
+
+See the [NCCO
+Reference](https://developer.nexmo.com/api/voice/ncco#talk) for more
+information.
+
+
+## REST API
+
+You can also play text-to-speech into a call via the [REST
+API](https://developer.nexmo.com/api/voice#send-a-synthesized-speech-message-to-an-active-call).
+
+There is also a client library equivalent to play text-to-speech into
+a call. See the documentation for your specific client library.
+
 
 ## SSML
 
@@ -103,7 +119,7 @@ that is the question.
 
 ### Paragraphs
 
-The `p` tag allows you to specify paragraphs in your speech.
+The `p` tag allows you to specify paragraphs in your speech:
 
 ```xml
 <speak>
@@ -187,9 +203,13 @@ full stop at the end of the sentence.
 
 ### Say As
 
-The `say-as` tag allows you to provide instructions for how particular words and numbers are spoken. Many of these features are automatically detected in speech by the TTS engine, but the `say-as` command allows you to mark them specifically.
+The `say-as` tag allows you to provide instructions for how particular
+words and numbers are spoken. Many of these features are automatically
+detected in speech by the TTS engine, but the `say-as` command allows
+you to mark them specifically.
 
-The `say-as` tag has a required attribute: `interpret-as`. That attribute must contain one of the following values:
+The `say-as` tag has a required attribute: `interpret-as`. That
+attribute must contain one of the following values:
 
 * `character`/`spell-out`: spells each letter out, like `I-A-T-A`
 * `cardinal`/`number`: pronounces the value as a number — e.g. "974" would be pronounced "nine hundred and seventy four"
@@ -231,7 +251,7 @@ Dates can be formatted in the following ways:
 * `y`: year (e.g. "2017")
 * `yyyymmdd`: year-month-day, with optional `?` to replace unspecified components (e.g. "20170310" or "????0310")
 
-The example below will be converted to "Today is March 10th".
+The example below will be converted to "Today is March 10th":
 
 ```xml
 <speak>
@@ -245,7 +265,8 @@ Today is <say-as interpret-as="date" format="dm">10/3</say-as>
 
 ### Substitution
 
-The `sub` tag allows you to provide a substitute pronunciation. The contents of the `alias` attribute will be read instead.
+The `sub` tag allows you to provide a substitute pronunciation. The
+contents of the `alias` attribute will be read instead:
 
 ```xml
 <speak>
