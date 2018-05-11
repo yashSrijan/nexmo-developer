@@ -19,7 +19,7 @@
 <% else %>
 <div class="Vlt-table Vlt-section Vlt-table--data Vlt-table--data--dark Vlt-table--bordered">
   <table>
-    <thead class="<%= callback ? 'table-list-columns--callback' : '' %> <%= model ? 'table-list-columns--model' : '' %>">
+    <thead>
       <tr>
         <th>Key</th>
         <th>Description</th>
@@ -34,7 +34,7 @@
     <tbody>
     <% parameters.each do |parameter| %>
     
-      <tr class="<%= callback ? 'table-list-columns--callback' : '' %> <%= model ? 'table-list-columns--model' : '' %> <% if parameter.collection? %> Vlt-table__row--noline <% end %>">
+      <tr class="<% if parameter.collection? %> Vlt-table__row--noline <% end %>">
           <td class="Vlt-table__cell--nowrap">
             <b><%= parameter.name %></b><br>
             <small>

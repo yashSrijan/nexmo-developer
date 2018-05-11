@@ -120,7 +120,7 @@ form {
     width: calc(100vw - #{$spacing * 2});
   }
 
-  @include mobile {
+  @media #{$S-only} {
     position: relative;
   }
 

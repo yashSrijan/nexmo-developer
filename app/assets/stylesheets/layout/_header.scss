@@ -3,7 +3,7 @@
   color: $white;
   padding: $unit2 0;
 
-  @include mobile {
+  @media #{$S-only} {
     text-align: center;
     padding: $spacing*0.75 0 $spacing*0.5 0;
   };
@@ -41,7 +41,7 @@
       }
     }
 
-    @include mobile {
+    @media #{$S-only} {
       float: none;
     };
   }

@@ -13,50 +13,51 @@
         </code>
       </div>
 
-      <% if endpoint.jwt? || endpoint.basic_auth? %>
+       <% if endpoint.jwt? || endpoint.basic_auth? %>
         <h4>Authentication</h4>
-        <ul class="table-list table-list--dark">
-          <li class="table-list-header">
-            <div class="table-list-columns">
-              <div class="table-list-column" flex="2">Key</div>
-              <div class="table-list-column" flex="3">Description</div>
-              <div class="table-list-column" flex="2">Example</div>
+        <div class="Vlt-table Vlt-table--data Vlt-table--data--dark Vlt-table--bordered">
+          <table>
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Description</th>
+                <th>Example</th>
+                <th>Default</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <b>Authorization</b>
+                  <br>
+                  <small>
+                    <span class="flag flag--strong">REQUIRED</span> | <i>string</i>
+                  </small>
+                </td>
 
-              <div class="table-list-column">Default</div>
-            </div>
-          </li>
-          <li>
-            <div class="table-list-columns">
-              <div class="table-list-column" flex="2">
-                <b>Authorization</b>
-                <br>
-                <small>
-                  <span class="flag flag--strong">REQUIRED</span> | <i>string</i>
-                </small>
-              </div>
+                <% if endpoint.jwt? %>
+                  <td>
+                    <b>Your JSON web token.</b><br>
+                    <small><%= link_to "Read more about JWTs", "/concepts/guides/authentication#json-web-tokens-jwt" %></small>
+                  </td>
+                  <td><code>Bearer &lt;JWT&gt;</code></td>
+                <% end %>
 
-              <% if endpoint.jwt? %>
-                <div class="table-list-column" flex="3">
-                  <b>Your JSON web token.</b><br>
-                  <small><%= link_to "Read more about JWTs", "/concepts/guides/authentication#json-web-tokens-jwt" %></small>
-                </div>
-                <div class="table-list-column" flex="2"><code>Bearer &lt;JWT&gt;</code></div>
-              <% end %>
+                <% if endpoint.basic_auth? %>
+                  <td>
+                    <b>Base64 encoded API key and secret joined by a colon.</b><br>
+                    <small><%= link_to "Read more", "/concepts/guides/authentication#header-based-api-key-secret-authentication" %></small>
+                  </td>
+                  <td><code>Basic &lt;base64&gt;</code></td>
+                <% end %>
 
-              <% if endpoint.basic_auth? %>
-                <div class="table-list-column" flex="3">
-                  <b>Base64 encoded API key and secret joined by a colon.</b><br>
-                  <small><%= link_to "Read more", "/concepts/guides/authentication#header-based-api-key-secret-authentication" %></small>
-                </div>
-                <div class="table-list-column" flex="2"><code>Basic &lt;base64&gt;</code></div>
-              <% end %>
-
-              <div class="table-list-column">
-                <i>None</i>
-              </div>
-            </div>
-          </li>
-        </ul>
+                <td>
+                  <i>None</i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       <% end %>
 
       <%= render 'parameter_groups', endpoint: endpoint %>
