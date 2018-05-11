@@ -67,5 +67,9 @@ let refresh = () => {
 }
 
 $(document).on('nexmo:load', function() {
-  refresh()
+  refresh();
 })
+
+document.addEventListener(‘DOMContentLoaded’, function(){
+  Volta.init(['accordion, tooltip'])
+}, false);
