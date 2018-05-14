@@ -2,6 +2,7 @@
 
 .Vlt-table {
 	background: linear-gradient(90deg, rgba($black, 0.1) 0%, transparent 30%), linear-gradient(90deg, transparent 70%, rgba($black, 0.1) 100%) 100% 0;
+	background-color: $white;
 	background-repeat: no-repeat;
 	background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
 	display: flex; // Takes care of an artifact that appears on certain screen sizes due to the shadow effect.

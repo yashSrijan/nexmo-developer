@@ -32,8 +32,7 @@
 		}
 	}
 
-	ul,
-	ol {
+	.Vlt-list {
 		li {
 			margin-bottom: $unit2;
 		}
@@ -46,6 +45,13 @@
 	figure {
 		margin: $unit4 auto;
 		text-align: center;
+	}
+
+	.Vlt-box--fancy,
+	.Vlt-modal,
+	.Vlt-callout,
+	.Vlt-sidenav {
+		@extend .Vlt-article--reverse;
 	}
 }
 
@@ -85,8 +91,7 @@
 		line-height: 2rem;
 	}
 
-	ul,
-	ol {
+	.Vlt-list {
 		li {
 			margin-bottom: 0.5em;
 		}
