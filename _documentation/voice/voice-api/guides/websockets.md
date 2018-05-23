@@ -11,15 +11,17 @@ The Nexmo Voice API allows you to connect to a call via a WebSocket.
 This means that you will have a real-time two-way stream of the raw
 audio in the call delivered to you over the HTTP WebSocket protocol.
 This allows you to connect the audio to platforms such as sentiment
-analysys, real-time transcription systems, and artificial intelligence.
+analysis, real-time transcription systems, and artificial
+intelligence.
 
 You can also send audio back into the call over this interface.
 
-The WebSocket is an endpoint just like another Phone or SIP address. This means 
-it is a participant in your call and not a passive monitor like
-a recording. If you connect a WebSocket to a conference call, or a third-party in a 1-1 call, the audio it will receive will be a
-mix of all audio in the call. It is not possible to receive a single
-leg of the conversation via the WebSocket.
+The WebSocket is an endpoint in the same what that a phone or SIP
+address is. This means it is a participant in your call and not a
+passive monitor like a recording. If you connect a WebSocket to a
+conference call, or a third-party in a 1-1 call, the audio it receives
+is a mix of all the audio in the call. It is not possible to receive a
+single leg of the conversation via the WebSocket.
 
 The Nexmo Voice API always acts as the HTTP client when establishing
 the WebSocket connection. As the application developer you need to
@@ -33,8 +35,7 @@ be text-based and contain a JSON payload detailing the audio format,
 along with any other metadata that you have put in the `headers`
 parameter of the WebSocket endpoint in your NCCO `connect`.
 
-For example, the following `connect` action would result in the
-following message being received:
+For example, consider the following `connect` action:
 
 ``` json
 [
@@ -54,7 +55,8 @@ following message being received:
 ]
 ```
 
-You will receive this JSON in the first message on the WebSocket:
+This results in the following JSON in the first message on the
+WebSocket:
 
 ``` json
 {
@@ -63,7 +65,7 @@ You will receive this JSON in the first message on the WebSocket:
 }
 ```
 
-The maximum length of the headers data is 512 bytes.
+The maximum length of the `headers` data is 512 bytes.
 
 After the initial text message all subsequent messages on the
 WebSocket will be binary, containing the audio payload as specified in
