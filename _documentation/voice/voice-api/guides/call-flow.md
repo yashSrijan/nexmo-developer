@@ -30,8 +30,8 @@ script of actions to be run within the context of the call. Actions
 are executed in the order they appear in the script, with the next
 action starting when the previous action has reached an end stage.
 
-The NCCO is fetched from the Answer URL when the call is answered. For
-inbound calls the Answer URL is set when the application is created.
+The NCCO is fetched from the `answer_url` when the call is answered. For
+inbound calls the `answer_url` is set when the application is created.
 For outbound calls an `answer_url` parameter is supplied in the API
 request to create the call.
 
@@ -47,23 +47,24 @@ Each call goes through a sequence of states in its lifecycle:
 ## Events
 
 As the call progresses through the various states, the Nexmo platform
-will send event objects to your Event URL. Like the Answer URL, the
-Event URL is associated with the application for inbound calls, or is
+will send event objects to your `event_url`. Like the `answer_url` the
+`event_url` is associated with the application for inbound calls, or is
 supplied as an `event_url` parameter when the call is created. Full
 details of each of these webhooks can be found in the API reference.
 
 |Event Name | Description |
-|started    | The call is created on the Nexmo platform|
-|ringing    | The destination has confirmed that the call is ringing |
-|answered   | The destination has answered the call |
-|machine    | When machine detection has been requested and the call is answered by a machine|
-|human      | When machine detection has been requested and the call is answered by a human|
-|timeout    | The call timed out before it was answered|
-|failed     | The call attempt failed in the phone network |
-|rejected   | The call attempt was rejected by the Nexmo platform |
-|cancelled  | The call was cancelled by the originator before it was answered |
+| --------- | ----------- |
+| `started`    | The call is created on the Nexmo platform |
+| `ringing`    | The destination has confirmed that the call is ringing |
+| `answered`   | The destination has answered the call |
+| `machine`    | When machine detection has been requested and the call is answered by a machine|
+| `human`      | When machine detection has been requested and the call is answered by a human|
+| `timeout`    | The call timed out before it was answered|
+| `failed`     | The call attempt failed in the phone network |
+| `rejected`   | The call attempt was rejected by the Nexmo platform |
+| `cancelled`  | The call was cancelled by the originator before it was answered |
 
-In addition, certain errors are sent to the Event URL such as an invalid NCCO.
+In addition, certain errors are sent to the `event_url` such as an invalid NCCO.
 
 ## Fallback NCCO
 
@@ -79,7 +80,7 @@ new NCCO to any of the following events:
 - `unaswered`
 - `busy`
 
-## Syncronous vs Asynchronous Actions
+## Synchronous vs Asynchronous Actions
 
 Each _Action_ within an NCCO has certain conditions on which it will
 be considered "complete" and the call will progress to the next
@@ -137,7 +138,7 @@ been met:
 2. The `maxDigits` number of digits are entered
 3. A `#` is sent and `submitOnHash` is set
 
-The input action will then send a webhook to the Event URL containing
+The input action will then send a webhook to the `event_url` containing
 the submitted digits. 
 
 Input is unique in that when the webhook is sent with the entered
@@ -148,7 +149,7 @@ next item in the NCCO.
 ## Transferring to a new NCCO
 
 You can replace the currently executing NCCO with a new one by making
-an HTTP PUT request to the REST API with the call UUID in it. This
+an HTTP `PUT` request to the REST API with the call UUID in it. This
 will replace whatever actions are being executed or queued in the
 current NCCO. One such use case for this is to transfer a call that is
 on hold (looping an audio file) to an agent by putting a new NCCO with
@@ -164,7 +165,7 @@ This can be set to one of two values, `hangup` or `continue`. If
 either of these values is set when the call is answered, Nexmo will
 attempt to determine if the call was answered by a human, or a machine
 such as voicemail. This normally takes a few seconds to be
-determined. At this point Nexmo will send an event to your Event URL
+determined. At this point Nexmo will send an event to your `event_url`
 with either `Human` or `Machine` included.
 
 If machine detection was set to `hangup` and Nexmo determined that a
@@ -172,5 +173,5 @@ machine answered the call, then the call will be ended.
 
 If set to `continue` then the call will remain connected. You can then
 modify the call. For example, you could transfer the call to a new
-destination with the PUT feature described previously in the section
+destination with the `PUT` feature described previously in the section
 'Transferring to a new NCCO'.
