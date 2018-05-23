@@ -10,6 +10,7 @@ paths:
     post:
       security:
         - bearerAuth: []
+      summary: Create an outbound call
       description: Create an outbound Call
       operationId: createCall
       requestBody:
@@ -110,6 +111,7 @@ paths:
     get:
       security:
         - bearerAuth: []
+      summary: Get details of your calls
       description: Get details of your calls
       operationId: getCalls
       parameters:
@@ -339,9 +341,9 @@ paths:
           required: true
           description: UUID of the Call
       get:
-        
         security:
           - bearerAuth: []
+        summary: Get detail of a specific call
         description: Get detail of a specific call
         operationId: getCall
         responses:
@@ -462,6 +464,7 @@ paths:
       put:
         security:
           - bearerAuth: []
+        summary: Modify an in progress call
         description: Modify an in progress call
         operationId: updateCall
         requestBody:
@@ -514,6 +517,7 @@ paths:
       put:
           security:
             - bearerAuth: []
+          summary: Play an audio file into a call
           description: Play an audio file into a call
           operationId: startStream
           requestBody:
@@ -557,6 +561,7 @@ paths:
       delete:
           security:
             - bearerAuth: []
+          summary: Play an audio file into a call
           description: Play an audio file into a call
           operationId: startStream2 # operationIds must be unique
           responses:
@@ -591,7 +596,8 @@ paths:
       put:
           security:
             - bearerAuth: []
-          description: Play an text to speech into a call
+          summary: Play a text to speech into a call
+          description: Play a text to speech into a call
           operationId: startTalk
           requestBody:
             description: action to perform
@@ -634,6 +640,7 @@ paths:
       delete:
           security:
             - bearerAuth: []
+          summary: Stop text to speech in a call
           description: Stop text to speech in a call
           operationId: stopTalk
           responses:
@@ -668,6 +675,7 @@ paths:
       put:
           security:
             - bearerAuth: []
+          summary: Play DTMF tones into a call
           description: Play DTMF tones into a call
           operationId: startDTMF
           requestBody:
