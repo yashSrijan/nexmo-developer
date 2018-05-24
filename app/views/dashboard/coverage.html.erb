@@ -1,0 +1,54 @@
+<center>
+    <h1>Building Block Stats</h1>
+
+    <br>
+    <div class="box">
+        <h2>Filter</h2>
+        <%= form_tag({}, {:method => :get}) do %>
+            <div>
+                Product: <%= select_tag :product,
+                    options_for_select([['All', nil]].concat(DocumentationConstraint.product_list), params[:product]),
+                    onchange: "this.form.submit();" %>
+        </div>
+    <br>
+    <%= link_to 'Reset', '/coverage' %> &nbsp;
+    <%= submit_tag 'Update', class: 'button' %>
+<% end %>
+    </div>
+</center>
+<br>
+
+<hr />
+
+<% @categories.each do |category, blocks| %>
+    <% next if @product and not category == @product  %>
+    <h2><%= category %></h2>
+    <% blocks.each do |section, entries| %>
+        <% if @supported_languages.include?(entries.keys[0]) %>
+            <% entries = blocks %>
+        <% else %>
+            <h3><%= section %></h3>
+        <% end %>
+        <table>
+            <thead>
+                <tr>
+                <td>Block</td>
+                <% @supported_languages.each do |lang| %>
+                    <td><%= lang %></td>
+                <% end %>
+                </tr>
+            </thead>
+            <tbody>
+                <% entries.each do |name, languages| %>
+                    <tr>
+                        <td style="width: 200px;"><strong><%= name %></strong></td>
+                        <% @supported_languages.each do |lang| %>
+                            <td style="border: 1px solid white; background: <%= languages[lang] ? 'green' : 'red' %>" >&nbsp</td>
+                        <% end %>
+                    <% end %>
+                    </tr>
+            </tbody>
+        </table>
+    <% end %>
+    <hr>
+<% end %>

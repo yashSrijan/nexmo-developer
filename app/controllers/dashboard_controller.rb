@@ -18,6 +18,21 @@ class DashboardController < ApplicationController
     end
   end
 
+  def coverage
+    @product = product.gsub("-", "_") if product
+    @categories = YAML.load_file("#{Rails.root}/config/code_examples.yml")
+    @supported_languages = %w(
+        curl
+        httpie
+        csharp
+        java
+        node
+        php
+        python
+        ruby
+    )
+  end
+
   private
 
   def set_additional_scripts
