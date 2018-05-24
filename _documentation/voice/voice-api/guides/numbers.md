@@ -1,7 +1,7 @@
 ---
 title: Numbers
 description: the key concepts of using phone numbers in the nexmo voice API
-navigation_weight: 1
+navigation_weight: 2
 ---
 
 # Numbers
