@@ -16,7 +16,7 @@ Key |	Description
 `UUID` | replace with the UUID of the call to modify.
 `action` | the action to use in updating the call. In this case `mute` or `unmute`.
 
-```tabbed_content
+```building_blocks
 source: '_examples/voice/mute-a-call'
 ```
 

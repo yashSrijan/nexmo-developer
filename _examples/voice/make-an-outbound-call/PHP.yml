@@ -1,10 +1,11 @@
+---
 title: PHP
 language: php
 dependencies:
     - nexmo/client
     - 'slim/slim:^3.8'
-source: .repos/nexmo-community/nexmo-php-quickstart/blob/master/voice/text-to-speech-outbound.php
-line_from: 12
-line_to: 22
+source: .repos/nexmo-community/nexmo-php-quickstart/voice/text-to-speech-outbound.php
+from_line: 12
+to_line: 22
 file_name: index.php
 run_command: 'php -t . -S localhost:3000'

@@ -18,7 +18,7 @@ Key |	Description
 `NEXMO_NUMBER` | Nexmo Number to call.
 
 
-```tabbed_content
+```building_blocks
 source: '_examples/voice/handle-user-input-with-dtmf'
 ```
 

@@ -1,9 +1,10 @@
+---
 title: PHP
 language: php
 dependencies:
     - 'slim/slim:^3.8'
-source: .repos/nexmo-community/nexmo-php-quickstart/blob/master/voice/inbound-calls-slim/index.php
-line_from: 7
-line_to: 22
+source: .repos/nexmo-community/nexmo-php-quickstart/voice/user-input-dtmf-slim/index.php
+from_line: 7
+to_line: 40
 file_name: index.php
 run_command: 'php -t . -S localhost:3000'

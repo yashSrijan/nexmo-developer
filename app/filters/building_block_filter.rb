@@ -1,6 +1,6 @@
 class BuildingBlockFilter < Banzai::Filter
   def call(input)
-    input.gsub(/```building-block(.+?)```/m) do |_s|
+    input.gsub(/```single_building_block(.+?)```/m) do |_s|
       config = YAML.safe_load($1)
 
       if config['config']
@@ -50,7 +50,7 @@ class BuildingBlockFilter < Banzai::Filter
       HEREDOC
 
       run_html = <<~HEREDOC
-        ## Run your server
+        ## Run your code
 
         Save this file to your machine and run it:
 

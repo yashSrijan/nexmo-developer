@@ -18,7 +18,7 @@ Key |	Description
 `TO_NUMBER` | The number to connect the call to.
 
 
-```tabbed_content
+```building_blocks
 source: '_examples/voice/record-a-call'
 ```
 

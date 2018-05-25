@@ -9,7 +9,7 @@ A building block that shows how to retrieve information for all calls.
 
 ## Example
 
-```tabbed_content
+```building_blocks
 source: '_examples/voice/retrieve-info-for-all-calls'
 ```
 

@@ -10,7 +10,7 @@ A building block that shows how to record a conversation.
 
 ## Example
 
-```tabbed_content
+```building_blocks
 source: '_examples/voice/record-a-conversation'
 ```
 

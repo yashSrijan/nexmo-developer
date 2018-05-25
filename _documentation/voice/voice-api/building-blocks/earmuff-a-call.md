@@ -17,7 +17,7 @@ Key |	Description
 `action` | The action. In this case `earmuff` or `unearmuff`.
 
 
-```tabbed_content
+```building_blocks
 source: '_examples/voice/earmuff-a-call'
 ```
 

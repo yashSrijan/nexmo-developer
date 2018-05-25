@@ -16,7 +16,7 @@ Key |	Description
 `UUID` | The UUID of the call into which to play the DTMF tones.
 `Digits` | Digits representing the DTMF tones that will be played into the call.
 
-```tabbed_content
+```building_blocks
 source: '_examples/voice/play-dtmf-into-a-call'
 ```
 

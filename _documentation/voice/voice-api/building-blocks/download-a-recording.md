@@ -15,7 +15,7 @@ Key |	Description
 -- | --
 `RECORDING_URL` |	The URL of the recording to download.
 
-```tabbed_content
+```building_blocks
 source: '_examples/voice/download-a-recording'
 ```
 

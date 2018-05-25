@@ -17,7 +17,7 @@ Key |	Description
 `NEXMO_NUMBER` | The Nexmo Number of the application (the FROM number).
 `TO_NUMBER` | The number to connect the call to.
 
-```tabbed_content
+```building_blocks
 source: '_examples/voice/record-a-call-with-split-audio'
 ```
 

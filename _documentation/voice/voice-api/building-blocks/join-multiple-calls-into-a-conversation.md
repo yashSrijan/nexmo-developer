@@ -17,7 +17,7 @@ conference called `nexmo-conference` and there would be no problem.
 
 ## Example
 
-```tabbed_content
+```building_blocks
 source: '_examples/voice/join-multiple-calls-into-a-conversation'
 ```
 

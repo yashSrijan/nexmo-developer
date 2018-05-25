@@ -16,7 +16,7 @@ Key |	Description
 `UUID` | the UUID of the call into which to play an audio stream.
 `URL` | The URL of the audio file that will be streamed into an array. The URL must be in an array.
 
-```tabbed_content
+```building_blocks
 source: '_examples/voice/play-an-audio-stream-into-a-call'
 ```
 

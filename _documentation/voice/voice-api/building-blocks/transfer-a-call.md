@@ -19,7 +19,7 @@ Key |	Description
 `url` | The URL of the NCCO to transfer control to. URLs _must_ be array type (for Python library).
 
 
-```tabbed_content
+```building_blocks
 source: '_examples/voice/transfer-a-call'
 ```
 

@@ -9,7 +9,7 @@ In this building block you see how to receive an inbound call.
 
 ## Example
 
-```tabbed_content
+```building_blocks
 source: '_examples/voice/receive-an-inbound-call'
 ```
 

@@ -17,7 +17,7 @@ Key |	Description
 `UUID` | The UUID for the call for which information is being requested.
 
 
-```tabbed_content
+```building_blocks
 source: '_examples/voice/retrieve-info-for-a-call'
 ```
 

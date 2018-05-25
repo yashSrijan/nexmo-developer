@@ -71,8 +71,7 @@ class BuildingBlocksFilter < Banzai::Filter
   end
 
   def contents
-    list = content_from_source if @config['source']
-
+    list = content_from_source
     list ||= []
 
     return list unless list.any?
@@ -104,11 +103,14 @@ class BuildingBlocksFilter < Banzai::Filter
       content[:tab_title] = content['title']
 
       source = <<~HEREDOC
-      <h2>#{@config['title']}</h2>
-```building-block
+```single_building_block
 #{source}
 ```
       HEREDOC
+
+      if @config['title']
+          source = "<h2>#{@config['title']}</h2>" + source
+      end
 
       content[:body] = MarkdownPipeline.new(options).call(source)
 

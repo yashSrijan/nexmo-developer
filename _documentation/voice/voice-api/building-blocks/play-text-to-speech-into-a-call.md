@@ -17,7 +17,7 @@ Key |	Description
 `Text` | text of the message to play into the call.
 
 
-```tabbed_content
+```building_blocks
 source: '_examples/voice/play-text-to-speech-into-a-call'
 ```
 
