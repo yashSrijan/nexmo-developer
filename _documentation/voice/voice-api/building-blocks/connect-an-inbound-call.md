@@ -15,7 +15,8 @@ Key |	Description
 -- | --
 `YOUR_SECOND_NUMBER` |	The number you wish the inbound caller to be connected to.
 
-```tabbed_content
+```building_blocks
+title: Implement a webhook 
 source: '_examples/voice/connect-an-inbound-call'
 ```
 

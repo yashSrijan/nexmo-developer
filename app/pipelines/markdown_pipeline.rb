@@ -14,6 +14,7 @@ class MarkdownPipeline < Banzai::Pipeline
       TooltipFilter,
       CollapsibleFilter,
       TabFilter.new(options),
+      BuildingBlocksFilter,
       CodeFilter,
       BuildingBlockFilter,
       IndentFilter,
