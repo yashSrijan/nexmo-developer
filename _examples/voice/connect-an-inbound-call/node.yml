@@ -1,0 +1,9 @@
+---
+title: Node
+language: node
+dependencies:
+  - express
+file_name: app.js
+code:
+    source: '.repos/nexmo-community/nexmo-node-quickstart/voice/connect-an-inbound-call.js'
+run_command: node app.js
