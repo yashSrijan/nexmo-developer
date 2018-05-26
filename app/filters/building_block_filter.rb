@@ -52,8 +52,8 @@ class BuildingBlockFilter < Banzai::Filter
   end
 
   def language_to_lexer_name(language)
-    if language_configuration[language]
-      language_configuration[language]['lexer']
+    if language_configuration['languages'][language]
+      language_configuration['languages'][language]['lexer']
     else
       language
     end
@@ -68,7 +68,6 @@ class BuildingBlockFilter < Banzai::Filter
   def language_configuration
     @language_configuration ||= YAML.load_file("#{Rails.root}/config/code_languages.yml")
   end
-
 
   def generate_code_block(input, unindent)
       # TODO: Remove the n/a check by updating YAML definitions
@@ -92,19 +91,26 @@ class BuildingBlockFilter < Banzai::Filter
 
   def generate_dependencies(language, dependencies)
       dep_managers = {
-          "javascript" => lambda { |deps| "npm install #{dependencies.join(' ')}" },
-          "php" => lambda { |deps| "composer require #{dependencies.join(' ')}" },
-          "java" => lambda { |deps| <<~HEREDOC
-            Add the following to <code>build.gradle</code>
-            #{dependencies.map { |d| "compile '#{d}'<br />" }}
-          HEREDOC
+          "javascript" => lambda { |deps| "$ npm install #{dependencies.join(' ')}" },
+          "csharp" => lambda { |deps| "$ Install-Package #{dependencies.join(' ')}" },
+          "php" => lambda { |deps| "$ composer require #{dependencies.join(' ')}" },
+          "python" => lambda { |deps| "$ pip install #{dependencies.join(' ')}" },
+          "ruby" => lambda { |deps| "$ gem install #{dependencies.join(' ')}" },
+          "java" => lambda { |deps| 
+              {
+
+                'text' => 'Add the following to <code>build.gradle</code>:',
+                'code' => dependencies.map { |d| "compile '#{d}'" }.join("<br />")
+              }
           },
       }
 
       deps = dep_managers[language].call(dependencies)
+      deps = {'code' => deps} unless deps['code']
+      deps['text'] = 'Install the required dependencies:' unless deps['text']
       dependency_html = <<~HEREDOC
-          <p>Install the required dependencies:</p>
-          <pre class="highlight bash"><code>$ #{deps}</code></pre>
+          <p>#{deps['text']}</p>
+          <pre class="highlight bash"><code>#{deps['code']}</code></pre>
       HEREDOC
   end
 end
