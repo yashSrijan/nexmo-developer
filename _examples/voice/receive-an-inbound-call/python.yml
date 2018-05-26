@@ -1,0 +1,15 @@
+---
+title: Python
+language: python
+dependencies:
+    - '''flask>=1.0'''
+code:
+    source: .repos/nexmo-community/nexmo-python-quickstart/voice/inbound_call.py
+    from_line: 8
+    to_line: 20
+client:
+    source: .repos/nexmo-community/nexmo-python-quickstart/voice/inbound_call.py
+    from_line: 3
+    to_line: 5
+file_name: inbound_call.py
+run_command: 'python3 inbound_call.py'
