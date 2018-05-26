@@ -1,0 +1,15 @@
+---
+title: Java
+language: java
+dependencies:
+    - 'com.nexmo:client:latest.release'
+client:
+    source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/RetrieveCallInfo.java
+    from_line: 17
+    to_line: 22
+code:
+    source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/RetrieveCallInfo.java
+    from_line: 41
+run_command: 'Run your class in whichever way you find easiest.'
+file_name: RetrieveCallInfo.java
+unindent: true

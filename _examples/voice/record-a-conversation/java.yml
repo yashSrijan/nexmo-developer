@@ -1,0 +1,15 @@
+---
+title: Java
+language: java
+dependencies:
+    - 'com.nexmo:client:latest.release'
+    - 'com.sparkjava:spark-core:2.7.2'
+client:
+    source: n/a
+code:
+    source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/RecordConversation.java
+    from_line: 33
+    to_line: 63
+run_command: 'Run your class in whichever way you find easiest.'
+file_name: RecordConversation.java
+unindent: true

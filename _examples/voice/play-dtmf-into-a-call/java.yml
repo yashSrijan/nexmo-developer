@@ -1,0 +1,16 @@
+---
+title: Java
+language: java
+dependencies:
+    - 'com.nexmo:client:latest.release'
+client:
+    source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/SendDtmfToCall.java
+    from_line: 39
+    to_line: 46
+code:
+    source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/SendDtmfToCall.java
+    from_line: 58
+    to_line: 60
+run_command: 'Run your class in whichever way you find easiest.'
+file_name: SendDtmfToCall.java
+unindent: true
