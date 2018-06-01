@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2017 Nexmo Inc
+ * Copyright (c) 2011-2018 Nexmo Inc
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,30 +22,50 @@
 package com.nexmo.quickstart.voice;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nexmo.client.voice.ncco.ConversationNcco;
 import com.nexmo.client.voice.ncco.Ncco;
+import com.nexmo.client.voice.ncco.RecordNcco;
 import com.nexmo.client.voice.ncco.TalkNcco;
 import spark.Route;
 
 import static spark.Spark.*;
 
-public class ConferenceCall {
+public class RecordMessage {
     public static void main(String[] args) {
-        String CONF_NAME = "my-conference";
         /*
-         * Route to answer incoming calls with an NCCO response.
+         * Route to answer and connect incoming calls with rec.ording.
          */
         Route answerRoute = (req, res) -> {
-            TalkNcco intro = new TalkNcco("Please wait while we connect you to the conference.");
-            ConversationNcco conversation = new ConversationNcco(CONF_NAME);
-            Ncco[] nccos = new Ncco[]{intro, conversation};
+            String recordingUrl = String.format("%s://%s/webhook/recordings", req.scheme(), req.host());
+
+            TalkNcco intro = new TalkNcco(
+                    "Please leave a message after the tone, then press #. We will get back to you as soon as we can.");
+
+            RecordNcco record = new RecordNcco();
+            record.setEventUrl(recordingUrl);
+            record.setEndOnSilence(3);
+            record.setEndOnKey('#');
+            record.setBeepStart(true);
+
+            TalkNcco outro = new TalkNcco("Thank you for your message. Goodbye");
+
+            Ncco[] nccos = new Ncco[]{intro, record, outro};
 
             res.type("application/json");
             return new ObjectMapper().writer().writeValueAsString(nccos);
         };
 
+        /*
+         * Webhook Route which prints out the recording URL it is given to stdout.
+         */
+        Route recordingWebhookRoute = (req, res) -> {
+            System.out.println(RecordingPayload.fromJson(req.bodyAsBytes()).getRecordingUrl());
+
+            res.status(204);
+            return "";
+        };
+
         port(3000);
         get("/webhook/answer", answerRoute);
-        post("/webhook/answer", answerRoute);
+        post("/webhook/recordings", recordingWebhookRoute);
     }
 }
