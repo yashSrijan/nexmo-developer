@@ -1,9 +1,9 @@
 ---
-title: Join multiple calls into a conversation
+title: Connect callers into a conference
 navigation_weight: 6
 ---
 
-# Join multiple calls into a conversation
+# Connect callers to a conference
 
 This building block shows how to join multiple calls into a conversation.
 
@@ -18,7 +18,7 @@ conference called `nexmo-conference` and there would be no problem.
 ## Example
 
 ```building_blocks
-source: '_examples/voice/join-multiple-calls-into-a-conversation'
+source: '_examples/voice/connect-callers-to-a-conference'
 ```
 
 ## Try it out

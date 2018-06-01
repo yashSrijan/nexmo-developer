@@ -3,7 +3,7 @@ title: Receive an inbound call
 navigation_weight: 12
 ---
 
-# Connect an inbound call
+# Receive an inbound call
 
 In this building block you see how to receive an inbound call.
 

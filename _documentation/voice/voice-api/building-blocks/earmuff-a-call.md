@@ -16,7 +16,6 @@ Key |	Description
 `UUID` | The UUID of the call you want to update.
 `action` | The action. In this case `earmuff` or `unearmuff`.
 
-
 ```building_blocks
 source: '_examples/voice/earmuff-a-call'
 ```
