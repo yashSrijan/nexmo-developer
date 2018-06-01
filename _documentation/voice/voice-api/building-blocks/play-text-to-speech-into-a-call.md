@@ -18,7 +18,7 @@ Key |	Description
 
 
 ```building_blocks
-source: '_examples/voice/play-text-to-speech-into-a-call'
+source: '_examples/voice/play-tts-into-a-call'
 ```
 
 ## Try it out
