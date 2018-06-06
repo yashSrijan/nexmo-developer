@@ -7,7 +7,22 @@ Rails.application.routes.draw do
     resources :feedbacks
   end
 
+  namespace :admin_api, defaults: {format: 'json'} do
+    resources :feedback, only: [:index]
+  end
+
+  get '/robots.txt', to: 'static#robots'
+
   get 'markdown/show'
+
+  match '/markdown', to: 'markdown#preview', via: [:get, :post]
+
+  get '/signout', to: 'sessions#destroy'
+
+  post '/jobs/code_example_push', to: 'jobs#code_example_push'
+  post '/jobs/open_pull_request', to: 'jobs#open_pull_request'
+
+  get '/stats', to: 'dashboard#stats'
 
   get '/tutorials', to: 'tutorials#index'
   get '/tutorials/*document(/:code_language)', to: 'tutorials#show', constraints: DocumentationConstraint.code_language
@@ -16,6 +31,8 @@ Rails.application.routes.draw do
   get '/documentation', to: 'static#documentation'
 
   get '/legacy', to: 'static#legacy'
+  get '/team', to: 'static#team'
+  resources :careers, only: [:show], path: 'team'
 
   get '/community/slack', to: 'slack#join'
   post '/community/slack', to: 'slack#invite'
@@ -31,9 +48,14 @@ Rails.application.routes.draw do
 
   match '/search', to: 'search#results', via: [:get, :post]
 
+  get '/api-errors', to: 'api_errors#index'
+  get '/api-errors/generic/:id', to: 'api_errors#show'
+  get '/api-errors/*definition', to: 'api_errors#index_scoped', as: 'api_errors_scoped', constraints: OpenApiConstraint.products
+  get '/api-errors/*definition/:id', to: 'api_errors#show', constraints: OpenApiConstraint.products
+
   get '/api', to: 'api#index'
 
-  get '/api/*specification(/:code_language)', to: 'open_api#show', as: 'open_api', constraints: { specification: /sms/ }
+  get '/api/*definition(/:code_language)', to: 'open_api#show', as: 'open_api', constraints: OpenApiConstraint.products
   get '/api/*document(/:code_language)', to: 'api#show', constraints: DocumentationConstraint.code_language
 
   get '/*product/(api|ncco)-reference', to: 'markdown#api'
@@ -43,13 +65,6 @@ Rails.application.routes.draw do
   end
 
   get '/:product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation
-
-  get '/robots.txt', to: 'static#robots'
-
-  get '/signout', to: 'sessions#destroy'
-
-  post '/jobs/code_example_push', to: 'jobs#code_example_push'
-  post '/jobs/open_pull_request', to: 'jobs#open_pull_request'
 
   get '*unmatched_route', to: 'application#not_found'
 

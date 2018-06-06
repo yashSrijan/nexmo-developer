@@ -1,11 +1,14 @@
 IGNORED_PATHS = ['..', '.', '.DS_Store'].freeze
-NAVIGATION_WEIGHT = YAML.load_file("#{Rails.root}/config/navigation.yml")['navigation_weight']
+NAVIGATION = YAML.load_file("#{Rails.root}/config/navigation.yml")
+NAVIGATION_WEIGHT = NAVIGATION['navigation_weight']
+NAVIGATION_OVERRIDES = NAVIGATION['navigation_overrides']
 FLATTEN_TREES = [].freeze
 COLLAPSIBLE = ['Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'Voice', 'Number Insight', 'Account', 'Global', 'SIP', 'Voice API'].freeze
 
 module ApplicationHelper
   def search_enabled?
-    return false unless ENV['SEARCH_URL']
+    return false unless defined? ALGOLIA_CONFIG
+    return false unless ENV['ALGOLIA_SEARCH_KEY']
     true
   end
 
@@ -55,6 +58,10 @@ module ApplicationHelper
     path.gsub(/.*#{@namespace_root}/, '').gsub('.md', '')
   end
 
+  def url_to_configuration_identifier(url)
+    url.tr('/', '.').sub(/^./, '')
+  end
+
   def first_link_in_directory(context)
     return nil if context.empty?
     if context.first[:is_file?]
@@ -65,7 +72,11 @@ module ApplicationHelper
   end
 
   def normalised_title(item)
-    (item[:is_file?] ? document_meta(item[:path])['title'] : I18n.t("menu.#{item[:title]}"))
+    if item[:is_file?]
+      document_meta(item[:path])['navigation'] || document_meta(item[:path])['title']
+    else
+      I18n.t("menu.#{item[:title]}")
+    end
   end
 
   def sidenav(path)
@@ -84,18 +95,37 @@ module ApplicationHelper
 
   def directory(context = directory_hash("#{Rails.root}/_documentation")[:children], root = true, received_flatten = false)
     s = []
-    s << (root ? "<ul class='navigation js-navigation navigation--#{params[:namespace] || 'documentation'}'>" : '<ul>') unless received_flatten
+    s << (root ? "<ul class='navigation js-navigation navigation--#{params[:namespace].present? ? params[:namespace] : 'documentation'}'>" : '<ul>') unless received_flatten
     s << context.map do |child|
       flatten = FLATTEN_TREES.include? normalised_title(child)
       class_name = (COLLAPSIBLE.include? normalised_title(child)) ? 'js--collapsible' : ''
+      configuration_identifier = url_to_configuration_identifier(path_to_url(child[:path]))
+      options = configuration_identifier.split('.').inject(NAVIGATION_OVERRIDES) { |h, k| h[k] || {} }
+
+      unless options['prevent_navigation_item_class']
+        class_name = "#{class_name} navigation-item--#{normalised_title(child).parameterize}"
+      end
 
       ss = []
-      ss << "<li class='#{class_name} navigation-item navigation-item--#{normalised_title(child).parameterize}'>" unless received_flatten
+      ss << "<li class='#{class_name} navigation-item'>" unless received_flatten
 
       unless flatten
         url = (child[:is_file?] ? path_to_url(child[:path]) : first_link_in_directory(child[:children]))
         has_active_class = (request.path == url) || request.path.start_with?("#{url}/")
-        ss << link_to(normalised_title(child), url, class: "#{has_active_class ? 'active' : ''}")
+
+        if options['link'] == false
+          ss << "<span>#{normalised_title(child)}</span>"
+        else
+          link = link_to url, class: "#{has_active_class ? 'active' : ''}" do
+            if options['label']
+              (normalised_title(child) + content_tag(:span, options['label'], class: 'navigation-item__label')).html_safe
+            else
+              normalised_title(child)
+            end
+          end
+
+          ss << link
+        end
       end
 
       ss << directory(child[:children], false, flatten) if child[:children]
@@ -121,15 +151,18 @@ module ApplicationHelper
     YAML.load_file(path)
   end
 
-  def render_request(definition_name, endpoint)
-    return unless endpoint.code_example_path
-    markdown = <<~HEREDOC
-      ```tabbed_examples
-      config: #{endpoint.code_example_path}
-      ```
-    HEREDOC
+  def show_canonical_meta?
+    return true if params[:code_language].present?
+    return true if Rails.env.production? && request.base_url != 'https://developer.nexmo.com'
+    false
+  end
 
-    tabbed_examples = TabbedExamplesFilter.new.call(markdown)
-    UnfreezeFilter.new.call(tabbed_examples).html_safe
+  def canonical_path
+    request.path.chomp("/#{params[:code_language]}")
+  end
+
+  def canonical_url
+    base_url = Rails.env.production? ? 'https://developer.nexmo.com' : request.base_url
+    canonical_path.prepend(base_url)
   end
 end

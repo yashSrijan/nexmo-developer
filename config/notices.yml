@@ -1,4 +1,6 @@
-1: |-
-    <h2>Welcome to Nexmo Developer</h2>
-    <p>We are improving our Documentation, API references, learning resources & tooling to help you more effectively use our services. We want to help you find everything you need to integrate Nexmo APIs into your code.</p>
-    <p>As we start this transition, we’d love to hear from you with thoughts & suggestions. If you’ve got something, positive or negative, to tell us, please tell us using the feedback tool at the bottom of each guide or <a href="https://github.com/Nexmo/nexmo-developer/issues/new">file an issue</a> on GitHub. - Nexmo</p>
+olympus-message-tag-notice:
+  content: |
+    <h2>Adding Message Category to Messages and Workflows APIs</h2>
+    <p>On the 7th May 2018 it will be possible to tag the type of messages sent to Facebook Messenger and Viber Service Messages. This will open up new use cases but might require additional development work to ensure your messaging is compliant with either Facebook Messenger or Viber Service Messages. Please read the <a href="https://developer.nexmo.com/messages-and-workflows-apis/messages/overview#notices">notice</a> for more details.</p>
+  path: /messages-and-workflows-apis\/.*?/
+  dismissible: false

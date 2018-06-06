@@ -36,7 +36,8 @@ class StaticController < ApplicationController
     @document_title = "Community"
     @upcoming_events = Event.upcoming
     @past_events_count = Event.past.count
-    @sessions = Session.all
+    @sessions = Session.published
+    @sessions = Session.all if current_user && current_user.admin?
     render layout: 'page'
   end
 
@@ -117,5 +118,17 @@ class StaticController < ApplicationController
 
   def robots
     render 'robots.txt'
+  end
+
+  def team
+    @team = YAML.load_file("#{Rails.root}/config/team.yml")
+
+    if current_user && current_user.admin?
+      @careers = Career.all
+    else
+      @careers = Career.published
+    end
+
+    render layout: 'page'
   end
 end

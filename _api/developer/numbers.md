@@ -1,6 +1,6 @@
 ---
 title: Developer - Numbers API Reference
-description: Reference guide for the Account API.
+description: Reference guide for the Numbers API.
 api: Developer API
 ---
 
@@ -46,7 +46,7 @@ The response contains the following keys and values:
 Key | Value
 -- | --
 `count` | The total amount of numbers owned by account.
-`numbers` | An paginated array of numbers and their details.
+`numbers` | A paginated array of numbers and their details.
 
 ### Search available numbers
 
@@ -87,7 +87,7 @@ The response contains the following keys and values:
 Key | Value
 -- | --
 `count` | The total amount of numbers available in the pool.
-`numbers` | An paginated array of available numbers and their details.
+`numbers` | A paginated array of available numbers and their details.
 
 ### Buy a number
 
@@ -123,7 +123,7 @@ The response contains the following keys and values:
 Key | Value
 -- | --
 `count` | The total amount of numbers owned by account.
-`numbers` | An paginated array of numbers and their details.
+`numbers` | A paginated array of numbers and their details.
 
 ### Cancel a number
 
@@ -159,7 +159,7 @@ The response contains the following keys and values:
 Key | Value
 -- | --
 `count` | The total amount of numbers owned by account.
-`numbers` | An paginated array of numbers and their details.
+`numbers` | A paginated array of numbers and their details.
 
 ### Update a number
 
@@ -179,11 +179,11 @@ Parameter | Description | Required
 -- | -- | --
 `country` | The two character country code in ISO 3166-1 alpha-2 format. | Yes
 `msisdn` | An available inbound virtual number. For example, `447700900000`. | Yes
-`moHttpUrl` | An URL encoded URI to the webhook endpoint endpoint that handles inbound messages. Your webhook endpoint must be active before you make this request, Nexmo makes a [GET] request to your endpoint and checks that it returns a `200 OK` response. Set to empty string to clear. | No
+`moHttpUrl` | An URL encoded URI to the webhook endpoint that handles inbound messages. Your webhook endpoint must be active before you make this request, Nexmo makes a [GET] request to your endpoint and checks that it returns a `200 OK` response. Set to empty string to clear. | No
 `moSmppSysType` | The associated system type for your SMPP client. For example `inbound`. | No
-`voiceCallbackType` | The voice webhook type. Possible values are `sip`, `tel`, `vxml` (VoiceXML) or `app` | No
-`voiceCallbackValue` | A URI for your `voiceCallbackType` or an Application ID
-`voiceStatusCallback` | Nexmo sends a request to this webhook endpoint when a call ends. | No
+`voiceCallbackType` | The voice webhook type. Possible values are `sip`, `tel`, or `app` | No
+`voiceCallbackValue` | A SIP URI, telephone number or Application ID  | No
+`voiceStatusCallback` | A webhook URI for Nexmo to send a request to when a call ends. | No
 
 Please note, that `voiceCallbackValue` has to be used together with `voiceCallbackType` parameter.
 

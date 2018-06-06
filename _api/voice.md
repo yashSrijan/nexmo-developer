@@ -53,7 +53,7 @@ Parameter | Description | Required
 `from` | The endpoint you are calling from. Possible value are the same as *to*. | ✅
 `answer_url` | The webhook endpoint where you provide the Nexmo Call Control Object that governs this call. As soon as your user answers a call, Platform requests this NCCO from `answer_url`. Use `answer_method` to manage the HTTP method. | ✅
 `answer_method` | The HTTP method used to send event information to `answer_url`. The default value is [GET]. | ❎
-`event_url` | Platform sends event information asynchronously to this endpoint when status changes. For more information about the values sent, see callback. | ❎ 
+`event_url` | Platform sends event information asynchronously to this endpoint when status changes. For more information about the values sent, see callback. | ❎
 `event_method` | 	The HTTP method used to send event information to `event_url`. The default value is [POST]. | ❎
 `machine_detection` | Configure the behavior when Nexmo detects that a destination is an answerphone. @[Possible values](/_modals/voice/api/calls/machine_detection.md). | ❎
 `length_timer` | Set the number of seconds that elapse before Nexmo hangs up after the call state changes to *in_progress*. The default value is 7200, two hours. This is also the maximum value. | ❎
@@ -119,7 +119,7 @@ This request contains:
 
 * A [Base URL](#crabase)
 * [Parameters](#craparameters)
-* [JWT](#jwt_minting)
+* [JWT](#generating-a-jwt)
 
 You receive the call details in the [response](#craresponse).
 
@@ -270,7 +270,7 @@ Key | Value
 
 You can use a [PUT] request to modify an existing call. You can use this to terminate a call, mute or unmute a call, "earmuff" a call (which suspends audio to one call) or "unearmuff" it, and to transfer the call to a different NCCO.
 
-These requests must be authenticated using a [JSON Web Token (JWT)](#jwt_minting).
+These requests must be authenticated using a [JSON Web Token (JWT)](#generating-a-jwt).
 
 #### Base URL
 
@@ -306,56 +306,9 @@ For every action parameter except `transfer`, no further keys are required in th
 source: '_examples/api/voice/calls/put-request'
 ```
 
-
 #### Response
 
-The JSON response contains current details of the call. An example is provided below.
-
-```json
-{
-  "_links": {
-    "self": {
-      "href": "/calls/63f61863-4a51-4f6b-86e1-46edebcf9356"
-    }
-  },
-  "uuid": "63f61863-4a51-4f6b-86e1-46edebcf9356",
-  "conversation_uuid": "63f61863-4a51-4f6b-86e1-46edebio0123",
-  "to": [{
-    "type": "phone",
-    "number": "447700900000"
-  }],
-  "from": {
-    "type": "phone",
-    "number": "447700900001"
-  },
-  "status": "completed",
-  "direction": "outbound",
-  "rate": "0.39",
-  "price": "23.40",
-  "duration": "60",
-  "start_time": "2015-02-04T22:45:00Z",
-  "end_time": "2015-02-04T23:45:00Z",
-  "network": "65512"
-}
-```
-The 200 response contains the following keys and values:
-
-Key | Value
--- | --
-`_links` | A series of links between resources in this API in the http://stateless.co/hal_specification.html. @[Possible links](/_modals/voice/api/calls/links.md).
-`uuid` | uuid	A unique identifier for this call.
-`conversation_uuid` | The unique identifier for the conversation this call leg is part of.
-`to` | The single or mixed collection of endpoint types you connected to. @[Possible values](/_modals/voice/guides/ncco-reference/endpoint.md).
-`from` | The endpoint you are calling from. Possible value are the same as *to*.
-`status` | Filter on the status of this call. [Possible values](#status-values)
-`direction` | Possible values are `outbound` or `inbound`.
-`rate` | The price per minute for this call.
-`price` | The total price charged for this call.
-`duration` | The time elapsed for the call to take place in seconds.
-`start_time` | The time the call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
-`end_time` | The time the call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
-`network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to make this call.
-
+If your request is successful a `204 No Content` response will be returned.
 
 ## Stream
 
@@ -371,7 +324,7 @@ This request contains:
 
 * A [Base URL](#cspbase)
 * [Payload](#cspparameters )
-* [JWT](#jwt_minting)
+* [JWT](#generating-a-jwt)
 
 Information about streaming is sent to you in the:
 
@@ -419,7 +372,7 @@ This request contains:
 
 * A [Base URL](#csdbase)
 * [Payload](#csdparameters )
-* [JWT](#jwt_minting)
+* [JWT](#generating-a-jwt)
 
 Information about streaming is sent to you in the:
 
@@ -467,7 +420,7 @@ This request contains:
 
 * A [Base URL](#ctpbase)
 * [Payload](#ctpparameters )
-* [JWT](#jwt_minting)
+* [JWT](#generating-a-jwt)
 
 Information about streaming is sent to you in the:
 
@@ -516,7 +469,7 @@ This request contains:
 
 * A [Base URL](#ctdbase)
 * [Payload](#ctdparameters )
-* [JWT](#jwt_minting)
+* [JWT](#generating-a-jwt)
 
 Information about the synthesized audio is sent to you in the:
 
@@ -564,7 +517,7 @@ This request contains:
 
 * A [Base URL](#dtmfbase)
 * [Payload](#dtmfparameters )
-* [JWT](#jwt_minting)
+* [JWT](#generating-a-jwt)
 
 Information about this request is sent to you in the:
 
@@ -605,8 +558,8 @@ Key | Value
 
 Each call you make to this API must have:
 
-* [Security](#security)
-* [Encoding](#encode)
+* [Security](#security-and-authentication)
+* [Encoding](#encoding)
 
 ### Encoding
 
@@ -628,6 +581,10 @@ A JWT consists of a header, a payload and a signature in the structure xxxxx.yyy
 
 The following code examples show how to generate a JWT token:
 
+```tabbed_examples
+source: _examples/api/voice/jwt
+```
+
 When you use JWTs for authentication, you must still follow [Security](#security) and [Encoding](#encode).
 
 ## `status` values
@@ -636,10 +593,11 @@ The table below lists the possible values for the status of a call as returned b
 
 Value | Description
 -- | --
-`started` | Platform has stared the call.
+`started` | Platform has started the call.
 `ringing` | The user's handset is ringing.
 `answered` | The user has answered your call.
 `machine` | Platform detected an answering machine.
+`human` | Platform detected human answering the call.
 `completed` | Platform has terminated this call.
 `timeout` | Your user did not answer your call within `ringing_timer` seconds.
 `failed` | The call failed to complete
@@ -656,7 +614,7 @@ The following HTTP codes are supported:
 
 Code | Description
 -- | --
- | Success
+`200` | Success
 `201` | Resource created
 `204` | No content
 `401` | Unauthorized
@@ -675,3 +633,5 @@ The error format is standardized to the `4xx`/`5xx` range with a code and a huma
   }
 }
 ```
+
+The `invalid_parameters` property is optional and will not be returned for `401 Unauthorized` errors.

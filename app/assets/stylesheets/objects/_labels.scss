@@ -9,7 +9,32 @@
 
   background: $blue;
   border-color: $blue;
-  .navigation & { color: mix($blue, $background, 80%); }
+
+  &--webhook .icon {
+    .navigation & {
+      color: $webhook;
+    }
+  }
+
+  &--callback .icon {
+    .navigation & {
+      color: $callback;
+    }
+  }
+
+  h1 & {
+    font-size: 18px;
+    font-weight: 600;
+    position: relative;
+    top: -6px;
+  }
+
+  h3 & {
+    font-size: 18px;
+    font-weight: 600;
+    position: relative;
+    top: -3px;
+  }
 
   h4 & {
     font-size: 18px;
@@ -28,7 +53,7 @@
     padding: 4px 5px 1px 5px;
 
     .navigation & {
-      font-size: 12px;
+      font-size: 10px;
       padding: 2px 2px 0 2px;
       position: absolute;
       right: 100%;
@@ -56,6 +81,37 @@
   &--warning, &--put {
     background: $warning;
     .navigation & { color: mix($warning, $background, 80%); }
+  }
+
+  &--get {
+    background: $blue;
+    .navigation & { color: mix($blue, $background, 80%); }
+  }
+
+  &--status--2xx {
+    background: $positive;
+  }
+
+  &--status--3xx {
+    background: $orange;
+  }
+
+  &--status--4xx {
+    background: $red;
+  }
+
+  &--callback {
+    background: $callback;
+  }
+
+  &--webhook {
+    background: $webhook;
+  }
+
+  &--inverted {
+    background: $white;
+    color: $blue;
+    border: 1px solid $blue;
   }
 
   &--status--2xx {

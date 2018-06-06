@@ -21,9 +21,9 @@ In this document you can learn about:
 * [Building Blocks](#building-blocks)
 * [Guides](#guides)
 * [Tutorials](#tutorials)
-* [Reference](#references)
+* [Reference](#reference)
 
-## Prerequisites
+## Concepts
 
 To use the Nexmo SMS API, you may need to familiarise yourself with:
 
@@ -33,11 +33,17 @@ To use the Nexmo SMS API, you may need to familiarise yourself with:
 
 ## Getting Started
 
-**Send an SMS**
+### Send an SMS
 
 Before you begin, [Sign up for a Nexmo account](https://dashboard.nexmo.com/sign-up).
 
 Using your Nexmo `API_KEY` and `API_SECRET`, available from the [dashboard getting started page](https://dashboard.nexmo.com/getting-started-guide), you can now send an SMS message:
+
+```tabbed_content
+source: '_examples/messaging/sms/send-an-sms'
+```
+
+### [icon="node"] Try it
 
 ```techio
 title: Send an SMS
@@ -51,18 +57,18 @@ path: /35772040f9cbf86b388ec61c0a004a3e1158/welcome/124993
 
 ## Guides
 
-* [Delivery Receipts](/messaging/sms/guides/delivery-receipts): how delivery receipts are produced and how to integrate them into your application
-* [Custom Sender IDs](/messaging/sms/guides/custom-sender-ids): sending messages using an alphabetical identifier to match with your brand
-* [Country Specific Features](/messaging/sms/guides/country-specific-features): what features are available in different countries
-* [Concatenation and Encoding](/messaging/sms/guides/concatenation): how multiple messages are concatenated to implement extended SMS and details of encoding schemes for messages
+* [Custom Sender ID](/messaging/sms/guides/custom-sender-id): sending messages using an alphabetical identifier to match with your brand
+* [Delivery receipts](/messaging/sms/guides/delivery-receipts): how delivery receipts are produced and how to integrate them into your application
+* [Concatenation and Encoding](/messaging/sms/guides/concatenation-and-encoding): how multiple messages are concatenated to implement extended SMS and details of encoding schemes for messages
 * [SMPP access](/messaging/sms/guides/SMPP-access): bulk sending messages via the SMPP protocol
+* [Country specific features](/messaging/sms/guides/country-specific-features): what features are available in different countries
+
+## Reference
+
+* [SMS API Reference](/api/sms)
 
 ## Tutorials
 
 ```tutorials
 product: 'messaging/sms'
 ```
-
-## Reference
-
-* [SMS API Reference](/api/sms)

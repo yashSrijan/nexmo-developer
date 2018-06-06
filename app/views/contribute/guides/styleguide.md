@@ -10,7 +10,7 @@ Here is a complete overview of the basic markdown and custom plugins that Nexmo 
 
 We use plugins sparingly to extend functionality where the only other option would be HTML.
 
-You can find this document in `/app/views/static/styleguide.md`. The side navigation has been left present to be an accurate representation of the content width.
+You can find this document in `/app/views/contribute/guides/styleguide.md`. The side navigation has been left present to be an accurate representation of the content width.
 
 There is no markdown syntax in here as this document is rendered with the same engine and no support exists for escaping markdown. Examples would ultimately be rendered. To understand recursion you must first understand recursion.
 
@@ -37,6 +37,12 @@ You can define inline `code block` with backticks.
 This is a [link](http://google.com) to Google.
 
 > **Note**: You can use a `>` to specify a blockquote. We use these for tips like this.
+
+**Labels**
+
+You can have [labels].
+
+They auto-magically color when you use verbs like [POST] or [DELETE]
 
 **Tooltips (custom plugin)**
 
@@ -142,6 +148,13 @@ tabs:
   Ruby:
     source: .repos/nexmo-community/nexmo-ruby-quickstart/sms/send.rb
     from_line: 9
+    language_key: php
+```
+
+**Tabbed Examples (via config)**
+
+```tabbed_examples
+config: messaging.sms.send
 ```
 
 ## Tables
@@ -255,3 +268,27 @@ Here is the example of the final rendered output:
 script: app/screenshots/webhook-url-for-delivery-receipt.js
 image: public/assets/screenshots/da5f952d465355c19eb888fa1049844b31e090c2.png
 ```
+
+## Audio (custom plugin)
+
+The HTML `<audio>` element can be utilised in Markdown with the following syntax:
+
+````
+🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/06-phonemes.mp3]
+````
+
+This produces the following output:
+
+🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/06-phonemes.mp3]
+
+## Dynamic content
+
+You can use sytax such as:
+
+````
+Welcome to [~dynamic_content_example~]
+````
+
+This will render as:
+
+Welcome to [~dynamic_content_example~]

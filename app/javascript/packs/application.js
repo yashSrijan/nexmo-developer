@@ -16,6 +16,7 @@ import Collapsible from './Collapsible'
 import Scrollspy from './Scrollspy'
 import GithubCards from './GithubCards'
 import TabbedExamples from './TabbedExamples'
+import Format from './Format'
 import JsSequenceDiagrams from './JsSequenceDiagrams'
 import Navigation from './Navigation'
 import Scroll from './Scroll'
@@ -25,6 +26,7 @@ import Notices from './Notices'
 import Feedback from './Feedback'
 import Concatenation from './Concatenation'
 import APIStatus from './APIStatus'
+import Markdown from './Markdown'
 
 import {
   preventSamePage as turbolinksPreventSamePage,
@@ -43,6 +45,7 @@ let refresh = () => {
   Scrollspy()
   JsSequenceDiagrams()
   new TabbedExamples
+  new Format
   Modals()
   APIStatus()
 
@@ -56,6 +59,10 @@ let refresh = () => {
 
   if (document.getElementById('ConcatenationComponent')) {
     ReactDOM.render(<Concatenation/>, document.getElementById('ConcatenationComponent'))
+  }
+
+  if (document.getElementById('MarkdownComponent')) {
+    ReactDOM.render(<Markdown/>, document.getElementById('MarkdownComponent'))
   }
 }
 
