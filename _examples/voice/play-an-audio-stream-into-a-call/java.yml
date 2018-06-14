@@ -11,6 +11,6 @@ code:
     source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/StreamAudioToCall.java
     from_line: 48
     to_line: 61
-run_command: 'Run your class in whichever way you find easiest.'
+run_command: java-ide
 file_name: StreamAudioToCall.java
 unindent: true

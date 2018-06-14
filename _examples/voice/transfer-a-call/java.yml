@@ -10,6 +10,6 @@ client:
 code:
     source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/TransferCall.java
     from_line: 42
-run_command: 'Run your class in whichever way you find easiest.'
+run_command: java-ide
 file_name: TransferCall.java
 unindent: true

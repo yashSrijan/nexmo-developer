@@ -6,7 +6,6 @@ dependencies:
 code:
     source: .repos/nexmo-community/nexmo-python-quickstart/voice/play-tts-into-call.py
     from_line: 9
-    to_line: 9
 client:
     source: .repos/nexmo-community/nexmo-python-quickstart/voice/play-tts-into-call.py
     from_line: 1

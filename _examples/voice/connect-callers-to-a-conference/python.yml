@@ -2,7 +2,7 @@
 title: Python
 language: python
 dependencies:
-    - nexmo
+    - '''flask>=1.0'''
 code:
     source: .repos/nexmo-community/nexmo-python-quickstart/voice/connect-callers-to-a-conference.py
     from_line: 7

@@ -11,6 +11,6 @@ code:
     source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/SendDtmfToCall.java
     from_line: 58
     to_line: 60
-run_command: 'Run your class in whichever way you find easiest.'
+run_command: java-ide
 file_name: SendDtmfToCall.java
 unindent: true

@@ -6,7 +6,6 @@ dependencies:
 code:
     source: .repos/nexmo-community/nexmo-python-quickstart/voice/play-dtmf-into-call.py
     from_line: 8
-    to_line: 8
 client:
     source: .repos/nexmo-community/nexmo-python-quickstart/voice/play-dtmf-into-call.py
     from_line: 1

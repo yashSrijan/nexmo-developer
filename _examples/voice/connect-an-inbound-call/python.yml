@@ -2,7 +2,7 @@
 title: Python
 language: python
 dependencies:
-    - flask
+    - '''flask>=1.0'''
 code:
     source: .repos/nexmo-community/nexmo-python-quickstart/voice/connect-an-inbound-call.py
     from_line: 4
@@ -10,6 +10,6 @@ code:
 client:
     source: .repos/nexmo-community/nexmo-python-quickstart/voice/connect-an-inbound-call.py
     from_line: 2
-    to_line: 3
+    to_line: 4
 file_name: connect-an-inbound-call.py
 run_command: 'python3 connect-an-inbound-call.py'
