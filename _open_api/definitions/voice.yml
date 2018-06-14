@@ -561,8 +561,8 @@ paths:
       delete:
           security:
             - bearerAuth: []
-          summary: Play an audio file into a call
-          description: Play an audio file into a call
+          summary: Stop playing an audio file into a call
+          description: Stop playing an audio file into a call
           operationId: startStream2 # operationIds must be unique
           responses:
               '200':
