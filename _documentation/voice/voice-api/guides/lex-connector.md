@@ -40,12 +40,9 @@ Before you begin:
 
 ## Connecting a call to Lex 
 
-When a call is made to your number, Nexmo handles the call according
-to the rules laid out in an NCCO. See [Accept inbound
-calls](/voice/guides/inbound-calls) for details on how this is done.
+When a call is made to your number, Nexmo makes a request to the `answer_url` defined in the configuration of your application. The NCCO returned at this URL tells Nexmo how to handle the incoming call.
 
-Here is an example of the NCCO you should return to handle incoming
-calls with LexConnector:
+Here is an example of the NCCO you should return to handle incoming calls with LexConnector:
 
 ```json
 [
@@ -57,7 +54,7 @@ calls with LexConnector:
         "action": "connect",
         "endpoint": [
             {
-                "content-type": "audio/l16;rate=16000",
+                "content-type": "audio/l16;rate=8000",
                 "headers": {
                     "aws_key": "AAAAAAAAAAAAAAAAAAAAAAAAAAA",
                     "aws_secret": "eescOz9xisx+gx-PFU3G4AJg4NE4UExnHYaijI+o6xgNT0"
@@ -73,43 +70,16 @@ calls with LexConnector:
 ]
 ```
 
-The first `talk` action is a simple way to start the call. Lex expects
-the user to speak first, so you need to start the conversation as you
-would in a phone call, by greeting the caller. You can customise this
-text to fit your use case.
+The first `talk` action is a simple way to start the call. Lex expects the user to speak first, so you need to start the conversation as you would in a phone call, by greeting the caller. You can customise this text to fit your use case.
 
-By comparing the [range of voices available on
-Nexmo](/voice/guides/ncco-reference#talk) with those available on Lex,
-you can select a combination of voices that feels natural for the
-caller. There is some overlap in the choice of voices available from
-both Nexmo and Lex.
+By comparing the [range of voices available on Nexmo](/voice/voice-api/ncco-reference#voice-names) with those available on Lex, you can select a combination of voices that feels natural for the caller. There is some overlap in the choice of voices available from both Nexmo and Lex.
 
-The next action is `connect`: this makes call connect to the WebSocket
-endpoint, specifically the Lex Connector WebSocket.
+The next action is `connect`: this makes call connect to the WebSocket endpoint, specifically the Lex Connector WebSocket.
 
-The path portion of the URI is the same as the path to the
-[`PostContent`](http://docs.aws.amazon.com/lex/latest/dg/API_PostContent.html)
-endpoint within Lex, but with `lex-us-east-1.nexmo.com` as host
-instead of AWS. You should set your `BOTNAME`, `ALIAS` and `USER`
-details as part of this URI. You can get these details from the AWS
-Console.
+The path portion of the URI is the same as the path to the [`PostContent`](http://docs.aws.amazon.com/lex/latest/dg/API_PostContent.html) endpoint within Lex, but with `lex-us-east-1.nexmo.com` as host instead of AWS. You should set your `BOTNAME`, `ALIAS` and `USER` details as part of this URI. You can get these details from the AWS Console.
 
-Within the headers section of the endpoint you must supply the
-`aws_key` and `aws_secret` that will be used to connect to Lex.
+Within the headers section of the endpoint you must supply the `aws_key` and `aws_secret` that will be used to connect to Lex.
 
-The `eventUrl` is where Nexmo will send events regarding the
-connection to the Lex Connector so that your application can be aware
-of the start and end of a session. Currently Nexmo does not share any
-data or events on the requests to and from Lex - the only events sent
-are the start and end of the call.
+The `eventUrl` is where Nexmo will send events regarding the connection to the Lex Connector so that your application can be aware of the start and end of a session. Currently Nexmo does not share any data or events on the requests to and from Lex - the only events sent are the start and end of the call.
 
-The `content-type` is a fixed value.
-
-## Test it out
-
-[](TODO: Need to clarify this section)
-
-Configure your Nexmo Application using either [Nexmo
-CLI](https://github.com/nexmo/nexmo-cli) or the
-[Dashboard](https://dashboard.nexmo.com). The NCCO can be hosted
-statically on S3, or served dynamically.
+The `Content-Type` is a fixed value and should be `audio/l16;rate=8000`.

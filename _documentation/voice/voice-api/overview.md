@@ -31,7 +31,7 @@ In this document you can learn about:
 
 * **Nexmo Voice Applications** - Nexmo Voice Applications represent a one-to-one mapping with the application that you are building. They contain configuration such virtual numbers and webhook callback URLs. You can create Nexmo Voice Applications using the [Nexmo CLI](/tools) or the [Application API](/concepts/guides/applications)
 
-* **[NCCOs](/voice/voice-api/guides/ncco)** - Nexmo Call Control Objects are a set of actions that instruct the Nexmo how to control call to your Nexmo application. For example, you can `connect` a call, send synthesized speech using `talk`, `stream` audio, or `record` a call. They are represented in JSON form as an Array of objects. For more information see the [NCCO Reference](/voice/guides/ncco-reference) and [NCCO guide](/voice/voice-api-guides/ncco).
+* **[NCCOs](/voice/voice-api/guides/ncco)** - Nexmo Call Control Objects are a set of actions that instruct the Nexmo how to control call to your Nexmo application. For example, you can `connect` a call, send synthesized speech using `talk`, `stream` audio, or `record` a call. They are represented in JSON form as an Array of objects. For more information see the [NCCO Reference](/voice/voice-api/ncco-reference) and [NCCO guide](/voice/voice-api/guides/ncco).
 
 * **[Numbers](/voice/voice-api/guides/numbers)** - The key concepts of using phone numbers in the nexmo voice API
 
@@ -43,26 +43,21 @@ In this document you can learn about:
 
 In the [Nexmo Dashboard](https://dashboard.nexmo.com), you can try out the Voice API interactively in the Voice Playground. Once you are [signed up for a Nexmo account](https://dashboard.nexmo.com/signup), you can go to [Voice Playground](https://dashboard.nexmo.com/voice/playground) in the Dashboard (Voice ‣ Voice Playground).
 
-When you use the Voice Playground, you will be guided through the process of buying a phone number and assigning it to the Voice Playground, then you can interactively test NCCOs in the browser and see the results. Voice Playground also has a number of common use cases as examples you can try. These are listed below with links to guides and tutorials on how to implement them yourself:
-
-* Connecting two users ([guide](/voice/voice-api/guides/connect-two-users), [tutorial](/tutorials/private-voice-communication))
-* Interactive Voice Response (IVR) using DTMF tones ([guide](/voice/voice-api/guides/interactive-voice-response), [tutorial](/tutorials/interactive-voice-response))
-* Conference Call ([guide](/voice/voice-api/guides/create-conferences))
-* Send audio to call ([NCCO reference](/api/voice/ncco#stream), [API reference](/api/voice#stream))
+When you use the Voice Playground, you will be guided through the process of buying a phone number and assigning it to the Voice Playground, then you can interactively test NCCOs in the browser and see the results. Voice Playground also has a number of common use cases as examples you can try yourself.
 
 More details are available in this blog post: [Meet Voice Playground, Your Testing Sandbox for Nexmo Voice Apps](https://www.nexmo.com/blog/2017/12/12/voice-playground-testing-sandbox-nexmo-voice-apps/)
 
 ## Guides
 
 * [Call Flow](guides/call-flow): The various stages of a call and how they interact
-* [Conversations](guides/calls-conversations): A conversation is between multiple callers, either as a conference bridge or a 1-to-1 call.
-* [DTMF](guides/dtmf): User input via DTMF tones.
-* [Endpoints](guides/endpoints): Call endpoints.
-* [Lex connector](guides/lex-connector): Connecting to Amazon Lex.
-* [NCCO](guides/ncco): Nexmo Call Control Objects (NCCO).
-* [Numbers](guides/numbers): Nexmo Numbers.
+* [Legs & Conversations](guides/legs-conversations): When a phone call is made or received by Nexmo it is added to a conversation. A single conversation contains one or more phone calls (sometimes referred to as legs).
+* [DTMF](guides/dtmf): DTMF is a form of signalling used to capture user input on a call
+* [Endpoints](guides/endpoints): When connecting a call, you can connect to another phone number, a `sip` endpoint or a `websocket`. These are known as endpoints
+* [Lex connector](guides/lex-connector): You can use the Lex Connector to connect a Nexmo voice call to an AWS Lex  bot and then have an audio conversation with the bot.
+* [NCCO](guides/ncco): To tell Nexmo how to handle a phone call, you must provide Nexmo an Nexmo Call Control Objects (NCCO) when a call is placed or answered. There are various actions available, such as `talk`, `input` and `record`.
+* [Numbers](guides/numbers): Numbers are a key part of using the Nexmo voice API. This guide covers number formatting, outgoing caller IDs and incoming call numbers.
 * [Recording](guides/recording): Recording audio input from a caller or recording the conversation between two callers.
-* [Text to Speech](guides/text-to-speech): Playing machine generated speech to your caller.
+* [Text to Speech](guides/text-to-speech): Using our Text-To-Speech engine, you can play machine generated speech to your callers
 * [Websockets](guides/websockets): You can connect the audio of a call to a websocket to work with it in real time.
 
 ## Building Blocks
@@ -89,7 +84,7 @@ More details are available in this blog post: [Meet Voice Playground, Your Testi
 
 ## Tutorials
 
-* [Tutorials](voice/voice-api/tutorials)
+* [Tutorials](/voice/voice-api/tutorials)
 
 ## Reference
 

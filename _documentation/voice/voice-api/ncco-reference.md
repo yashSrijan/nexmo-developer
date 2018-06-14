@@ -22,7 +22,7 @@ Action | Description | Synchronous
 
 All the actions can return the following [status codes](#status-codes).
 
-> **Note**: [Controlling a Call with Nexmo Call Control Objects](/voice/guides/ncco#controlling) explains how to provide your NCCOs to Nexmo after you initiate a Call or Conference.
+> **Note**: The [NCCO guide](/voice/guides/ncco) explains how to provide your NCCOs to Nexmo after you initiate a Call or Conference.
 
 While developing and testing NCCOs, you can use the Voice Playground to try out NCCOs interactively. You can [read more about it in the Voice API Overview](/voice/voice-api/overview#voice-playground) or [go directly to the Voice Playground in the Dashboard](https://dashboard.nexmo.com/voice/playground).
 
@@ -52,18 +52,18 @@ Use the `record` action to record a Call or part of a Call:
 
 The record action is asynchronous. Recording starts when the record action is executed in the NCCO and finishes when the synchronous condition in the action is met. That is, `endOnSilence`, `timeOut` or `endOnKey`. If you do not set a synchronous condition, the Voice API immediately executes the next NCCO without recording.
 
-For information about the workflow to follow, see [Recordings](/voice/guides/record-calls-and-conversations).
+For information about the workflow to follow, see [Recording](/voice/voice-api/guides/recording).
 
 You can use the following options to control a `record` action:
 
 Option | Description | Required
  -- | -- | --
-`format` | Record the Call in a specific format.  Options are: <ul><li>mp3</li><li>wav</li></ul> The default value is *mp3*. | No
+`format` | Record the Call in a specific format.  Options are: <ul><li>`mp3`</li><li>`wav`</li></ul> The default value is `mp3`. | No
 `split` | Record the sent and received audio in separate channels of a stereo recording—set to `conversation` to enable this.| No
-`endOnSilence` | Stop recording after n seconds of silence. Once the recording is stopped the recording data is sent to *event_url*. The range of possible values is *3<=endOnSilence<=10*. | No
+`endOnSilence` | Stop recording after n seconds of silence. Once the recording is stopped the recording data is sent to `event_url`. The range of possible values is 3<=`endOnSilence`<=10. | No
 `endOnKey` | Stop recording when a digit is pressed on the handset. Possible values are: `*`, `#` or any single digit e.g. `9` | No
-`timeOut` | The maximum length of a recording in seconds. One the recording is stopped the recording data is sent to *event_url*. The range of possible values is between `3` seconds and `7200` seconds (2 hours) | No
-`beepStart` | Set to *true* to play a beep when a recording starts | No
+`timeOut` | The maximum length of a recording in seconds. One the recording is stopped the recording data is sent to `event_url`. The range of possible values is between `3` seconds and `7200` seconds (2 hours) | No
+`beepStart` | Set to `true` to play a beep when a recording starts | No
 `eventUrl` | The URL to the webhook endpoint that is called asynchronously when a recording is finished. If the message recording is hosted by Nexmo, this webhook contains the [URL you need to download the recording and other meta data](#recording_return_parameters). | No
 `eventMethod` | The HTTP method used to make the request to `eventUrl`. The default value is `POST`. | No
 
@@ -87,7 +87,7 @@ Possible return parameters are:
  Name | Description
  -- | --
  `recording_uuid` | The unique ID for the Call. <br>**Note**: `recording_uuid` is not the same as the file uuid in *recording_url*.
- `recording_url` | The  URL to the file containing the Call recording. To download a recording, see [Record calls and conversations](/voice/guides/record-calls-and-conversations).
+ `recording_url` | The  URL to the file containing the Call recording
  `start_time`  | The time the recording started in the following format: `YYYY-MM-DD HH:MM:SS`. For example `2020-01-01 12:00:00`
  `end_time`  | The time the recording finished in the following format: `YYYY-MM-DD HH:MM:SS`. For example `2020-01-01 12:00:00`
  `size` | The size of the recording at *recording_url* in bytes. For example: `603423`
@@ -95,7 +95,7 @@ Possible return parameters are:
 
 ## Conversation
 
-You can use the `conversation` action to create standard or moderated Conversations. The first person to call the virtual number assigned to the Conversation creates it. This action is synchronous, the Conversation lasts until the number of participants is 0.
+You can use the `conversation` action to create standard or moderated conversations. The first person to call the virtual number assigned to the conversation creates it. This action is synchronous, the conversation lasts until the number of participants is 0.
 
 > **Note**: you can invite up to 50 people to your Conversation.
 
@@ -113,11 +113,10 @@ Option | Description | Required
 `musicOnHoldUrl` | A URL to the *mp3* file to stream to participants until the conversation starts. By default the conversation starts when the first person calls the virtual number associated with your Voice app. To stream this mp3 before the moderator joins the conversation, set *startOnEnter* to *false* for all users other than the moderator. | no
 `startOnEnter` | The default value of *true* ensures that the conversation starts when this caller joins  conversation [name](#conversation_name). Set to *false* for attendees in a moderated conversation. | no
 `endOnExit` | For moderated conversations, set to *true* in the moderator NCCO so the conversation is ended when the moderator hangs up. The default value of *false* means the conversation is not terminated when a caller hangs up; the conversation ends when the last caller hangs up. | no
-`record` | Set to *true* to record this conversation. For standard conversations, recordings start when one or more attendees connects to the conversation. For moderated conversations, recordings start when the moderator joins. That is, when an NCCO is executed for the named conversation where *startOnEnter* is set to *true*. When the recording is terminated, the URL you download the recording from is sent to the event URL. <br>By default audio is recorded in MP3 format. See [Recording calls and conversations](/voice/guides/record-calls-and-conversations). | No
+`record` | Set to *true* to record this conversation. For standard conversations, recordings start when one or more attendees connects to the conversation. For moderated conversations, recordings start when the moderator joins. That is, when an NCCO is executed for the named conversation where *startOnEnter* is set to *true*. When the recording is terminated, the URL you download the recording from is sent to the event URL. <br>By default audio is recorded in MP3 format. See the [recording](/voice/voice-api/guides/recording#file-formats) guide for more details | No
 `eventUrl` | Set the URL to the webhook endpoint Nexmo calls asynchronously on each of the call [states](/api/voice#status). | No
 `eventMethod` | Set the HTTP method used to make the request to `eventUrl`. The default value is POST. | No
 
-<a name="connect"></a>
 ## Connect
 
 You can use the `connect` action to connect a call to endpoints such as phone numbers.
@@ -128,7 +127,7 @@ You can use the following options to control a `connect` action:
 
 Option | Description | Required
 -- | -- | --
-`endpoint` | Connect to a single endpoint. @[Possible Types](/_modals/voice/guides/ncco-reference/endpoint.md) | Yes
+`endpoint` | Connect to a single endpoint. [Available endpoint types](#endpoint-types) | Yes
 `from` | A number in [E.164](https://en.wikipedia.org/wiki/E.164) format that identifies the caller.§§ This must be one of your Nexmo virtual numbers, another value will result in the caller ID being unknown. | No
 `eventType` | Set to `synchronous` to: <ul markdown="1"><li>make the `connect` action synchronous</li><li>enable `eventUrl` to return an NCCO that overrides the current NCCO when a call moves to specific states. See the [Connect with fallback NCCO example](#connect-with-fallback-ncco).</li></ul> | No
 `timeout` |  If the call is unanswered, set the number in seconds before Nexmo stops ringing `endpoint`. The default value is `60`.
@@ -137,7 +136,30 @@ Option | Description | Required
 `eventUrl` | Set the webhook endpoint that Nexmo calls asynchronously on each of the possible [Call states](/api/voice#status). If `eventType` is set to `synchronous` the `eventUrl` can return an NCCO that overrides the current NCCO when a timeout occurs. | No
 `eventMethod` | The HTTP method Nexmo uses to make the request to <i>eventUrl</i>. The default value is `POST`. | No
 
-### Examples
+### Endpoint Types
+
+#### Phone - phone numbers in e.164 format
+
+Value | Description
+-- | --
+`number` | the phone number to connect to in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+`dtmfAnswer` | Set the digits that are sent to the user as soon as the Call is answered. The * and # digits are respected. You create pauses using p. Each pause is 500ms.
+
+#### Websocket - the websocket to connect to
+
+Value | Description
+-- | --
+`uri` | the URI to the websocket you are streaming to.
+`content-type` | the internet media type for the audio you are streaming. Possible values are: `audio/l16;rate=16000`
+`headers` | a JSON object containing any metadata you want.
+
+#### sip - the sip endpoint to connect to
+
+Value | Description
+-- | --
+`uri` | the SIP URI to the endpoint you are connecting to in the format sip:rebekka@sip.example.com.
+
+#### Examples
 
 The following NCCO examples show how to configure different types of connection:
 
@@ -192,7 +214,7 @@ The following NCCO examples show how to configure different types of connection:
       "content-type": "audio/l16;rate=16000",
       "headers": {
         "whatever": "metadata_you_want"
-        }
+      }
       }
     ]}
 ]
@@ -278,7 +300,7 @@ You can provide a fallback for Calls that do not connect. To do this set the `ev
 
 The `talk` action sends synthesized speech to a Conversation.
 
-The text provided in the talk action can either be plain, or formatted using [SSML](/voice/voice-api/guides/ssml). SSML tags provide further instructions to the text-to-speech synthesiser which allow you to set pitch, pronunciation and to combine together text in multiple languages. SSML tags are XML-based and sent inline in the JSON string.
+The text provided in the talk action can either be plain, or formatted using [SSML](/voice/voice-api/guides/text-to-speech#ssml). SSML tags provide further instructions to the text-to-speech synthesiser which allow you to set pitch, pronunciation and to combine together text in multiple languages. SSML tags are XML-based and sent inline in the JSON string.
 
 By default, the talk action is synchronous. However, if you set *bargeIn* to *true* you must set an *input* action later in the NCCO stack.
 The following NCCO examples shows how to send a synthesized speech message to a Conversation or Call:
@@ -295,72 +317,8 @@ You can use the following options to control a *talk* action:
 | `bargeIn` | Set to `true` so this action is terminated when the user presses a button on the keypad. Use this feature to enable users to choose an option without having to listen to the whole message in your <a href="/voice/voice-api/guides/interactive-voice-response">Interactive Voice Response (IVR)</a>. If you set `bargeIn` to `true` the next action in the NCCO stack <b>must</b> be an `input` action. The default value is `false`. | No |
 | `loop` | The number of times `text` is repeated before the Call is closed. The default value is 1. Set to 0 to loop infinitely. | No |
 | `level` | The volume level that the speech is played. This can be any value between `-1` to `1` with `0` being the default.  | No |
-| `voiceName` | The name of the voice used to deliver `text`. You use the voiceName that has the correct language, gender and accent for the message you are sending. For example, the default voice `kimberly` is a female who speaks English with an American accent (en-US). Possible values are listed below. | No |
+| `voiceName` | The name of the voice used to deliver `text`. You use the voiceName that has the correct language, gender and accent for the message you are sending. For example, the default voice `kimberly` is a female who speaks English with an American accent (en-US). Possible values are listed in the [Text-To-Speech guide](/voice/voice-api/guides/text-to-speech#voice-names). | No |
 
-### Voice names
-
-Name | Language | Gender
--- | -- | --
-`Salli` | `en-US` | `female`
-`Joey` | `en-US` | `male`
-`Naja` | `da-DK` | `female`
-`Mads` | `da-DK` | `male`
-`Marlene` | `de-DE` | `female`
-`Hans` | `de-DE` | `male`
-`Nicole` | `en-AU` | `female`
-`Russell` | `en-AU` | `male`
-`Amy` | `en-GB` | `female`
-`Brian` | `en-GB` | `male`
-`Emma` | `en-GB` | `female`
-`Geraint` | `en-GB-WLS` | `male`
-`Gwyneth` | `cy-GB-WLS` | `female`
-`Raveena` | `en-IN` | `female`
-`Ivy` | `en-US` | `female`
-`Justin` | `en-US` | `male`
-`Kendra` | `en-US` | `female`
-`Kimberly` | `en-US` | `female`
-`Joanna` | `en-US` | `female`
-`Conchita` | `es-ES` | `female`
-`Enrique` | `es-ES` | `male`
-`Penelope` | `es-US` | `female`
-`Miguel` | `es-US` | `male`
-`Chantal` | `fr-CA` | `female`
-`Celine` | `fr-FR` | `female`
-`Mathieu` | `fr-FR` | `male`
-`Dora` | `is-IS` | `female`
-`Karl` | `is-IS` | `male`
-`Carla` | `it-IT` | `female`
-`Giorgio` | `it-IT` | `male`
-`Mizuki` | `ja-JP` | `female`
-`Liv` | `nb-NO` | `female`
-`Lotte` | `nl-NL` | `female`
-`Ruben` | `nl-NL` | `male`
-`Jacek` | `pl-PL` | `male`
-`Ewa` | `pl-PL` | `female`
-`Jan` | `pl-PL` | `male`
-`Maja` | `pl-PL` | `female`
-`Vitoria` | `pt-BR` | `female`
-`Ricardo` | `pt-BR` | `male`
-`Cristiano` | `pt-PT` | `male`
-`Ines` | `pt-PT` | `female`
-`Carmen` | `ro-RO` | `female`
-`Maxim` | `ru-RU` | `male`
-`Tatyana` | `ru-RU` | `female`
-`Astrid` | `sv-SE` | `female`
-`Filiz` | `tr-TR` | `female`
-
-#### Discontinued voices
-
-Some voices have been removed. The table below shows the discontinued voice names and which voice you will now get if you use the discontinued voice name.
-
-Name | Locale & Gender | Now redirects to
------|-----------------|-----------------
-`Chipmunk` | `en-US`, male | `Justin`
-`Eric` | `en-US`, male | `Justin`
-`Jennifer` | `en-US`, female | `Kimberly`
-`Agnieszka` | `pl-PL`, female | `Ewa`
-
-<a name="stream"></a>
 ## Stream
 The `stream` action allows you to send an audio stream to a Conversation
 
@@ -466,20 +424,3 @@ Name | Description
 `conversation_uuid` | The unique ID for this conversation.
 `timed_out` | Returns `true` if this input timed out based on the value of [timeOut](#timeOut).
 `dtmf` | The numbers input by your callee, in order.
-
-
-## Status Codes
-
-The following HTTP codes are supported:
-
-Status | Description
--- | --
-`200` | Success
-`201` | Resource created
-`204` | No content
-`401` | Unauthorised
-`404` | Not found
-`429` | Rate limited
-`500` | Nexmo server error
-
-The error format is standardised to the 4xx/5xx range with a code and a human readable explanation. For example, for an authentication failure.
